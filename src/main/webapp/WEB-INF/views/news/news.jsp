@@ -5,9 +5,9 @@
     <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1920&q=80');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-        <p class="page-hero-eyebrow">&#9670; Dispatches &#9670;</p>
-        <h1 class="page-hero-title">News</h1>
-        <p class="page-hero-subtitle">Updates from the development front. The work continues. So does the darkness.</p>
+        <p class="page-hero-eyebrow">&#9670; Viễn thám ký &#9670;</p>
+        <h1 class="page-hero-title">Tin tức</h1>
+        <p class="page-hero-subtitle">Cập nhật tình hình từ tiền tuyến khai phá. Đại nghiệp diễn tiến. Hắc ám diên miên.</p>
     </div>
 </section>
 
@@ -15,8 +15,8 @@
 <section class="section section-dark">
     <div class="container">
         <div class="section-header">
-            <span class="section-eyebrow">Featured</span>
-            <h2 class="section-title">Latest Dispatch</h2>
+            <span class="section-eyebrow">Tinh Tuyển</span>
+            <h2 class="section-title">Tối Tân Thư Tín</h2>
             <div class="section-divider"></div>
         </div>
 
@@ -24,20 +24,20 @@
             <div class="news-card-featured">
                 <img class="news-featured-img" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=900&q=80" alt="Featured News" loading="lazy">
                 <div style="padding:2.5rem; display:flex; flex-direction:column; justify-content:center; background:var(--dark-card);">
-                    <span class="news-category">&#9670; MAJOR UPDATE</span>
+                    <span class="news-category">&#9670; ĐẠI CẬP NHẬT</span>
                     <span class="news-date">November 14, 2024</span>
-                    <h2 style="font-family:'Cinzel',serif; font-size:1.8rem; color:var(--cream); margin-bottom:1rem; line-height:1.3;">
-                        Version 3.0: The Sunken City Expansion
+                    <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--cream); margin-bottom:1rem; line-height:1.3;">
+                        Phiên Bản 3.0: Đại Bản Mở Rộng — Trầm Luân Chi Thành
                     </h2>
                     <p class="font-crimson" style="color:var(--mid-grey); font-size:1rem; line-height:1.7; margin-bottom:1.5rem;">
-                        The largest content expansion in Veil of Perdition history arrives this month.
-                        Two new dungeon regions, four new playable classes, fourteen new boss encounters,
-                        and a complete overhaul of the hamlet's upgrade tree. After 18 months of development,
-                        the darkness gets deeper.
+                        Bản cập nhật nội dung vĩ đại nhất lịch sử "Veil of Perdition" chính thức khởi tranh trong tháng này. 
+                        Khai mở nhị đại địa lao khu vực, tứ đại chức nghiệp tân binh, thập tứ đại thủ lĩnh ác chiến, 
+                        cùng sự cải tổ toàn diện đối với thần mộc thăng tiến của thôn trang. Sau 18 tháng ròng rã kiến tạo, 
+                        hắc ám lại càng trầm luân.
                     </p>
                     <div style="display:flex; gap:1rem;">
-                        <a href="#" class="btn btn-primary" style="font-size:0.68rem;">Read Full Post</a>
-                        <a href="#" class="btn btn-secondary" style="font-size:0.68rem;">Patch Notes</a>
+                        <a href="#" class="btn btn-primary" style="font-size:0.68rem;">Đọc tiếp</a>
+                        <a href="#" class="btn btn-secondary" style="font-size:0.68rem;">Ghi chú bản cập nhật</a>
                     </div>
                 </div>
             </div>
@@ -49,17 +49,17 @@
 <section class="section section-surface">
     <div class="container">
         <div class="section-header">
-            <span class="section-eyebrow">All Dispatches</span>
-            <h2 class="section-title">Recent News</h2>
+            <span class="section-eyebrow">Tất cả các bản tin</span>
+            <h2 class="section-title">Tin tức gần đây</h2>
             <div class="section-divider"></div>
         </div>
 
         <!-- Filter Tabs -->
         <div style="display:flex; gap:0.5rem; margin-bottom:2.5rem; flex-wrap:wrap;">
-            <a href="#" class="btn btn-primary" style="font-size:0.62rem; padding:0.4rem 1rem;">All</a>
-            <a href="#" class="btn btn-secondary" style="font-size:0.62rem; padding:0.4rem 1rem;">Updates</a>
-            <a href="#" class="btn btn-secondary" style="font-size:0.62rem; padding:0.4rem 1rem;">Dev Blog</a>
-            <a href="#" class="btn btn-secondary" style="font-size:0.62rem; padding:0.4rem 1rem;">Community</a>
+            <a href="#" class="btn btn-primary" style="font-size:0.62rem; padding:0.4rem 1rem;">Tất cả</a>
+            <a href="#" class="btn btn-secondary" style="font-size:0.62rem; padding:0.4rem 1rem;">Cập nhật</a>
+            <a href="#" class="btn btn-secondary" style="font-size:0.62rem; padding:0.4rem 1rem;">Blog phát triển</a>
+            <a href="#" class="btn btn-secondary" style="font-size:0.62rem; padding:0.4rem 1rem;">Cộng đồng</a>
             <a href="#" class="btn btn-secondary" style="font-size:0.62rem; padding:0.4rem 1rem;">DLC</a>
         </div>
 
@@ -68,14 +68,14 @@
             <div class="card">
                 <img class="card-img" src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=600&q=80" alt="Balance" loading="lazy">
                 <div class="card-body">
-                    <span class="news-category">Balance Patch</span>
+                    <span class="news-category">Cập nhật cân bằng</span>
                     <span class="news-date">Oct 28, 2024</span>
                     <h3 class="card-title mt-1">2.9.3 — The Balancing of Shadows</h3>
                     <p class="card-text">Crusader stress healing buffed. Hag fight reworked to remove the one-shot mechanic that was causing community friction. Full notes inside.</p>
                 </div>
                 <div class="card-footer">
                     <span></span>
-                    <a href="#" class="text-crimson font-cinzel" style="font-size:0.62rem;">Read &#8594;</a>
+                    <a href="#" class="text-crimson font-Cormorant Garamond" style="font-size:0.62rem;">Read &#8594;</a>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
                 </div>
                 <div class="card-footer">
                     <span></span>
-                    <a href="#" class="text-crimson font-cinzel" style="font-size:0.62rem;">Read &#8594;</a>
+                    <a href="#" class="text-crimson font-Cormorant Garamond" style="font-size:0.62rem;">Read &#8594;</a>
                 </div>
             </div>
 
@@ -103,7 +103,7 @@
                 </div>
                 <div class="card-footer">
                     <span></span>
-                    <a href="#" class="text-crimson font-cinzel" style="font-size:0.62rem;">Read &#8594;</a>
+                    <a href="#" class="text-crimson font-Cormorant Garamond" style="font-size:0.62rem;">Read &#8594;</a>
                 </div>
             </div>
 
@@ -117,7 +117,7 @@
                 </div>
                 <div class="card-footer">
                     <span></span>
-                    <a href="#" class="text-crimson font-cinzel" style="font-size:0.62rem;">Read &#8594;</a>
+                    <a href="#" class="text-crimson font-Cormorant Garamond" style="font-size:0.62rem;">Read &#8594;</a>
                 </div>
             </div>
 
@@ -131,7 +131,7 @@
                 </div>
                 <div class="card-footer">
                     <span></span>
-                    <a href="#" class="text-crimson font-cinzel" style="font-size:0.62rem;">Read &#8594;</a>
+                    <a href="#" class="text-crimson font-Cormorant Garamond" style="font-size:0.62rem;">Read &#8594;</a>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@
                 </div>
                 <div class="card-footer">
                     <span></span>
-                    <a href="#" class="text-crimson font-cinzel" style="font-size:0.62rem;">Read &#8594;</a>
+                    <a href="#" class="text-crimson font-Cormorant Garamond" style="font-size:0.62rem;">Read &#8594;</a>
                 </div>
             </div>
 

@@ -204,23 +204,23 @@
                 <span class="card-tag" style="font-size:0.75rem; margin-bottom:1rem;">MINIMUM</span>
                 <table style="width:100%; border-collapse:collapse;">
                     <tr style="border-bottom:1px solid var(--border-dark);">
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey); width:40%;">OS</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey); width:40%;">OS</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">Windows 10 64-bit</td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-dark);">
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">CPU</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">CPU</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">Intel Core i5-6600 / AMD Ryzen 5 1600</td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-dark);">
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">RAM</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">RAM</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">8 GB RAM</td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-dark);">
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">GPU</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">GPU</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">NVIDIA GTX 1060 / AMD RX 580</td>
                     </tr>
                     <tr>
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">Storage</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">Storage</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">12 GB available</td>
                     </tr>
                 </table>
@@ -229,23 +229,23 @@
                 <span class="card-tag" style="font-size:0.75rem; margin-bottom:1rem; color:var(--gold);">RECOMMENDED</span>
                 <table style="width:100%; border-collapse:collapse;">
                     <tr style="border-bottom:1px solid var(--border-dark);">
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey); width:40%;">OS</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey); width:40%;">OS</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">Windows 11 64-bit</td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-dark);">
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">CPU</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">CPU</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">Intel Core i7-8700K / AMD Ryzen 7 3700X</td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-dark);">
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">RAM</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">RAM</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">16 GB RAM</td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-dark);">
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">GPU</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">GPU</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">NVIDIA RTX 3070 / AMD RX 6700 XT</td>
                     </tr>
                     <tr>
-                        <td style="padding:0.6rem 0; font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">Storage</td>
+                        <td style="padding:0.6rem 0; font-family:'Cormorant Garamond',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--mid-grey);">Storage</td>
                         <td style="padding:0.6rem 0; font-family:'Crimson Text',serif; color:var(--cream);">20 GB SSD recommended</td>
                     </tr>
                 </table>

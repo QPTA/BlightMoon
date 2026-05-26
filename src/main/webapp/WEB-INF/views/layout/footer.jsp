@@ -4,30 +4,30 @@
     <footer>
         <div class="footer-grid">
             <div>
-                <span class="footer-brand">DARK MOON</span>
+                <span class="footer-brand">MoonBlight</span>
                 <p class="footer-tagline">
-                    Enter a world consumed by ancient darkness. Every choice echoes through the dying land.
-                    Sanity is your rarest resource.
+                    Bước vào một thế giới bị bao phủ bởi bóng tối cổ xưa. Mỗi lựa chọn đều vang vọng khắp vùng đất đang hấp hối.
+                    Sự tỉnh táo là thứ quý giá nhất của bạn.
                 </p>
                 <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-                    <a href="/news" class="btn btn-outline-red" style="padding:0.5rem 1.2rem; font-size:0.62rem;">Latest
-                        News</a>
+                    <a href="/news" class="btn btn-outline-red" style="padding:0.5rem 1.2rem; font-size:0.62rem;">Tin tức
+                        </a>
                     <a href="/community" class="btn btn-secondary"
-                        style="padding:0.5rem 1.2rem; font-size:0.62rem;">Join Community</a>
+                        style="padding:0.5rem 1.2rem; font-size:0.62rem;">Tham gia cộng đồng</a>
                 </div>
             </div>
             <div>
                 <p class="footer-heading">Explore</p>
                 <ul class="footer-links">
-                    <li><a href="/story">The Story</a></li>
-                    <li><a href="/characters">Characters</a></li>
-                    <li><a href="/enemies">Enemies</a></li>
-                    <li><a href="/weapons">Weapons &amp; Relics</a></li>
-                    <li><a href="/world">The World</a></li>
+                    <li><a href="/story">Cốt truyện</a></li>
+                    <li><a href="/characters">Nhân vật</a></li>
+                    <li><a href="/enemies">Quái vật</a></li>
+                    <li><a href="/weapons">Vũ khí &amp; Ký hiệu</a></li>
+                    <li><a href="/world">Thế giới</a></li>
                 </ul>
             </div>
             <div>
-                <p class="footer-heading">Community</p>
+                <p class="footer-heading">Cộng đồng</p>
                 <ul class="footer-links">
                     <li><a href="/news">Dev Blog</a></li>
                     <li><a href="/community">Discord</a></li>

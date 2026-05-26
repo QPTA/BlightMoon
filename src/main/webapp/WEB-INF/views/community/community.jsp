@@ -5,9 +5,9 @@
     <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=1920&q=80');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-        <p class="page-hero-eyebrow">&#9670; The Congregation &#9670;</p>
-        <h1 class="page-hero-title">Community</h1>
-        <p class="page-hero-subtitle">You are not alone in the darkness. Tens of thousands share your burden—and your obsession.</p>
+        <p class="page-hero-eyebrow">&#9670; Hội Chúng &#9670;</p>
+        <h1 class="page-hero-title">Cộng Đồng</h1>
+        <p class="page-hero-subtitle">Bạn không còn một mình trong bóng tối. Hàng chục nghìn người chia sẻ gánh nặng—and sự ám ảnh của bạn.</p>
     </div>
 </section>
 
@@ -15,8 +15,8 @@
 <section class="section section-dark">
     <div class="container">
         <div class="section-header">
-            <span class="section-eyebrow">Find Your People</span>
-            <h2 class="section-title">Join the Community</h2>
+            <span class="section-eyebrow">Tìm Người Cùng Lối</span>
+            <h2 class="section-title">Tham Gia Cộng Đồng</h2>
             <div class="section-divider"></div>
         </div>
         <div class="grid-4">

@@ -5,9 +5,9 @@
     <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?w=1920&q=80');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-        <p class="page-hero-eyebrow">&#9670; Arsenal of Despair &#9670;</p>
-        <h1 class="page-hero-title">Weapons &amp; Relics</h1>
-        <p class="page-hero-subtitle">Every blade has tasted blood. Every relic carries a price. The question is whether you are willing to pay it.</p>
+        <p class="page-hero-eyebrow">&#9670; Kho Vũ Khí Tuyệt Vọng &#9670;</p>
+        <h1 class="page-hero-title">Vũ khí</h1>
+        <p class="page-hero-subtitle">Mỗi lưỡi kiếm đều đã nhuốm máu. Mỗi cổ vật đều đi kèm một cái giá. Câu hỏi là bạn có sẵn sàng trả cái giá đó hay không.</p>
     </div>
 </section>
 
@@ -15,8 +15,8 @@
 <section style="background:var(--dark-surface); padding:3rem 2rem; text-align:center;">
     <div class="container-sm">
         <p class="font-im-fell" style="font-size:1.15rem; color:var(--mid-grey); line-height:1.9;">
-            Over 400 weapons, trinkets, and relics lie scattered throughout the cursed dungeons.
-            Some grant power. Some grant madness. Some grant both, and let you choose which you prefer.
+            Hơn 400 loại vũ khí, phụ kiện và cổ vật đang nằm rải rác khắp các ngục tối bị nguyền rủa.
+            Một số mang lại sức mạnh. Một số mang lại sự điên loạn. Một số mang lại cả hai, và để bạn tự lựa chọn thứ mình muốn.
         </p>
     </div>
 </section>
@@ -25,8 +25,8 @@
 <section class="section section-dark">
     <div class="container">
         <div class="section-header">
-            <span class="section-eyebrow">The Armory</span>
-            <h2 class="section-title">Weapons of the Damned</h2>
+            <span class="section-eyebrow">Kho Vũ Khí</span>
+            <h2 class="section-title">Vũ khí của những kẻ bị nguyền rủa</h2>
             <div class="section-divider"></div>
         </div>
         <div style="display:flex; flex-direction:column; gap:1rem;">
@@ -154,7 +154,7 @@
                 <p class="card-text">The most dangerous items in the dungeon. Power beyond measure—with consequences beyond reckoning. Use only with full understanding of the cost.</p>
             </div>
             <div class="card" style="padding:2rem; text-align:center;">
-                <span style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--mid-grey); margin-bottom:0.8rem; display:block;">&#9670; UNIQUE</span>
+                <span style="font-family:'Cormorant Garamond',serif; font-size:0.8rem; color:var(--mid-grey); margin-bottom:0.8rem; display:block;">&#9670; UNIQUE</span>
                 <p class="card-text">Boss drops with narrative significance. Each tells a story. Some have multiple interaction states based on your party's history.</p>
             </div>
         </div>

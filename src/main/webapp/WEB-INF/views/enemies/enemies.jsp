@@ -5,9 +5,9 @@
     <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&q=80');"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-        <p class="page-hero-eyebrow">&#9670; Creatures of the Dark &#9670;</p>
-        <h1 class="page-hero-title">Enemies</h1>
-        <p class="page-hero-subtitle">They do not hate you. They do not fear you. They simply feed—on flesh, on sanity, on the fragile thread of hope.</p>
+        <p class="page-hero-eyebrow">&#9670; Sinh Vật Trong Bóng Tố &#9670;</p>
+        <h1 class="page-hero-title">Quái vật</h1>
+        <p class="page-hero-subtitle">Chúng không hận bạn, cũng chẳng sợ bạn. Chúng chỉ đơn giản là tàn sát và ngấu nghiến — từ thể xác, lý trí, cho đến cả sợi hy vọng mong manh nhất.</p>
     </div>
 </section>
 
@@ -17,23 +17,23 @@
         <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--border-dark);">
             <div style="background:var(--dark-bg); padding:1.5rem 1rem; text-align:center;">
                 <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#9760;</span>
-                <span class="font-cinzel" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Undead</span>
+                <span class="font-Cormorant Garamond" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Thây Ma</span>
             </div>
             <div style="background:var(--dark-bg); padding:1.5rem 1rem; text-align:center;">
                 <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#128027;</span>
-                <span class="font-cinzel" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Eldritch</span>
+                <span class="font-Cormorant Garamond" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Quái Dị</span>
             </div>
             <div style="background:var(--dark-bg); padding:1.5rem 1rem; text-align:center;">
                 <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#128032;</span>
-                <span class="font-cinzel" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Beast</span>
+                <span class="font-Cormorant Garamond" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Dã Thú</span>
             </div>
             <div style="background:var(--dark-bg); padding:1.5rem 1rem; text-align:center;">
                 <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#9820;</span>
-                <span class="font-cinzel" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Bloodsucker</span>
+                <span class="font-Cormorant Garamond" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Kẻ Hút Máu</span>
             </div>
             <div style="background:var(--dark-bg); padding:1.5rem 1rem; text-align:center;">
                 <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#128008;</span>
-                <span class="font-cinzel" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Brigand</span>
+                <span class="font-Cormorant Garamond" style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-grey);">Đạo Tặc</span>
             </div>
         </div>
     </div>
@@ -43,15 +43,15 @@
 <section class="section section-dark">
     <div class="container">
         <div class="section-header">
-            <span class="section-eyebrow">The Bestiary</span>
-            <h2 class="section-title">Know Your Enemy</h2>
+            <span class="section-eyebrow">Danh Sách Quái Vật</span>
+            <h2 class="section-title">Thông tin quái vật</h2>
             <div class="section-divider"></div>
         </div>
         <div class="grid-3">
 
-            <div class="enemy-card">
+            <div class="enemy-card">s
                 <span class="enemy-icon">&#9760;</span>
-                <span class="enemy-type">Undead — Ruins</span>
+                <span class="enemy-type">Thây Ma — Đồi Mộ</span>
                 <h3 class="enemy-name">Bone Rabble</h3>
                 <p class="enemy-desc">The animated remnants of the estate's former servants. Mindless, endless, and utterly without mercy. Their sheer numbers are their greatest weapon.</p>
                 <span class="enemy-threat threat-low">&#9670; LOW THREAT</span>
@@ -59,7 +59,7 @@
 
             <div class="enemy-card">
                 <span class="enemy-icon">&#128027;</span>
-                <span class="enemy-type">Eldritch — Darkest Dungeon</span>
+                <span class="enemy-type">Quái Dị — Darkest Dungeon</span>
                 <h3 class="enemy-name">Shambler</h3>
                 <p class="enemy-desc">A creature of pure void, summoned by careless ritual. It exists to unmake. Every hero who gazes upon it loses a fragment of their sanity permanently.</p>
                 <span class="enemy-threat threat-extreme">&#9670; EXTREME THREAT</span>
@@ -67,7 +67,7 @@
 
             <div class="enemy-card">
                 <span class="enemy-icon">&#128032;</span>
-                <span class="enemy-type">Beast — Weald</span>
+                <span class="enemy-type">Dã Thú — Weald</span>
                 <h3 class="enemy-name">Werewolf</h3>
                 <p class="enemy-desc">Once a man—now barely that. The affliction runs deep. Its howl inflicts stress upon the entire party. Its claws inflict everything else.</p>
                 <span class="enemy-threat threat-high">&#9670; HIGH THREAT</span>
@@ -75,7 +75,7 @@
 
             <div class="enemy-card">
                 <span class="enemy-icon">&#128025;</span>
-                <span class="enemy-type">Bloodsucker — Crimson Court</span>
+                <span class="enemy-type">Kẻ Hút Máu — Crimson Court</span>
                 <h3 class="enemy-name">Fanatic Bloodletter</h3>
                 <p class="enemy-desc">A twisted member of the Crimson Court who has drunk too deep. Resistant to most damage types. Infects the party with the Crimson Curse on contact.</p>
                 <span class="enemy-threat threat-high">&#9670; HIGH THREAT</span>
@@ -83,7 +83,7 @@
 
             <div class="enemy-card">
                 <span class="enemy-icon">&#128048;</span>
-                <span class="enemy-type">Beast — Warrens</span>
+                <span class="enemy-type">Dã Thú — Warrens</span>
                 <h3 class="enemy-name">Swine God</h3>
                 <p class="enemy-desc">An ancient abomination worshipped by the pigmen of the Warrens. Boss-class entity. Its sheer bulk deflects attacks aimed at the back row.</p>
                 <span class="enemy-threat threat-extreme">&#9670; EXTREME THREAT</span>
@@ -91,7 +91,7 @@
 
             <div class="enemy-card">
                 <span class="enemy-icon">&#9889;</span>
-                <span class="enemy-type">Eldritch — Cove</span>
+                <span class="enemy-type">Quái Dị — Cove</span>
                 <h3 class="enemy-name">Deep Starlord</h3>
                 <p class="enemy-desc">It drifted up from the sunken depths of the ocean beyond the estate. It brings the void with it. Looking at it too long causes immediate affliction.</p>
                 <span class="enemy-threat threat-extreme">&#9670; EXTREME THREAT</span>
@@ -99,7 +99,7 @@
 
             <div class="enemy-card">
                 <span class="enemy-icon">&#128122;</span>
-                <span class="enemy-type">Undead — Ruins</span>
+                <span class="enemy-type">Thây Ma — Đồi Mộ</span>
                 <h3 class="enemy-name">Drowned Crew</h3>
                 <p class="enemy-desc">Sailors who perished in the flooded crypts below the estate. They carry ancient weapons still sharp enough to end a life. They cannot be reasoned with. They never could.</p>
                 <span class="enemy-threat threat-medium">&#9670; MEDIUM THREAT</span>
@@ -107,7 +107,7 @@
 
             <div class="enemy-card">
                 <span class="enemy-icon">&#127981;</span>
-                <span class="enemy-type">Brigand — Weald</span>
+                <span class="enemy-type">Đạo Tặc — Weald</span>
                 <h3 class="enemy-name">Brigand Fusilier</h3>
                 <p class="enemy-desc">Hired criminals who arrived seeking easy pickings from the ruined estate. Instead they found madness. Now they guard these halls as surely as any monster.</p>
                 <span class="enemy-threat threat-medium">&#9670; MEDIUM THREAT</span>
@@ -115,7 +115,7 @@
 
             <div class="enemy-card">
                 <span class="enemy-icon">&#128013;</span>
-                <span class="enemy-type">Eldritch — Darkest Dungeon</span>
+                <span class="enemy-type">Quái Dị — Darkest Dungeon</span>
                 <h3 class="enemy-name">The Collector</h3>
                 <p class="enemy-desc">A wandering entity that has gathered the heads of fallen heroes and continues to serve them—undead, hollowed, against their former allies. It remembers their weaknesses.</p>
                 <span class="enemy-threat threat-extreme">&#9670; EXTREME THREAT</span>

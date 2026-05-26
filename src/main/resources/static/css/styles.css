@@ -3,8 +3,8 @@
    Core Stylesheet
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap');
---light-grey
+@import url('https://fonts.googleapis.com/css2?family=Cormorant Garamond:wght@400;600;700;900&family=Cormorant Garamond+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap');
+
 /* ---- CSS Variables ---- */
 :root {
     --blood-red: #8B0000;
@@ -134,7 +134,7 @@ img {
 
 /* ---- Typography ---- */
 h1, h2, h3, h4 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
     letter-spacing: 0.08em;
     line-height: 1.2;
@@ -145,8 +145,8 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.6rem); }
 h3 { font-size: clamp(1.2rem, 2vw, 1.8rem); }
 h4 { font-size: 1.1rem; }
 
-.font-cinzel { font-family: 'Cinzel', serif; }
-.font-cinzel-deco { font-family: 'Cinzel Decorative', serif; }
+.font-Cormorant Garamond { font-family: 'Cormorant Garamond', serif; }
+.font-Cormorant Garamond-deco { font-family: 'Cormorant Garamond Decorative', serif; }
 .font-im-fell { font-family: 'IM Fell English', serif; font-style: italic; }
 .font-crimson { font-family: 'Crimson Text', serif; }
 
@@ -330,7 +330,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .navbar-brand {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cormorant Garamond Decorative', serif;
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--crimson);
@@ -353,7 +353,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .navbar-nav .nav-item a {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -393,7 +393,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .navbar-cta {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -505,7 +505,7 @@ h4 { font-size: 1.1rem; }
 /* .hero-left {} */
 
 .hero-eyebrow {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.7rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
@@ -527,7 +527,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .hero-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cormorant Garamond Decorative', serif;
     font-size: clamp(2.8rem, 6vw, 5.5rem);
     font-weight: 1000;
     line-height: 1.1;
@@ -538,9 +538,9 @@ h4 { font-size: 1.1rem; }
 }
 
 .hero-title-sub {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    letter-spacing: 0.3em;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.8rem, 1.2rem);
+    /* letter-spacing: 0.3em; */
     text-transform: uppercase;
     color: var(--crimson);
     margin-bottom: 1.8rem;
@@ -612,7 +612,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .stat-number {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cormorant Garamond Decorative', serif;
     font-size: 2.2rem;
     font-weight: 700;
     color: var(--crimson);
@@ -621,7 +621,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .stat-label {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -633,7 +633,7 @@ h4 { font-size: 1.1rem; }
    BUTTONS
    ============================================================ */
 .btn {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.2em;
@@ -753,7 +753,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .page-hero-eyebrow {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.65rem;
     letter-spacing: 0.4em;
     text-transform: uppercase;
@@ -762,7 +762,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .page-hero-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cormorant Garamond Decorative', serif;
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     color: var(--cream);
     text-shadow: 0 0 40px rgba(139,0,0,0.6), 2px 4px 20px rgba(0,0,0,0.9);
@@ -813,7 +813,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .section-eyebrow {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.65rem;
     letter-spacing: 0.4em;
     text-transform: uppercase;
@@ -823,7 +823,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .section-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.8rem, 3vw, 2.8rem);
     color: var(--cream);
     text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
@@ -938,7 +938,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .card-tag {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.6rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -948,7 +948,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .card-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.15rem;
     font-weight: 700;
     color: var(--cream);
@@ -1008,7 +1008,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .character-class {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.6rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -1017,7 +1017,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .character-name {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--cream);
@@ -1047,7 +1047,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .stat-bar-label {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.55rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -1115,7 +1115,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .enemy-type {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.58rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -1124,7 +1124,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .enemy-name {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--cream);
@@ -1141,7 +1141,7 @@ h4 { font-size: 1.1rem; }
 
 .enemy-threat {
     display: inline-block;
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.55rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -1199,7 +1199,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .weapon-rarity {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.55rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -1213,7 +1213,7 @@ h4 { font-size: 1.1rem; }
 .rarity-cursed { color: var(--crimson); text-shadow: 0 0 10px var(--glow-red); }
 
 .weapon-name {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--cream);
@@ -1262,7 +1262,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .news-date {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.6rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -1271,7 +1271,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .news-category {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.58rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -1327,7 +1327,7 @@ h4 { font-size: 1.1rem; }
 .split-text {}
 
 .split-tag {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.62rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
@@ -1344,7 +1344,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .split-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
     font-weight: 700;
     color: var(--cream);
@@ -1380,7 +1380,7 @@ h4 { font-size: 1.1rem; }
 
 .quote-block::before {
     content: '\201C';
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cormorant Garamond Decorative', serif;
     font-size: 6rem;
     color: var(--blood-red);
     opacity: 0.2;
@@ -1401,7 +1401,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .quote-author {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.65rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -1457,7 +1457,7 @@ h4 { font-size: 1.1rem; }
 }
 
 .platform-name {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     font-weight: 700;
     color: var(--cream);
@@ -1465,14 +1465,14 @@ h4 { font-size: 1.1rem; }
 }
 
 .platform-count {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cormorant Garamond Decorative', serif;
     font-size: 1.5rem;
     color: var(--crimson);
     text-shadow: 0 0 15px var(--glow-red);
 }
 
 .platform-label {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.58rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -1510,7 +1510,7 @@ footer::before {
 }
 
 .footer-brand {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cormorant Garamond Decorative', serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--crimson);
@@ -1529,7 +1529,7 @@ footer::before {
 }
 
 .footer-heading {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.65rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -1570,7 +1570,7 @@ footer::before {
 }
 
 .footer-copy {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.6rem;
     letter-spacing: 0.15em;
     color: var(--ash-grey);
@@ -1583,7 +1583,7 @@ footer::before {
 }
 
 .footer-legal a {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1626,7 +1626,7 @@ footer::before {
 }
 
 .accordion-question {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--cream);
@@ -1678,7 +1678,7 @@ footer::before {
 }
 
 .form-label {
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.62rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -1828,7 +1828,7 @@ select.form-control {
 .mobile-menu-list a {
     display: block;
     padding: 0.8rem 2rem;
-    font-family: 'Cinzel', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.8rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;

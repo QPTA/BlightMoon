@@ -8,10 +8,10 @@
             </div>
             <div class="page-hero-overlay"></div>
             <div class="page-hero-content">
-                <p class="page-hero-eyebrow">&#9670; The Lore &#9670;</p>
-                <h1 class="page-hero-title">The Story</h1>
-                <p class="page-hero-subtitle">A tale of hubris, corruption, and the darkness that awaits those who seek
-                    forbidden power.</p>
+                <p class="page-hero-eyebrow">&#9670; Truyền kỳ &#9670;</p>
+                <h1 class="page-hero-title">Cốt truyện</h1>
+                <p class="page-hero-subtitle">Một giai thoại về sự ngạo mạn, hủ bại, và bóng tối đang rập rình những kẻ
+                    mưu cầu cấm lực.</p>
             </div>
         </section>
 
@@ -24,29 +24,33 @@
                             loading="lazy">
                     </div>
                     <div class="split-text">
-                        <div class="split-tag">The light</div>
-                        <h2 class="split-title">The hopeful beginning of a world</h2>
+                        <div class="split-tag">Khởi nguyên</div>
+                        <h2 class="split-title">Ánh sáng của hy vọng</h2>
                         <div class="split-divider"></div>
                         <p class="split-body">
-                            Sau hàng ngàn năm chiến tranh và hỗn loạn triền miên, thế giới cuối cùng đã được thống nhất
-                            dưới sự cai trị của ba chủng tộc vĩ đại: Loài người, Tiên và Quỷ.
-                            Lần đầu tiên sau vô số thời đại, người dân trên thế giới chứng kiến ​​một tia sáng le lói —
-                            ánh sáng của hy vọng, thịnh vượng và hòa bình.
-                            Dưới sự dẫn dắt của Tam Quốc và tầm nhìn về sự hài hòa, nền văn minh đã tiến bộ vượt bậc.
-                            Những thành phố tráng lệ bằng đá trắng và vàng vươn lên trời cao, ma thuật huyền bí hòa
-                            quyện với máy móc, và bầu trời tràn ngập những khinh khí cầu khổng lồ bay lượn giữa các
-                            vương quốc rực rỡ.
+                            Trải qua thiên thu chiến hỏa cùng hỗn mang vô tận, thiên hạ rốt cuộc cũng quy về một mối
+                            dưới sự thống trị của Tam đại vĩ tộc: Nhân, Tiên, và Ma.
+
+                            Lần đầu tiên kinh qua vô số kỷ nguyên, vạn dân mới lại được chiêm ngưỡng một tia vi quang
+                            rọi chiếu — ánh quang của kỳ vọng, phồn vinh và thái bình.
+
+                            Dưới sự dẫn dắt của Tam Quốc cùng viễn cảnh thái hòa, nền văn minh đã đạt bước thăng hoa tột
+                            đỉnh. Những tòa nguy nga thành trì đúc từ bạch thạch cùng hoàng kim vươn mình chạm tới
+                            thương khung. Huyền bí ma pháp dung hợp hoàn mỹ cùng cơ giới kỹ xảo. Và trên không trung,
+                            ngập tràn những cự đại phi đĩnh lượn lờ dạo bước giữa các huy hoàng quốc độ.
                         </p>
                         <p class="split-body">
-                            Tiên chia sẻ trí tuệ cổ xưa và sự làm chủ thiên nhiên của họ.
-                            Loài người đã xây dựng nên những đế chế công nghiệp và đổi mới rộng lớn.
-                            Quỷ, từng bị sợ hãi như những kẻ mang đến sự hủy diệt, đã trở thành người bảo vệ sức mạnh và
-                            sự cân bằng.
+                            Tiên tộc truyền thụ thái cổ minh triết cùng huyền năng chưởng khống tự nhiên.
+
+                            Nhân tộc kiến tạo nên những cự đại cơ giới đế quốc cùng kỷ nguyên cách tân vĩ đại.
+
+                            Và Ma tộc — những kẻ từng gieo rắc nỗi kinh hoàng như sứ giả của họa diệt vong, nay vươn
+                            mình trở thành những thủ hộ giả bảo mệnh cho uy quyền và thế quân bình.
                         </p>
                         <p class="split-body">
-                            Cùng nhau, họ đã tạo ra một thời đại mà nhiều người tin rằng sẽ kéo dài mãi mãi —một kỷ
-                            nguyên mà chiến tranh chỉ còn là ký ức xa xôi, và thế giới đứng trên đỉnh cao vinh quang
-                            dưới ánh sáng rực rỡ của các vì sao.
+                            Tề tâm hiệp lực, họ đã khai mở một thời đại mà vạn dân hằng tin rằng sẽ trường tồn vĩnh cửu
+                            — một kỷ nguyên nơi can qua chiến hỏa chỉ còn là hồi ức xa xăm, và toàn cõi thiên hạ ngạo
+                            nghễ trên đỉnh cao vinh diệu dưới ánh tinh mang rực rỡ của vạn vì sao.
                         </p>
                     </div>
                 </div>
@@ -120,11 +124,11 @@
         <section class="section section-dark">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow">The Final Chapter</span>
-                    <h2 class="section-title">Act III — The Heart of Darkness</h2>
+                    <span class="section-eyebrow">Khải huyền</span>
+                    <h2 class="section-title">Chương I — Minh cảnh chi tâm</h2>
                     <div class="section-divider"></div>
-                    <p class="section-subtitle">What lies at the bottom of the Darkest Dungeon is not merely a
-                        monster.<br>It is a truth your ancestor spent his life trying to reach.</p>
+                    <p class="section-subtitle">chưa có y tưởng<br>It is a truth your ancestor spent his life trying to
+                        reach.</p>
                 </div>
                 <div class="grid-3" style="margin-top:3rem;">
                     <div class="card" style="text-align:center; padding:2rem;">

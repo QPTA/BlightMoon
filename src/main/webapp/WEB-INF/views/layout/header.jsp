@@ -21,24 +21,24 @@
             </div>
             <!-- NAVBAR -->
             <nav class="navbar" role="navigation" aria-label="Main navigation">
-                <a href="/" class="navbar-brand">DARK MOON</a>
+                <a href="/" class="navbar-brand">MOONBLIGHT</a>
 
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="/" class="${activePage == 'home' ? 'active' : ''}">Home</a></li>
-                    <li class="nav-item"><a href="/story" class="${activePage == 'story' ? 'active' : ''}">Story</a>
+                    <li class="nav-item"><a href="/" class="${activePage == 'home' ? 'active' : ''}">Trang chủ</a></li>
+                    <li class="nav-item"><a href="/story" class="${activePage == 'story' ? 'active' : ''}">Cốt truyện</a>
                     </li>
                     <li class="nav-item"><a href="/characters"
-                            class="${activePage == 'characters' ? 'active' : ''}">Characters</a></li>
+                            class="${activePage == 'characters' ? 'active' : ''}">Nhân vật</a></li>
                     <li class="nav-item"><a href="/enemies"
-                            class="${activePage == 'enemies' ? 'active' : ''}">Enemies</a></li>
+                            class="${activePage == 'enemies' ? 'active' : ''}">Quái vật</a></li>
                     <li class="nav-item"><a href="/weapons"
-                            class="${activePage == 'weapons' ? 'active' : ''}">Weapons</a></li>
-                    <li class="nav-item"><a href="/world" class="${activePage == 'world' ? 'active' : ''}">World</a>
+                            class="${activePage == 'weapons' ? 'active' : ''}">Vũ khí</a></li>
+                    <li class="nav-item"><a href="/world" class="${activePage == 'world' ? 'active' : ''}">Thế giới</a>
                     </li>
-                    <li class="nav-item"><a href="/news" class="${activePage == 'news' ? 'active' : ''}">News</a>
+                    <li class="nav-item"><a href="/news" class="${activePage == 'news' ? 'active' : ''}">Tin tức</a>
                     </li>
                     <li class="nav-item"><a href="/community"
-                            class="${activePage == 'community' ? 'active' : ''}">Community</a></li>
+                            class="${activePage == 'community' ? 'active' : ''}">Cộng đồng</a></li>
                 </ul>
 
                 <a href="/support" class="navbar-cta">Support</a>
@@ -53,15 +53,15 @@
             <!-- MOBILE MENU -->
             <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
                 <ul class="mobile-menu-list">
-                    <li><a href="/" class="${activePage == 'home' ? 'active' : ''}">Home</a></li>
-                    <li><a href="/story" class="${activePage == 'story' ? 'active' : ''}">Story</a></li>
-                    <li><a href="/characters" class="${activePage == 'characters' ? 'active' : ''}">Characters</a>
+                    <li><a href="/" class="${activePage == 'home' ? 'active' : ''}">Trang chủ</a></li>
+                    <li><a href="/story" class="${activePage == 'story' ? 'active' : ''}">Cốt truyện</a></li>
+                    <li><a href="/characters" class="${activePage == 'characters' ? 'active' : ''}">Nhân vật</a>
                     </li>
-                    <li><a href="/enemies" class="${activePage == 'enemies' ? 'active' : ''}">Enemies</a></li>
-                    <li><a href="/weapons" class="${activePage == 'weapons' ? 'active' : ''}">Weapons</a></li>
-                    <li><a href="/world" class="${activePage == 'world' ? 'active' : ''}">The World</a></li>
-                    <li><a href="/news" class="${activePage == 'news' ? 'active' : ''}">News</a></li>
-                    <li><a href="/community" class="${activePage == 'community' ? 'active' : ''}">Community</a></li>
+                    <li><a href="/enemies" class="${activePage == 'enemies' ? 'active' : ''}">Quái vật</a></li>
+                    <li><a href="/weapons" class="${activePage == 'weapons' ? 'active' : ''}">Vũ khí</a></li>
+                    <li><a href="/world" class="${activePage == 'world' ? 'active' : ''}">Thế giới</a></li>
+                    <li><a href="/news" class="${activePage == 'news' ? 'active' : ''}">Tin tức</a></li>
+                    <li><a href="/community" class="${activePage == 'community' ? 'active' : ''}">Cộng đồng</a></li>
                     <li><a href="/support" class="${activePage == 'support' ? 'active' : ''}">Support</a></li>
                 </ul>
             </div>
