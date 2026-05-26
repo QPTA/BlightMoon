@@ -4,7 +4,7 @@
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap');
-
+--light-grey
 /* ---- CSS Variables ---- */
 :root {
     --blood-red: #8B0000;
@@ -18,7 +18,7 @@
     --amber: #C8720A;
     --ash-grey: #4A4240;
     --mid-grey: #6B5E58;
-    --light-grey: #9A8E88;
+    --light-grey: #C8C1BC;
     --parchment: #C4A882;
     --cream: #DDD0B8;
     --gold: #C9A44C;
