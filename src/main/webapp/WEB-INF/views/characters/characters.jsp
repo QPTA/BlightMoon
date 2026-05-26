@@ -1,0 +1,247 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="/WEB-INF/views/layout/header.jsp" %>
+
+<section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1920&q=80');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <p class="page-hero-eyebrow">&#9670; The Roster &#9670;</p>
+        <h1 class="page-hero-title">Characters</h1>
+        <p class="page-hero-subtitle">Each hero carries wounds both visible and hidden. Choose wisely—they will not forgive you for wasting their sacrifice.</p>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section style="background:var(--dark-surface); padding:3rem 2rem; text-align:center;">
+    <div class="container-sm">
+        <p class="font-im-fell" style="font-size:1.15rem; color:var(--mid-grey); line-height:1.9;">
+            Fourteen classes of broken souls have answered your summons. Each brings unique skills to the cursed
+            expedition—and unique ways to break under the pressure. Their virtues are their greatest strengths.
+            Their afflictions are yours to manage.
+        </p>
+    </div>
+</section>
+
+<!-- CHARACTERS GRID -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="grid-4">
+
+            <div class="character-card">
+                <img class="character-card-img" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=400&q=80" alt="Plague Doctor" loading="lazy">
+                <div class="character-card-body">
+                    <span class="character-class">Support / Control</span>
+                    <h3 class="character-name">Plague Doctor</h3>
+                    <div class="character-quote">"Pathology is merely nature's way of negotiating."</div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">ATTACK</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:55%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">DEFENSE</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:40%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">SPEED</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill amber" style="width:70%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <img class="character-card-img" src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=400&q=80" alt="Hellion" loading="lazy">
+                <div class="character-card-body">
+                    <span class="character-class">Frontline / Melee</span>
+                    <h3 class="character-name">Hellion</h3>
+                    <div class="character-quote">"Every war ends the same. In blood."</div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">ATTACK</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:88%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">DEFENSE</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:50%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">SPEED</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill amber" style="width:45%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <img class="character-card-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Crusader" loading="lazy">
+                <div class="character-card-body">
+                    <span class="character-class">Tank / Frontline</span>
+                    <h3 class="character-name">Crusader</h3>
+                    <div class="character-quote">"The light of righteousness shall scour these halls."</div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">ATTACK</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:65%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">DEFENSE</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:85%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">SPEED</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill amber" style="width:35%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <img class="character-card-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Vestal" loading="lazy">
+                <div class="character-card-body">
+                    <span class="character-class">Healer / Support</span>
+                    <h3 class="character-name">Vestal</h3>
+                    <div class="character-quote">"To heal is to understand what it means to break."</div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">ATTACK</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:40%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">DEFENSE</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:55%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">SPEED</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill amber" style="width:60%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <img class="character-card-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=400&q=80" alt="Bounty Hunter" loading="lazy">
+                <div class="character-card-body">
+                    <span class="character-class">Damage / Utility</span>
+                    <h3 class="character-name">Bounty Hunter</h3>
+                    <div class="character-quote">"The price on your head pays my debts."</div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">ATTACK</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:75%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">DEFENSE</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:60%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">SPEED</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill amber" style="width:65%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <img class="character-card-img" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80" alt="Arbalest" loading="lazy">
+                <div class="character-card-body">
+                    <span class="character-class">Ranged / Marksman</span>
+                    <h3 class="character-name">Arbalest</h3>
+                    <div class="character-quote">"Distance is not cowardice. Distance is strategy."</div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">ATTACK</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:80%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">DEFENSE</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:30%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">SPEED</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill amber" style="width:55%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <img class="character-card-img" src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&q=80" alt="Occultist" loading="lazy">
+                <div class="character-card-body">
+                    <span class="character-class">Mystic / Debuffer</span>
+                    <h3 class="character-name">Occultist</h3>
+                    <div class="character-quote">"The eldritch is not evil. It is simply indifferent."</div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">ATTACK</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:70%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">DEFENSE</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">SPEED</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill amber" style="width:72%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <img class="character-card-img" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&q=80" alt="Leper" loading="lazy">
+                <div class="character-card-body">
+                    <span class="character-class">Heavy Melee</span>
+                    <h3 class="character-name">Leper</h3>
+                    <div class="character-quote">"I have lost everything that can be taken. What remains is will."</div>
+                    <div class="stat-bars">
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">ATTACK</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:92%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">DEFENSE</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:70%;"></div></div>
+                        </div>
+                        <div class="stat-bar-row">
+                            <span class="stat-bar-label">SPEED</span>
+                            <div class="stat-bar-track"><div class="stat-bar-fill amber" style="width:20%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- AFFLICTION SYSTEM -->
+<section class="section section-surface">
+    <div class="container">
+        <div class="split-section reverse">
+            <div class="split-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80" alt="Affliction" loading="lazy">
+            </div>
+            <div class="split-text">
+                <div class="split-tag">The Breaking Point</div>
+                <h2 class="split-title">Virtues &amp; Afflictions</h2>
+                <div class="split-divider"></div>
+                <p class="split-body">
+                    No hero can face the abyss unscathed. As stress accumulates, heroes reach a breaking point.
+                    Some find inner resolve—unlocking powerful <strong style="color:var(--gold);">Virtues</strong>
+                    that turn despair into strength.
+                </p>
+                <p class="split-body">
+                    Others break. <strong style="color:var(--crimson);">Afflictions</strong> like Paranoia, Selfishness, and Masochism
+                    take hold—turning allies against the party, sabotaging actions, and accelerating their own demise.
+                </p>
+                <p class="split-body">
+                    Even a fully-equipped, battle-hardened hero can become your greatest threat
+                    if their mind crumbles first.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%@ include file="/WEB-INF/views/layout/footer.jsp" %>
