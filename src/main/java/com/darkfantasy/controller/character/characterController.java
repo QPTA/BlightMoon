@@ -1,4 +1,4 @@
-package com.darkfantasy.modules.characters.controllers;
+package com.darkfantasy.controller.character;
 
 public class characterController {
     

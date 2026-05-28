@@ -2,44 +2,50 @@
     <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
         <!-- HERO -->
-        <section class="hero">
-            <div class="hero-bg" style="background-image:url('${pageContext.request.contextPath}/img/back.png');">
-            </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-vignette"></div>
+        
 
-            <!-- ============================================================
+        
+            <section class="hero">
+
+                <div class="hero-bg"
+                    style="background-image:url('${pageContext.request.contextPath}/img/backgroud.png');">
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="hero-vignette"></div>
+
+                <!-- ============================================================
                                     HOME PAGE
         ============================================================= -->
-            <div class="hero-content">
-                <div>
-                    <div class="hero-eyebrow">Dark Fantasy RPG</div>
-                    <h1 class="hero-title">MOONBLIGHT</h1>
-                    <p class="hero-title-sub">Chìm vào thế giới hư vô bị nguyền rủa</p>
-                    <div class="hero-divider"></div>
-                    <p class="hero-desc">
+                <div class="hero-content">
+                    <div>
+                        <div class="hero-eyebrow">Dark Fantasy RPG</div>
+                        <h1 class="hero-title">MOON BLIGHT</h1>
+                        <p class="hero-title-sub">Chìm vào thế giới hư vô bị nguyền rủa</p>
+                        <div class="hero-divider"></div>
+                        <!-- <p class="hero-desc">
                         Thiên hạ đã diệt vong. Tà lực cổ xưa đang thống trị cõi trần.
                         Ngươi phải hiệu triệu một đoàn tàn hồn và tiến nhập hắc ám —
                         nơi thần trí còn hiếm quý hơn kim ngân, và từ bi là xa xỉ phẩm mà ngươi không thể lưu giữ.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="/story" class="btn btn-secondary btn-primary"> Begin the Journey</a>
-                        <a href="${pageContext.request.contextPath}/files/DARK_MOON.zip" download="DARK_MOON.zip"
-                            class="btn btn-primary">
-                            &#9670; Tải xuống
-                        </a>
-                        <button onclick="openVideo()" class="btn btn-primary">
-                            Xem Trailer &#9658;
-                        </button>
+                    </p> -->
+                        <div class="hero-buttons">
+                            <a href="/story" class="btn btn-secondary btn-primary"> Begin the Journey</a>
+                            <a href="${pageContext.request.contextPath}/files/DARK_MOON.zip" download="DARK_MOON.zip"
+                                class="btn btn-primary">
+                                &#9670; Tải xuống
+                            </a>
+                            <button onclick="openVideo()" class="btn btn-primary">
+                                Xem Trailer &#9658;
+                            </button>
+                        </div>
                     </div>
+
                 </div>
-
-            </div>
-        </section>
-
+            </section>
+        <div class="hero-spacer"></div>
         <!-- ============================================================
                                     VIDEO
         ============================================================= -->
+<div class="content-wrapper">
 
         <div id="videoModal" class="video-modal" onclick="closeVideo()">
 
@@ -54,49 +60,22 @@
         </div>
 
 
-        <!-- ============================================================
-                                    GAME FEATURES
-        ============================================================= -->
 
-        <!-- <section class="section section-surface" style="padding:2.5rem 2rem;">
-            <div class="container">
-                <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; text-align:center;">
-                    <div style="padding:1.2rem; border:1px solid var(--border-dark);">
-                        <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#9760;</span>
-                        <span class="font-Cormorant Garamond text-parchment"
-                            style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;">Permadeath</span>
-                    </div>
-                    <div style="padding:1.2rem; border:1px solid var(--border-dark);">
-                        <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#128997;</span>
-                        <span class="font-Cormorant Garamond text-parchment"
-                            style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;">Sanity
-                            System</span>
-                    </div>
-                    <div style="padding:1.2rem; border:1px solid var(--border-dark);">
-                        <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#9876;</span>
-                        <span class="font-Cormorant Garamond text-parchment"
-                            style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;">100+
-                            Relics</span>
-                    </div>
-                    <div style="padding:1.2rem; border:1px solid var(--border-dark);">
-                        <span style="font-size:1.8rem; display:block; margin-bottom:0.5rem;">&#127981;</span>
-                        <span class="font-Cormorant Garamond text-parchment"
-                            style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;">Procedural
-                            Dungeons</span>
-                    </div>
-                </div>
-            </div>
-        </section> -->
 
         <!-- ================================================================
                                     STORY TEASER
         ================================================================= -->
 
-        <section class="section section-dark">
+        <section class="section section-dark section-stack">
+            <div class="hero-bg"
+                    style="background-image:url('${pageContext.request.contextPath}/img/section2-back.png');">
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="hero-vignette"></div>
             <div class="container">
                 <div class="split-section">
                     <div class="split-img-wrapper">
-                        <img src="${pageContext.request.contextPath}/img/story.png" alt="Dark Forest" loading="lazy">
+                        <img src="${pageContext.request.contextPath}/img/start-story.png" alt="Dark Forest" loading="lazy">
                     </div>
                     <div class="split-text">
                         <div class="split-tag">Khởi nguyên</div>
@@ -132,7 +111,7 @@
 
 
 
-        <section class="section section-darker">
+        <section class="section section-darker section-stack">
             <div class="container">
                 <div class="section-header">
                     <span class="section-eyebrow">Tội Nhân</span>
@@ -147,7 +126,7 @@
                         <div class="character-card-body">
                             <span class="character-class">Nhân loại</span>
                             <h3 class="character-name">Clark</h3>
-                            <div class="character-quote">"Science shall conquer even ."</div>
+                            <div class="character-quote">"Khoa học là vĩnh hằng. Ta là người khám phá ra nó."</div>
                         </div>
                     </div>
                     <div class="character-card">
@@ -156,7 +135,7 @@
                         <div class="character-card-body">
                             <span class="character-class">Ma vật</span>
                             <h3 class="character-name">Liễu Như Yên</h3>
-                            <div class="character-quote">"Hãy để huyết nhuộm đại địa."</div>
+                            <div class="character-quote">"Hãy để huyết nhuộm đại địa.Hãy mang huyết đến cho ta."</div>
                         </div>
                     </div>
                     <div class="character-card">
@@ -165,7 +144,7 @@
                         <div class="character-card-body">
                             <span class="character-class">Ma vật</span>
                             <h3 class="character-name">Đỗ Nhật Quang</h3>
-                            <div class="character-quote">"Niềm tin nâng đỡ chúng ta"</div>
+                            <div class="character-quote">"Niềm tin nâng đỡ chúng ta là vĩnh hằng không thể thay đổi."</div>
                         </div>
                     </div>
                     <div class="character-card">
@@ -190,7 +169,7 @@
         =================================================================== -->
 
 
-        <section class="section section-surface" style="padding:5rem 2rem;">
+        <section class="section section-surface section-stack" style="padding:5rem 2rem;">
             <div class="container-sm">
                 <div class="quote-block">
                     <p class="quote-text">
@@ -209,7 +188,7 @@
         =================================================================== -->
 
 
-        <section class="section section-dark">
+        <section class="section section-dark section-stack">
             <div class="container">
                 <div class="section-header">
                     <span class="section-eyebrow">Thông điệp từ vực thẳm</span>
@@ -225,13 +204,15 @@
                             <span class="card-tag">Bản cập nhật 2.4 </span>
                             <h3 class="card-title">Cân bằng lại Crimson Court</h3>
                             <p class="card-text">Đám huyết tộc quý nhân đã được tái điều chỉnh.
-                            Những kháng tính dị hoạn cùng quy luật chiến đấu mới đã trải qua sáu tháng nội bộ khảo nghiệm..</p>
+                                Những kháng tính dị hoạn cùng quy luật chiến đấu mới đã trải qua sáu tháng nội bộ khảo
+                                nghiệm thế giới này cực kì nguy hiểm.Thật thảm hại</p>
                         </div>
                         <div class="card-footer">
-                            <span class="font-Cormorant Garamond text-grey" style="font-size:0.58rem; letter-spacing:0.15em;">Oct
+                            <span class="font-Cormorant Garamond text-grey"
+                                style="font-size:0.58rem; letter-spacing:0.15em;">Oct
                                 15, 2024</span>
-                            <a href="/news" class="text-crimson font-Cormorant Garamond"
-                                style="font-size:0.62rem; letter-spacing:0.15em;">Read More &#8594;</a>
+                            <a href="/news" class="text-crimson font-Lora"
+                                style="font-size:0.72rem; letter-spacing:0.12em;">Đọc thêm &#8594;</a>
                         </div>
                     </div>
                     <div class="card">
@@ -241,14 +222,16 @@
                         <div class="card-body">
                             <span class="card-tag">DLC — The Sunken City</span>
                             <h3 class="card-title">Khu vực mới: Kho tàng vực sâu</h3>
-                            <p class="card-text">Bên dưới những phế tích bị thủy triều nhấn chìm là các cấm thư đã bị thế nhân lãng quên.
-                            Tân dị thú, tân di vật, cùng những phương thức mới để nghênh đón tận diệt đang chờ đợi ngươi.</p>
+                            <p class="card-text">Bên dưới những phế tích bị thủy triều nhấn chìm là các cấm thư đã bị
+                                thế nhân lãng quên.Tân dị thú, tân di vật, cùng những phương thức mới để nghênh đón tận diệt đang chờ đợi
+                                ngươi.</p>
                         </div>
                         <div class="card-footer">
-                            <span class="font-Cormorant Garamond text-grey" style="font-size:0.58rem; letter-spacing:0.15em;">Oct 3,
+                            <span class="font-Cormorant Garamond text-grey"
+                                style="font-size:0.58rem; letter-spacing:0.15em;">Oct 3,
                                 2024</span>
-                            <a href="/news" class="text-crimson font-Cormorant Garamond"
-                                style="font-size:0.62rem; letter-spacing:0.15em;">Đọc thêm &#8594;</a>
+                            <a href="/news" class="text-crimson font-Lora"
+                                style="font-size:0.72rem; letter-spacing:0.12em;">Đọc thêm &#8594;</a>
                         </div>
                     </div>
                     <div class="card">
@@ -259,13 +242,14 @@
                             <span class="card-tag">Cộng đồng</span>
                             <h3 class="card-title">Tuyển tập fan art: Tháng chín</h3>
                             <p class="card-text">Cộng đồng một lần nữa đã tạo nên những tuyệt tác sinh ra từ hắc ám.
-                        Tuyển tập kỳ này sẽ trình hiện hai mươi bốn tác phẩm kinh tâm động phách.</p>
+                                Tuyển tập kỳ này sẽ trình hiện hai mươi bốn tác phẩm kinh tâm động phách.Đám huyết tộc quý nhân đã được tái điều chỉnh.</p>
                         </div>
                         <div class="card-footer">
-                            <span class="font-Cormorant Garamond text-grey" style="font-size:0.58rem; letter-spacing:0.15em;">Sep
+                            <span class="font-Cormorant Garamond text-grey"
+                                style="font-size:0.58rem; letter-spacing:0.15em;">Sep
                                 28, 2024</span>
-                            <a href="/news" class="text-crimson font-Cormorant Garamond"
-                                style="font-size:0.62rem; letter-spacing:0.15em;">Read More &#8594;</a>
+                            <a href="/news" class="text-crimson font-Lora"
+                                style="font-size:0.72rem; letter-spacing:0.12em;">Đọc thêm &#8594;</a>
                         </div>
                     </div>
                 </div>
@@ -278,3 +262,4 @@
 
 
         <%@ include file="/WEB-INF/views/layout/footer.jsp" %>
+        </div>

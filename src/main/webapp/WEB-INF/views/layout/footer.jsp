@@ -1,17 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
     <!-- FOOTER -->
-    <footer>
+    <footer >
         <div class="footer-grid">
             <div>
                 <span class="footer-brand">MOONBLIGHT</span>
                 <p class="footer-tagline">
-                    Bước vào một thế giới bị bao phủ bởi bóng tối cổ xưa. Mỗi lựa chọn đều vang vọng khắp vùng đất đang hấp hối.
+                    Bước vào một thế giới bị bao phủ bởi bóng tối cổ xưa. Mỗi lựa chọn đều vang vọng khắp vùng đất đang
+                    hấp hối.
                     Sự tỉnh táo là thứ quý giá nhất của bạn.
                 </p>
                 <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-                    <a href="/news" class="btn btn-outline-red" style="padding:0.5rem 1.2rem; font-size:0.62rem;">Tin tức
-                        </a>
+                    <a href="/news" class="btn btn-outline-red" style="padding:0.5rem 1.2rem; font-size:0.62rem;">Tin
+                        tức
+                    </a>
                     <a href="/community" class="btn btn-secondary"
                         style="padding:0.5rem 1.2rem; font-size:0.62rem;">Tham gia cộng đồng</a>
                 </div>
@@ -151,7 +153,8 @@
 
         initParticles();
         draw();
-
+        // =============================================================================================================
+        
     </script>
 
     </body>
