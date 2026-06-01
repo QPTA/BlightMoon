@@ -24,6 +24,11 @@ Thông tin hiển thị (Display - Tùy chọn):
 
 package com.darkfantasy.entity;
 
+import java.time.Instant;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.darkfantasy.entity.enums.Role;
 
 import jakarta.persistence.Column;
@@ -50,16 +55,23 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "username", unique = true, nullable = false)
+    @Column(name = "username", unique = true, nullable = false, length = 30)
     private String username;
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", unique = true, nullable = false, length = 255)
     private String email;
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length = 255)
     private String password;
     @Column(name = "role", nullable = false)
     private Role role;
     @Column(name = "is_active", nullable = false)
-    private boolean isActive;
-    @Column(name = "full_name", nullable = false)
+    @Builder.Default
+    private boolean isActive = true;
+    @Column(name = "full_name", nullable = false, length = 255)
     private String fullName;
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private Instant createdAt;
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false)
+    private Instant updatedAt;
 }

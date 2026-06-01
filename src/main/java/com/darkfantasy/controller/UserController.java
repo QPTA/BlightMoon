@@ -1,0 +1,108 @@
+package com.darkfantasy.controller;
+
+
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.darkfantasy.dto.user.LoginRequest;
+import com.darkfantasy.dto.user.RegisterRequest;
+
+import com.darkfantasy.service.UserService;
+
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+@RequestMapping("/user/moonblight/")
+public class UserController {
+    private final UserService userService;
+    private final AuthenticationManager authenticationManager;
+
+    @GetMapping({ "login", "login/" })
+    public String toLoginPage(Model model) {
+        model.addAttribute("loginRequest", new LoginRequest());
+        return "login";
+    }
+
+    @GetMapping({ "register", "register/" })
+    public String toRegisterPage(Model model) {
+        model.addAttribute("registerRequest", new RegisterRequest());
+        return "register";
+    }
+
+    @GetMapping({ "reset", "reset/" })
+    public String toResetPage() {
+        return "reset";
+    }
+
+    @GetMapping({ "change", "change/" })
+    public String toChangePasswordPage() {
+        return "password-change";
+    }
+
+    @PostMapping("login/enter")
+    public String login(@Valid @ModelAttribute LoginRequest request, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "login";
+        }
+        try {
+            Authentication authentication = authenticationManager
+                    .authenticate(new UsernamePasswordAuthenticationToken(request.getLogin(), request.getPassword()));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            return "redirect:/";
+        } catch (AuthenticationException e) {
+            model.addAttribute("errorMessage", "Tên đăng nhập hoặc mật khẩu không đúng.");
+            return "login";
+        }
+    }
+
+    @PostMapping("register/enter")
+    public String registerAccount(@Valid @ModelAttribute RegisterRequest request, BindingResult result,
+            Model model, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            return "register";
+        }
+        try {
+            userService.register(request);
+            redirectAttributes.addFlashAttribute("successMessage", "Đăng ký thành công!");
+            return "redirect:/user/moonblight/login";
+        } catch (IllegalArgumentException e) {
+            request.setPassword("");
+            request.setRePassword("");
+            model.addAttribute("errorMessage", e.getMessage());
+            return "register";
+        }
+    }
+
+    // @PostMapping("reset/enter")
+    // public String resetPassword(@Valid @ModelAttribute ResetPasswordRequest
+    // request, BindingResult result,
+    // Model model, RedirectAttributes redirectAttributes) {
+    // if (result.hasErrors()) {
+    // return "reset";
+    // }
+    // try {
+    // userService.changeForgottenPassword(request);
+    // redirectAttributes.addAttribute("successMessage", "Thay đổi mật khẩu thành
+    // công!");
+    // return "redirect:/user/login";
+    // } catch (IllegalArgumentException e) {
+    // model.addAttribute("errorMessage", e.getMessage());
+    // return "reset";
+    // }
+
+    // }
+}

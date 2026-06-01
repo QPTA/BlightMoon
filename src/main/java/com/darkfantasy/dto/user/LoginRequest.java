@@ -1,7 +1,9 @@
 package com.darkfantasy.dto.user;
 
-import com.darkfantasy.entity.User;
 
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,24 +14,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class LoginRequest {
-    private String username;
-    private String email;
+    @NotBlank(message = "Tên đăng nhập hoặc email không được để trống")
+    private String login;
+    @NotBlank(message = "Mật khẩu không được để trống")
+    @Size(min = 8, message = "Mật khẩu phải chứa ít nhất 8 kí tự")
     private String password;
-    private String rePassword;
 
-    public User toEntity() {
-        return User.builder()
-                .username(this.username)
-                .email(this.email)
-                .password(this.password)
-                .build();
-    }
-    
-    public static LoginRequest fromEntity(User user) {
-        return LoginRequest.builder()
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .password(user.getPassword())
-                .build();
-    }
+
 }
