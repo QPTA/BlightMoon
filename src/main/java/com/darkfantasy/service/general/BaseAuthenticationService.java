@@ -41,13 +41,13 @@ public abstract class BaseAuthenticationService {
         if (keyword.contains("@")) {
             return userRepository.findUserByEmail(keyword);
         }
-        return userRepository.findUserByUserName(keyword);
+        return userRepository.findUserByUsername(keyword);
     }
 
     public boolean isExistedUserOrEmail(String keyword) {
         if (keyword.contains("@")) {
             return userRepository.existsByEmail(keyword);
         }
-        return userRepository.existsByUserName(keyword);
+        return userRepository.existsByUsername(keyword);
     }
 }
