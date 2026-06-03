@@ -525,24 +525,27 @@ h4 {
 
 .content-wrapper {
     position: relative;
-    
+
     background: var(--dark-bg);
     min-height: 100vh;
     /* background: var(--dark-bg);  nền đặc để che hero phía sau */
 }
+
 .hero {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;         /* đổi min-height thành height cố định */
+    height: 100vh;
+    /* đổi min-height thành height cố định */
     z-index: 1;
     overflow: hidden;
 }
 
 .hero-spacer {
     height: 100vh;
-    pointer-events: none;  /* không chặn click */
+    pointer-events: none;
+    /* không chặn click */
     display: block;
 }
 
@@ -552,7 +555,7 @@ h4 {
     margin-top: 0px;
     /* background: var(--dark-bg); */
     border-radius: 20px 20px 0 0;
-     /* box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.95); */
+    /* box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.95); */
 }
 
 /* ============================================================= */
@@ -808,7 +811,7 @@ h4 {
     inset: 0;
     background-size: cover;
     background-position: center;
-    filter: brightness(1.3) ;
+    filter: brightness(1.3);
 }
 
 .page-hero-overlay {
@@ -852,36 +855,36 @@ h4 {
    ============================================================ */
 
 /* CSS cho wrapper */
-.body-container{
-    
-}
+.body-container {}
 
-.parallax-wrapper{
+.parallax-wrapper {
     position: relative;
     z-index: 2;
 }
-.parallax-wrapper::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:url('../img/backback.png');
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-    z-index:-1;
+
+.parallax-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/backback.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
 }
+
 /* Các section bên trong phải có nền bán trong suốt, KHÔNG dùng màu đặc */
 .parallax-wrapper .section-dark {
-    background: rgba(15, 12, 10, 0.60) ;
+    background: rgba(15, 12, 10, 0.60);
 }
 
 .parallax-wrapper .section-darker {
-    background: rgba(15, 12, 10, 0.60) ;
+    background: rgba(15, 12, 10, 0.60);
 }
 
 
 .parallax-wrapper .section-world {
-    background: rgba(15, 12, 10, 0.60) ;
+    background: rgba(15, 12, 10, 0.60);
 }
 
 /* ============================================================
@@ -1282,20 +1285,22 @@ h4 {
    ============================================================ */
 
 
-.backgroud-img{
+.backgroud-img {
     position: relative;
     z-index: 2;
 }
-.backgroud-img::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:url('../img/black.jpg');
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-    z-index:-1;
+
+.backgroud-img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/black.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
 }
+
 /* ============================================================
    WEAPON CARDS
    ============================================================ */
@@ -1420,9 +1425,9 @@ h4 {
 }
 
 .news-date {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
+    font-family: 'Lora', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--ash-grey);
     margin-bottom: 0.5rem;
@@ -1430,8 +1435,8 @@ h4 {
 
 .news-category {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.25em;
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--crimson);
     margin-bottom: 0.5rem;
@@ -1491,14 +1496,14 @@ h4 {
 .split-text {
     position: relative;
 
-    background: rgba(20,16,14,.75);
+    background: rgba(20, 16, 14, .75);
 
     padding: 2rem;
 
-    border: 1px solid rgba(255,255,255,.05);
+    border: 1px solid rgba(255, 255, 255, .05);
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,.6);
+        0 15px 40px rgba(0, 0, 0, .6);
 }
 
 .split-tag {
@@ -2362,6 +2367,206 @@ select.form-control {
 
     color: #6B5E58;
 }
+
+
+/* =========================
+    News
+========================= */
+
+
+
+/* ============================================================
+   NEWS DETAIL
+   ============================================================ */
+
+.news-layout {
+    max-width: 1400px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+
+    display: grid;
+    grid-template-columns: 2.2fr 0.9fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* =====================
+   LEFT COLUMN
+   ===================== */
+
+.news-left {
+    background: rgba(15, 12, 12, 0.9);
+    border: 1px solid rgba(180, 120, 80, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+        0 0 30px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.news-left .card-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-content {
+    padding: 2rem 2.5rem 0;
+}
+
+.news-category {
+    color: var(--gold);
+    font-size: 1.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+.news-date {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.news-left>h2 {
+    padding: 1rem 2.5rem 0;
+}
+
+.news-body {
+    padding: 0 2.5rem;
+}
+
+.news-body:last-child {
+    padding-bottom: 2.5rem;
+}
+
+.news-body p {
+    color: var(--light-grey);
+    line-height: 1.9;
+    margin-bottom: 1.4rem;
+    font-size: 1rem;
+}
+
+/* =====================
+   RIGHT SIDEBAR
+   ===================== */
+
+.news-right {
+    position: sticky;
+    top: 100px;
+
+    background: rgba(15, 12, 12, 0.92);
+    border: 1px solid rgba(180, 120, 80, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow:
+        0 0 30px rgba(0, 0, 0, .45),
+        inset 0 0 0 1px rgba(255, 255, 255, .03);
+}
+
+/* background image */
+.news-bg {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.news-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.1),
+            rgba(10, 10, 10, 0.9));
+}
+
+.news-eyebrow,
+.news-title,
+.news-title-sub,
+.news-right .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.news-eyebrow {
+    margin-top: -1rem;
+    padding: 0 1.8rem;
+    color: var(--gold);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+}
+
+.news-title {
+    padding: .4rem 1.8rem 0;
+    font-size: 2rem;
+    margin: 0;
+
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--cream);
+}
+
+.news-title-sub {
+    padding: .6rem 1.8rem 1.5rem;
+    color: var(--light-grey);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.news-right .btn {
+    display: block;
+    margin: 0 1.8rem 2rem;
+    text-align: center;
+}
+
+/* =====================
+   EXTRA CARDS
+   ===================== */
+
+.sidebar-card {
+    margin: 1.2rem 1.5rem;
+    padding: 1.2rem;
+
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-card h4 {
+    color: var(--cream);
+    margin-bottom: .6rem;
+}
+
+.sidebar-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: .9rem;
+}
+
+/* =====================
+    RESPONSIVE
+   ===================== */
+
+@media (max-width: 992px) {
+
+    .news-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .news-right {
+        position: relative;
+        top: auto;
+    }
+
+    .news-left .card-img {
+        height: 280px;
+    }
+}
+
+
 
 /* =========================
     RESPONSIVE

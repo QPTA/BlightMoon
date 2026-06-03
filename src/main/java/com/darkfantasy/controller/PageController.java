@@ -103,7 +103,10 @@ public class PageController {
         model.addAttribute("pageTitle", "Community - Moon Blight");
         return "forward:/WEB-INF/views/community/aboutUs.jsp";
     }
-
+@GetMapping("/newsDetail")
+    public String newsDetail() {
+        return "forward:/WEB-INF/views/news/newDetail.jsp";
+    }
     @GetMapping("/support")
     public String support(Model model) {
         model.addAttribute("activePage", "support");
