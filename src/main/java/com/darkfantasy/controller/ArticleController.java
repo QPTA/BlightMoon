@@ -1,5 +1,6 @@
 package com.darkfantasy.controller;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,6 +25,7 @@ import com.darkfantasy.dto.article.CreateArticleRequest;
 import com.darkfantasy.dto.article.UpdateArticleRequest;
 import com.darkfantasy.entity.enums.ArticleType;
 import com.darkfantasy.service.ArticleService;
+import com.darkfantasy.service.FileStorageService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +35,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ArticleController {
     private final ArticleService articleService;
+    private final FileStorageService fileStorageService;
 
     @GetMapping({ "/list", "/list/" })
     public String articleList(
@@ -67,20 +70,7 @@ public class ArticleController {
         try {
 
             if (!thumbnailFile.isEmpty()) {
-
-                String fileName = UUID.randomUUID()
-                        + "_"
-                        + thumbnailFile.getOriginalFilename();
-
-                Path uploadDir = Paths.get("uploads/articles");
-
-                Files.createDirectories(uploadDir);
-
-                thumbnailFile.transferTo(
-                        uploadDir.resolve(fileName));
-
-                request.setThumbnailUrl(
-                        "/uploads/articles/" + fileName);
+                request.setThumbnailUrl(fileStorageService.saveFile(thumbnailFile, "articles"));
             }
 
             ArticleResponse response = articleService.createArticle(request);
@@ -158,17 +148,62 @@ public class ArticleController {
             @PathVariable Long id,
             @Valid @ModelAttribute("article") UpdateArticleRequest request,
             BindingResult result,
+            @RequestParam("thumbnail") MultipartFile thumbnailFile,
             Model model) {
 
         if (result.hasErrors()) {
-            model.addAttribute("articleTypes", ArticleType.values());
+            ArticleResponse oldArticle = articleService.getArticleById(id);
+
+            request.setThumbnailUrl(
+                    oldArticle.getThumbnailUrl());
+
+            model.addAttribute(
+                    "articleTypes",
+                    ArticleType.values());
+
             return "article/article-edit";
         }
 
         request.setId(id);
 
-        articleService.updateArticle(request);
+        try {
 
-        return "redirect:/article/moonblight/list";
+            if (!thumbnailFile.isEmpty()) {
+
+                request.setThumbnailUrl(
+                        fileStorageService.saveFile(thumbnailFile, "articles"));
+            }
+
+            articleService.updateArticle(request);
+
+            return "redirect:/article/moonblight/list";
+
+        } catch (Exception e) {
+
+            model.addAttribute(
+                    "articleTypes",
+                    ArticleType.values());
+
+            model.addAttribute(
+                    "errorMessage",
+                    e.getMessage());
+
+            return "article/article-edit";
+        }
+    }
+
+    private String saveThumbnail(
+            MultipartFile file) throws IOException {
+        String fileName = UUID.randomUUID()
+                + "_"
+                + file.getOriginalFilename();
+
+        Path uploadDir = Paths.get("uploads/articles");
+
+        Files.createDirectories(uploadDir);
+
+        file.transferTo(
+                uploadDir.resolve(fileName));
+        return "/uploads/articles/" + fileName;
     }
 }

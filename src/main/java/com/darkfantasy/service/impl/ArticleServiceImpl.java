@@ -27,9 +27,10 @@ public class ArticleServiceImpl implements ArticleService {
     private final ArticleRepository articleRepository;
 
     @Override
-    public ArticleResponse getArticleById(Long id){ 
+    public ArticleResponse getArticleById(Long id) {
         return ArticleResponse.fromEntity(findArticle(id));
     }
+
     @Transactional
     @Override
     public ArticleResponse createArticle(CreateArticleRequest request) {
@@ -52,11 +53,16 @@ public class ArticleServiceImpl implements ArticleService {
     @Transactional
     @Override
     public ArticleResponse updateArticle(UpdateArticleRequest request) {
+
         Article article = findArticle(request.getId());
+
         article.setTitle(request.getTitle());
         article.setContent(request.getContent());
         article.setType(request.getType());
-        article.setThumbnailUrl(request.getThumbnailUrl());
+
+        if (request.getThumbnailUrl() != null) {
+            article.setThumbnailUrl(request.getThumbnailUrl());
+        }
 
         return ArticleResponse.fromEntity(article);
     }

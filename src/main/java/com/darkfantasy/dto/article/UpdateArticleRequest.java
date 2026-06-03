@@ -18,16 +18,16 @@ import lombok.NoArgsConstructor;
 public class UpdateArticleRequest {
     @NotNull
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Tiêu đề không được để trống")
     @Size(max = 255)
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "Nội dung không được để trống")
     private String content;
 
     private String thumbnailUrl;
 
-    @NotNull
+    @NotNull(message = "Loại bài viết không được để trống")
     private ArticleType type;
 
 }
