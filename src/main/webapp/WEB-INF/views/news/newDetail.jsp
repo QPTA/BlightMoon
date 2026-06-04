@@ -14,68 +14,91 @@
         </section>
 
         <section class="news-layout">
+
             <div class="news-left">
-                <img class="card-img" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80"
-                    alt="Dev Blog" loading="lazy">
+
+                <img class="card-img"
+                    src="${article.thumbnailUrl}"
+                    alt="${article.title}"
+                    loading="lazy">
+
                 <div class="news-content">
-                    <h2 class="news-category">Tiêu đề tin tức</h2>
-                    <span class="news-date">Ngày đăng: 01/01/2024</span>
+
+                    <h2 class="news-category">
+                        ${article.type}
+                    </h2>
+
+                    <span class="news-date">
+                        Ngày đăng: ${article.createdAt}
+                    </span>
+
                 </div>
+
                 <h2
-                    style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--cream); margin-bottom:1rem; line-height:1.3;">
-                    Phiên Bản 3.0: Đại Bản Mở Rộng — Trầm Luân Chi Thành
+                    style="
+                        font-family:'Cormorant Garamond',serif;
+                        font-size:1.8rem;
+                        color:var(--cream);
+                        margin-bottom:1rem;
+                        line-height:1.3;
+                    ">
+                    ${article.title}
                 </h2>
+
                 <div class="news-body">
-                    <p>Nội dung chi tiết của tin tức...</p>
+                    <p>
+                        ${article.content}
+                    </p>
                 </div>
-                <div class="news-body">
-                    <p>Nội dung chi tiết của tin tức...</p>
-                </div>
+
             </div>
+
             <aside class="news-right">
-                <c:forEach items="${articles}" var="article">
 
-                <div class="card">
+                <c:forEach items="${articles}" var="newsItem">
 
-                    <img class="card-img"
-                        src="${article.thumbnailUrl}"
-                        alt="${article.title}"
-                        loading="lazy">
+                    <div class="card">
 
-                    <div class="card-body">
+                        <img class="card-img"
+                            src="${newsItem.thumbnailUrl}"
+                            alt="${newsItem.title}"
+                            loading="lazy">
 
-                        <span class="card-tag">
-                            ${article.type}
-                        </span>
+                        <div class="card-body">
 
-                        <h3 class="card-title">
-                            ${article.title}
-                        </h3>
+                            <span class="card-tag">
+                                ${newsItem.type}
+                            </span>
 
-                        <p class="card-text">
-                            ${article.summary}
-                        </p>
+                            <h3 class="card-title">
+                                ${newsItem.title}
+                            </h3>
+
+                            <p class="card-text">
+                                ${newsItem.summary}
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer">
+
+                            <span class="font-Cormorant-Garamond text-grey">
+                                ${newsItem.createdAt}
+                            </span>
+
+                            <a href="/news/${newsItem.id}"
+                            class="text-crimson font-Lora">
+                                Đọc thêm →
+                            </a>
+
+                        </div>
 
                     </div>
 
-                    <div class="card-footer">
-
-                        <span class="font-Cormorant Garamond text-grey">
-                            ${article.createdAt}
-                        </span>
-
-                        <a href="/news/${article.id}"
-                        class="text-crimson font-Lora">
-                            Đọc thêm →
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </c:forEach>
+                </c:forEach>
 
             </aside>
+
         </section>
 
 

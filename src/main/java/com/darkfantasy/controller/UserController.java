@@ -35,30 +35,30 @@ public class UserController {
     @GetMapping({ "login", "login/" })
     public String toLoginPage(Model model) {
         model.addAttribute("loginRequest", new LoginRequest());
-        return "auth/login";
+        return "cms/auth/login";
     }
 
     @GetMapping({ "register", "register/" })
     public String toRegisterPage(Model model) {
         model.addAttribute("registerRequest", new RegisterRequest());
-        return "auth/register";
+        return "cms/auth/register";
     }
 
     @GetMapping({ "reset", "reset/" })
     public String toResetPage() {
-        return "auth/reset";
+        return "cms/auth/reset";
     }
 
     @GetMapping({ "change", "change/" })
     public String toChangePasswordPage() {
-        return "auth/password-change";
+        return "cms/auth/password-change";
     }
 
     @PostMapping("login")
     public String login(@Valid @ModelAttribute LoginRequest request, BindingResult result, Model model,
             HttpServletRequest req) {
         if (result.hasErrors()) {
-            return "auth/login";
+            return "cms/auth/login";
         }
         try {
             // Authentication authentication = authenticationManager
@@ -84,7 +84,7 @@ public class UserController {
             return "redirect:/";
         } catch (AuthenticationException e) {
             model.addAttribute("errorMessage", "Tên đăng nhập hoặc mật khẩu không đúng.");
-            return "auth/login";
+            return "cms/auth/login";
         }
     }
 
@@ -92,7 +92,7 @@ public class UserController {
     public String registerAccount(@Valid @ModelAttribute RegisterRequest request, BindingResult result,
             Model model, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
-            return "auth/register";
+            return "cms/auth/register";
         }
         try {
             userService.register(request);
@@ -102,7 +102,7 @@ public class UserController {
             request.setPassword("");
             request.setRePassword("");
             model.addAttribute("errorMessage", e.getMessage());
-            return "auth/register";
+            return "cms/auth/register";
         }
     }
 

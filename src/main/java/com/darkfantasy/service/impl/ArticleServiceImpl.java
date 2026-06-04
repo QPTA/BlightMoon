@@ -128,4 +128,17 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy bài viết với ID: " + id));
     }
+
+    @Override
+    public List<ArticleResponse> getLatestArticlesExcept(Long id, int limit) {
+        Pageable pageable = PageRequest.of(0, limit + 1);
+
+        return articleRepository
+                .findByDeletedFalseOrderByCreatedAtDesc(pageable)
+                .stream()
+                .filter(article -> !article.getId().equals(id))
+                .limit(limit)
+                .map(ArticleResponse::fromEntity)
+                .toList();
+    }
 }

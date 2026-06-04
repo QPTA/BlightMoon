@@ -18,7 +18,9 @@ public interface ArticleService {
 
     Page<ArticleResponse> getArticles(Pageable pageable);
     Page<ArticleResponse> getArticlesDeletedFalse(Pageable pageable);
+    
     List<ArticleResponse> getLatestArticles(int limit);
+    List<ArticleResponse> getLatestArticlesExcept(Long id, int limit);
     ArticleResponse getLatestImportantArticle();
     
 }

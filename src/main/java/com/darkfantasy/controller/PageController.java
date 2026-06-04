@@ -6,71 +6,87 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.darkfantasy.dto.article.ArticleResponse;
 import com.darkfantasy.service.ArticleService;
+import com.darkfantasy.service.GameCharacterService;
+import com.darkfantasy.service.StoryService;
+import com.darkfantasy.service.WorldService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/")
 public class PageController {
     private final ArticleService articleService;
+    private final GameCharacterService gameCharacterService;
+    private final WorldService worldService;
+    private final StoryService storyService;
 
-    @GetMapping("/")
-    public String home(Model model) {
+    @GetMapping
+    public String index(Model model) {
 
         model.addAttribute("activePage", "home");
-        model.addAttribute(
-                "pageTitle",
-                "Moon Blight - Enter the Darkness");
+        model.addAttribute("pageTitle", "Moon Blight - Enter the Darkness");
 
-        model.addAttribute(
-                "articles",
-                articleService.getLatestArticles(3));
+        model.addAttribute("articles", articleService.getLatestArticles(3));
+        model.addAttribute("characters", gameCharacterService.getCharactersLimit(4));
+        model.addAttribute("topWorld", worldService.getWorldDeletedFalseHighestPriority());
+        model.addAttribute("topStory", storyService.getStoryDeletedFalseHighestPriority());
 
         return "forward:/WEB-INF/views/index.jsp";
         // return "index";
     }
 
-    @GetMapping("/story")
+    @GetMapping("story")
     public String story(Model model) {
         model.addAttribute("activePage", "story");
         model.addAttribute("pageTitle", "The Story - Moon Blight");
+
+        model.addAttribute("stories", storyService.getStoriesDeletedFalse());
         return "forward:/WEB-INF/views/storys/story.jsp";
         // return "story/story";
     }
 
-    @GetMapping("/characters")
+    @GetMapping("characters")
     public String characters(Model model) {
         model.addAttribute("activePage", "characters");
         model.addAttribute("pageTitle", "Characters - Moon Blight");
+
+        model.addAttribute("characters", gameCharacterService.getCharactersDeletedFalse());
         return "forward:/WEB-INF/views/characters/characters.jsp";
     }
 
-    @GetMapping("/enemies")
+    @GetMapping("enemies")
     public String enemies(Model model) {
         model.addAttribute("activePage", "enemies");
         model.addAttribute("pageTitle", "Enemies - Moon Blight");
         return "forward:/WEB-INF/views/enemies/enemies.jsp";
     }
 
-    @GetMapping("/weapons")
+    @GetMapping("weapons")
     public String weapons(Model model) {
         model.addAttribute("activePage", "weapons");
         model.addAttribute("pageTitle", "Weapons - Moon Blight");
         return "forward:/WEB-INF/views/weapons/weapons.jsp";
     }
 
-    @GetMapping("/world")
+    @GetMapping("world")
     public String world(Model model) {
+
         model.addAttribute("activePage", "world");
         model.addAttribute("pageTitle", "The World - Moon Blight");
+
+        model.addAttribute("worlds", worldService.getWorldsDeletedFalse());
+
         return "forward:/WEB-INF/views/worlds/world.jsp";
     }
 
-    @GetMapping("/news")
+    @GetMapping("news")
     public String news(
             @RequestParam(defaultValue = "6") int limit,
             Model model) {
@@ -97,17 +113,22 @@ public class PageController {
         return "forward:/WEB-INF/views/news/news.jsp";
     }
 
-    @GetMapping("/aboutUs")
+    @GetMapping("aboutUs")
     public String community(Model model) {
         model.addAttribute("activePage", "community");
         model.addAttribute("pageTitle", "Community - Moon Blight");
         return "forward:/WEB-INF/views/community/aboutUs.jsp";
     }
-@GetMapping("/newsDetail")
-    public String newsDetail() {
+
+    @GetMapping("news/{id}")
+    public String newsDetail(@PathVariable("id") Long id,
+            Model model) {
+        model.addAttribute("article", articleService.getArticleById(id));
+        model.addAttribute("articles", articleService.getLatestArticlesExcept(id, 3));
         return "forward:/WEB-INF/views/news/newDetail.jsp";
     }
-    @GetMapping("/support")
+
+    @GetMapping("support")
     public String support(Model model) {
         model.addAttribute("activePage", "support");
         model.addAttribute("pageTitle", "Support - Moon Blight");

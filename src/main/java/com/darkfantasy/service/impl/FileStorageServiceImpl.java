@@ -1,11 +1,12 @@
 package com.darkfantasy.service.impl;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.UUID;
-
+import org.springframework.util.DigestUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,23 +15,46 @@ import com.darkfantasy.service.FileStorageService;
 @Service
 public class FileStorageServiceImpl implements FileStorageService {
 
-    @Override
-    public String saveFile(MultipartFile file, String directory) throws IOException {
-        String fileName = UUID.randomUUID()
-                + "_"
-                + file.getOriginalFilename();
+        @Override
+        public String saveFile(
+                        MultipartFile file,
+                        String directory) throws IOException {
 
-        Path uploadDir = Paths.get("uploads", directory);
+                if (file == null || file.isEmpty()) {
+                        throw new IllegalArgumentException(
+                                        "File upload không hợp lệ");
+                }
 
-        Files.createDirectories(uploadDir);
+                String originalFilename = file.getOriginalFilename();
 
-        file.transferTo(
-                uploadDir.resolve(fileName));
+                String extension = StringUtils.getFilenameExtension(
+                                originalFilename);
 
-        return "/uploads/"
-                + directory
-                + "/"
-                + fileName;
-    }
+                extension = extension == null
+                                ? ""
+                                : "." + extension.toLowerCase();
 
+                String fileHash;
+
+                try (InputStream is = file.getInputStream()) {
+                        fileHash = DigestUtils.md5DigestAsHex(is);
+                }
+
+                String fileName = fileHash + extension;
+
+                Path uploadDir = Paths.get("uploads", directory);
+
+                Files.createDirectories(uploadDir);
+
+                Path targetPath = uploadDir.resolve(fileName);
+
+                if (!Files.exists(targetPath)) {
+                        file.transferTo(targetPath);
+                }
+
+                return "/uploads/"
+                                + directory
+                                + "/"
+                                + fileName;
+        }
 }

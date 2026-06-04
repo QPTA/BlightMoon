@@ -13,17 +13,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "faqs")
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "worlds")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class Faq {
+public class World {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
-    
+    @Column(name = "tag")
+    private String tag;
+    @Column(name = "title", nullable = false)
+    private String title;
+    @Column(name = "content", columnDefinition = "TEXT", nullable = false)
+    private String content;
+    @Column(name = "image")
+    private String image;
+    @Column(name = "priority")
+    private Integer priority;
+    @Column(name = "deleted")
+    private boolean deleted;
 }

@@ -14,79 +14,31 @@
                     Và ngươi sẽ phải lĩnh hội toàn bộ chúng.</p>
             </div>
         </section>
-
         <!-- WORLD OVERVIEW -->
         <section style="background:var(--dark-surface); padding:4rem 2rem;">
-            <div class="container">
-                <div class="split-section">
-                    <div class="split-text">
-                        <div class="split-tag">Vùng đất</div>
-                        <h2 class="split-title">Giáo hội thiên thể</h2>
-                        <div class="split-divider"></div>
-                        <p class="split-body">
-                            Giáo Hội Thiên Thể từng là biểu tượng tối cao của Oakhaven — một thế lực thần quyền bao trùm
-                            toàn bộ thành phố bằng những đại giáo đường nguy nga, thánh điện phủ ánh tinh quang và các
-                            quảng trường thanh tẩy rực cháy dưới ánh đuốc thiêng. Người dân nơi đây quỳ lạy “Ánh Sáng Từ
-                            Các Vì Sao”, tin rằng chỉ có sự thuần khiết tuyệt đối mới cứu rỗi linh hồn nhân loại.
-                        </p>
-                        <p class="split-body">
-                            Nhưng đức tin ấy từ lâu đã mục rữa từ bên trong. Những nghi thức thanh tẩy cực đoan, các
-                            cuộc săn lùng dị giáo và sự cuồng tín mù quáng đã biến Oakhaven thành một vùng đất bị nguyền
-                            rủa. Bên dưới các thánh đường cổ kính, những mật thất và hầm nguyện tăm tối đã bị khai mở,
-                            giải phóng các thực thể dị dạng lan tràn khắp thành phố. Giữa cơn suy vong ấy, khu dân cư
-                            trung tâm — thành trì cuối cùng của văn minh — vẫn đang hấp hối tồn tại dưới cái bóng của
-                            Giáo Hội.
-
-                        </p>
-                        <p class="split-body">
-                            Bao quanh Oakhaven là năm khu vực tà dị riêng biệt, mỗi nơi mang một hình thái kinh hãi khác
-                            nhau: từ những tu viện đổ nát phủ đầy huyết tự, các hầm mộ bị ánh sao nguyền rủa xâm thực,
-                            cho đến bến cảng mục nát nơi tín đồ điên loạn hành lễ dưới triều đêm. Mỗi vùng đất đều cất
-                            giấu một chân tướng khủng khiếp — cùng cuộc đối diện cuối cùng đang chờ đợi kẻ dám tiến sâu
-                            vào bóng tối.
-
-                        </p>
-                    </div>
-                    <div class="split-img-wrapper">
-                        <img src="${pageContext.request.contextPath}/img/img4.png" alt="The Estate Map" loading="lazy">
+            <c:forEach items="${worlds}" var="world">
+                <div class="container">
+                    <div class="split-section">
+                        <div class="split-text">
+                            <div class="split-tag">
+                                <c:out value="${world.tag}" />
+                            </div>
+                            <h2 class="split-title">
+                                <c:out value="${world.title}" />
+                            </h2>
+                            <div class="split-divider"></div>
+                            <p class="split-body">
+                                <c:out value="${world.content}" />
+                            </p>
+                        </div>
+                        <div class="split-img-wrapper">
+                            <img src="${world.image}"
+                                alt="${world.title}"
+                                loading="lazy">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="split-section">
-                    <div class="split-text">
-                        <div class="split-tag">Vùng đất</div>
-                        <h2 class="split-title">Viện Nghiên Cứu Giả Kim</h2>
-                        <div class="split-divider"></div>
-                        <p class="split-body">
-                            Viện Nghiên Cứu Giả Kim từng được xem là đỉnh cao trí tuệ của tộc Elf — những tòa tháp ngà
-                            cao vút chất đầy cổ thư, hóa chất phát quang và vô số ống nghiệm chứa các mẫu vật dị dạng.
-                            Các học giả nơi đây tôn thờ sự biến đổi của xác thịt, tin rằng chỉ bằng cách vượt qua giới
-                            hạn sinh học, sinh linh mới có thể chạm tới tri thức tối thượng của vũ trụ.
-
-                        </p>
-                        <p class="split-body">
-                            Thế nhưng khát vọng ấy dần biến thành cơn ám ảnh bệnh hoạn. Những thí nghiệm cấm kỵ, các
-                            nghi thức dung hợp huyết nhục và việc lai tạo sinh thể ngoài tầm kiểm soát đã khiến toàn bộ
-                            học viện mục rữa từ bên trong. Dưới các phòng thí nghiệm phủ đầy tinh thể và hơi độc, những
-                            tạo vật méo mó bắt đầu thức tỉnh, len lỏi qua từng hành lang của các tháp nghiên cứu cổ đại.
-
-                        </p>
-                        <p class="split-body">
-                            Bao quanh đại học viện là năm khu nghiên cứu bị tha hóa, mỗi nơi phản ánh một hình thái tri
-                            thức điên loạn khác nhau: từ các vườn thực nghiệm tràn ngập dị thực ăn thịt, những hầm lưu
-                            trữ xác vật bị biến đổi, cho đến các thiên văn đài nơi các giả kim sư mất trí cố giao tiếp
-                            với thực thể ngoài tinh không. Mỗi khu vực đều cất giữ một chân lý kinh hoàng — cùng sự siêu
-                            thoát hoặc diệt vong đang chờ đợi kẻ bước sâu hơn vào cõi tri thức cấm.
-
-
-                        </p>
-                    </div>
-                    <div class="split-img-wrapper">
-                        <img src="${pageContext.request.contextPath}/img/img2.png" alt="The Estate Map" loading="lazy">
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </section>
 
         <!-- LOCATIONS GRID -->

@@ -172,7 +172,7 @@
                         ${article.createdAt}
                     </span>
 
-                    <a href="#"
+                    <a href="/news/${article.id}"
                     class="text-crimson font-Lora">
                         Đọc thêm →
                     </a>

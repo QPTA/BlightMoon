@@ -31,11 +31,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/cms/admin/**")
-                        .hasRole("ADMIN")
-                        .requestMatchers("/article/**").hasRole(Role.STAFF.name())
-                        .anyRequest()
-                        .permitAll())
+                        .requestMatchers("/cms/admin/**").hasRole(Role.ADMIN.name())
+                        .requestMatchers("/article/**", "/character/**", "/world/**", "/story/**").hasRole(Role.STAFF.name())
+                        .anyRequest().permitAll())
                 .csrf(csrf -> csrf.disable());
         return http.build();
     }
@@ -51,17 +49,17 @@ public class SecurityConfig {
 
         return new ProviderManager(provider);
     }
-    //Chỉ dùng để test admin
+    // Chỉ dùng để test admin
     // @Bean
     // public UserDetailsService userDetailsService(
-    //         PasswordEncoder passwordEncoder) {
+    // PasswordEncoder passwordEncoder) {
 
-    //     UserDetails admin = User.builder()
-    //             .username("admin")
-    //             .password(passwordEncoder.encode("123456"))
-    //             .roles(Role.ADMIN.name())
-    //             .build();
+    // UserDetails admin = User.builder()
+    // .username("admin")
+    // .password(passwordEncoder.encode("123456"))
+    // .roles(Role.ADMIN.name())
+    // .build();
 
-    //     return new InMemoryUserDetailsManager(admin);
+    // return new InMemoryUserDetailsManager(admin);
     // }
 }

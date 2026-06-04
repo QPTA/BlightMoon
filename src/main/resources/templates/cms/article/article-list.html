@@ -24,6 +24,7 @@
     </style>
   </head>
   <body>
+    <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"></th:block>
     <h1>Danh sách bài viết</h1>
 
     <a th:href="@{/article/moonblight/create}"> Tạo bài viết </a>
@@ -65,7 +66,6 @@
           <td th:text="${article.createdAt}"></td>
 
           <td th:text="${article.deleted ? 'Đã xóa' : 'Đang hiển thị'}"></td>
-          
 
           <td>
             <form

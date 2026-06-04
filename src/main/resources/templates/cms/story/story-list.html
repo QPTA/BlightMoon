@@ -1,0 +1,99 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Danh sách câu chuyện</title>
+  </head>
+  <body>
+    <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"></th:block>
+    <h1>Danh sách câu chuyện</h1>
+
+    <p
+      style="color: green"
+      th:if="${successMessage}"
+      th:text="${successMessage}"
+    ></p>
+
+    <p style="color: red" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+
+    <a th:href="@{/story/moonblight/create}"> Tạo câu chuyện mới </a>
+
+    <br /><br />
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Ảnh</th>
+          <th>Priority</th>
+          <th>Tiêu đề</th>
+          <th>Tag</th>
+          <th>Quote Author</th>
+          <th>Trạng thái</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="story : ${stories.content}">
+          <td th:text="${story.id}"></td>
+
+          <td>
+            <img
+              th:if="${story.image != null}"
+              th:src="${story.image}"
+              alt="Story Image"
+              style="max-width: 120px"
+            />
+          </td>
+
+          <td th:text="${story.priority}"></td>
+
+          <td th:text="${story.title}"></td>
+
+          <td th:text="${story.tag}"></td>
+
+          <td th:text="${story.quoteAuthor}"></td>
+
+          <td th:text="${story.deleted ? 'Đã xóa' : 'Đang hiển thị'}"></td>
+
+          <td>
+            <form
+              th:action="@{/story/moonblight/{id}/edit(id=${story.id})}"
+              method="get"
+            >
+              <button type="submit">Sửa</button>
+            </form>
+
+            <form
+              th:if="${!story.deleted}"
+              th:action="@{/story/moonblight/{id}/delete(id=${story.id})}"
+              method="post"
+            >
+              <button type="submit">Xóa</button>
+            </form>
+
+            <form
+              th:if="${story.deleted}"
+              th:action="@{/story/moonblight/{id}/restore(id=${story.id})}"
+              method="post"
+            >
+              <button type="submit">Khôi phục</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+
+    <div th:if="${stories.totalPages > 1}">
+      <span>
+        Trang
+        <span th:text="${stories.number + 1}"></span>
+        /
+        <span th:text="${stories.totalPages}"></span>
+      </span>
+    </div>
+  </body>
+</html>

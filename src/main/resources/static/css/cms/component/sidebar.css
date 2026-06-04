@@ -1,0 +1,7 @@
+.sidebar a.active {
+    font-weight: bold;
+}
+
+.sidebar a {
+    text-decoration: none;
+}

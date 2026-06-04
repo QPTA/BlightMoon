@@ -1,11 +1,5 @@
 package com.darkfantasy.controller;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.UUID;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -20,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.darkfantasy.constant.CmsMenu;
 import com.darkfantasy.dto.article.ArticleResponse;
 import com.darkfantasy.dto.article.CreateArticleRequest;
 import com.darkfantasy.dto.article.UpdateArticleRequest;
@@ -34,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/article/moonblight/")
 @RequiredArgsConstructor
 public class ArticleController {
+    
     private final ArticleService articleService;
     private final FileStorageService fileStorageService;
 
@@ -45,14 +41,14 @@ public class ArticleController {
         model.addAttribute(
                 "articles",
                 articleService.getArticles(pageable));
-
-        return "article/article-list";
+        model.addAttribute("activeMenu", CmsMenu.ARTICLE);
+        return "cms/article/article-list";
     }
 
     @GetMapping({ "/create", "/create/" })
     public String toCreatePage(Model model) {
         model.addAttribute("articleTypes", ArticleType.values());
-        return "article/article-create";
+        return "cms/article/article-create";
     }
 
     @PostMapping("/create")
@@ -64,7 +60,7 @@ public class ArticleController {
             RedirectAttributes redirectAttributes) {
 
         if (result.hasErrors()) {
-            return "article/article-create";
+            return "cms/article/article-create";
         }
 
         try {
@@ -88,7 +84,7 @@ public class ArticleController {
                     "errorMessage",
                     e.getMessage());
 
-            return "article/article-create";
+            return "cms/article/article-create";
         }
     }
 
@@ -130,7 +126,7 @@ public class ArticleController {
         return "redirect:/article/moonblight/list";
     }
 
-    @GetMapping("/{id}/edit")
+    @GetMapping({ "/{id}/edit", "/{id}/edit/" })
     public String editArticlePage(
             @PathVariable Long id,
             Model model) {
@@ -140,11 +136,11 @@ public class ArticleController {
         model.addAttribute("article", article);
         model.addAttribute("articleTypes", ArticleType.values());
 
-        return "article/article-edit";
+        return "cms/article/article-edit";
     }
 
     @PostMapping("/{id}/edit")
-    public String updateArticle(
+    public String editArticle(
             @PathVariable Long id,
             @Valid @ModelAttribute("article") UpdateArticleRequest request,
             BindingResult result,
@@ -161,7 +157,7 @@ public class ArticleController {
                     "articleTypes",
                     ArticleType.values());
 
-            return "article/article-edit";
+            return "cms/article/article-edit";
         }
 
         request.setId(id);
@@ -188,22 +184,8 @@ public class ArticleController {
                     "errorMessage",
                     e.getMessage());
 
-            return "article/article-edit";
+            return "cms/article/article-edit";
         }
     }
 
-    private String saveThumbnail(
-            MultipartFile file) throws IOException {
-        String fileName = UUID.randomUUID()
-                + "_"
-                + file.getOriginalFilename();
-
-        Path uploadDir = Paths.get("uploads/articles");
-
-        Files.createDirectories(uploadDir);
-
-        file.transferTo(
-                uploadDir.resolve(fileName));
-        return "/uploads/articles/" + fileName;
-    }
 }
