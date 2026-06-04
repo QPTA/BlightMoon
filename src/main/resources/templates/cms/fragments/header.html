@@ -1,0 +1,19 @@
+<header th:fragment="header" class="cms-header">
+  <div class="header-left">
+    <h3>Moon Blight CMS</h3>
+  </div>
+
+  <div class="header-right">
+    <details>
+      <summary>
+        <span th:text="${#authentication.name}"></span>
+      </summary>
+
+      <div>
+        <form th:action="@{/user/moonblight/logout}" method="post">
+          <button type="submit">Logout</button>
+        </form>
+      </div>
+    </details>
+  </div>
+</header>

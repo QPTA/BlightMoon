@@ -5,80 +5,93 @@
     <title>Danh sách nhân vật</title>
   </head>
   <body>
-    <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"></th:block>
-    <h1>Danh sách nhân vật</h1>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"></th:block>
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"></th:block>
+      </div>
+      <main>
+        <h1>Danh sách nhân vật</h1>
 
-    <p
-      style="color: green"
-      th:if="${successMessage}"
-      th:text="${successMessage}"
-    ></p>
+        <p
+          style="color: green"
+          th:if="${successMessage}"
+          th:text="${successMessage}"
+        ></p>
 
-    <p style="color: red" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+        <p
+          style="color: red"
+          th:if="${errorMessage}"
+          th:text="${errorMessage}"
+        ></p>
 
-    <a th:href="@{/character/moonblight/create}"> Tạo nhân vật </a>
+        <a th:href="@{/character/moonblight/create}"> Tạo nhân vật </a>
 
-    <br /><br />
+        <br /><br />
 
-    <table border="1">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Ảnh</th>
-          <th>Tên</th>
-          <th>Chủng tộc</th>
-          <th>Priority</th>
-          <th>Trạng thái</th>
-          <th>Hành động</th>
-        </tr>
-      </thead>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Ảnh</th>
+              <th>Tên</th>
+              <th>Chủng tộc</th>
+              <th>Ưu tiên</th>
+              <th>Trạng thái</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
 
-      <tbody>
-        <tr th:each="character : ${characters.content}">
-          <td th:text="${character.id}"></td>
+          <tbody>
+            <tr th:each="character : ${characters.content}">
+              <td th:text="${character.id}"></td>
 
-          <td>
-            <img
-              th:if="${character.image != null}"
-              th:src="${character.image}"
-              style="max-width: 120px"
-            />
-          </td>
+              <td>
+                <img
+                  th:if="${character.image != null}"
+                  th:src="${character.image}"
+                  style="max-width: 120px"
+                />
+              </td>
 
-          <td th:text="${character.name}"></td>
+              <td th:text="${character.name}"></td>
 
-          <td th:text="${character.race}"></td>
+              <td th:text="${character.race}"></td>
 
-          <td th:text="${character.priority}"></td>
+              <td th:text="${character.priority}"></td>
 
-          <td th:text="${character.deleted ? 'Đã xóa' : 'Đang hiển thị'}"></td>
+              <td
+                th:text="${character.deleted ? 'Đã xóa' : 'Đang hiển thị'}"
+              ></td>
 
-          <td>
-            <form
-              th:action="@{/character/moonblight/{id}/edit(id=${character.id})}"
-              method="get"
-            >
-              <button type="submit">Sửa</button>
-            </form>
+              <td>
+                <form
+                  th:action="@{/character/moonblight/{id}/edit(id=${character.id})}"
+                  method="get"
+                >
+                  <button type="submit">Sửa</button>
+                </form>
 
-            <form
-              th:if="${!character.deleted}"
-              th:action="@{/character/moonblight/{id}/delete(id=${character.id})}"
-              method="post"
-            >
-              <button type="submit">Xóa</button>
-            </form>
+                <form
+                  th:if="${!character.deleted}"
+                  th:action="@{/character/moonblight/{id}/delete(id=${character.id})}"
+                  method="post"
+                >
+                  <button type="submit">Xóa</button>
+                </form>
 
-            <form
-              th:if="${character.deleted}"
-              th:action="@{/character/moonblight/{id}/restore(id=${character.id})}"
-              method="post"
-            >
-              <button type="submit">Khôi phục</button>
-            </form>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                <form
+                  th:if="${character.deleted}"
+                  th:action="@{/character/moonblight/{id}/restore(id=${character.id})}"
+                  method="post"
+                >
+                  <button type="submit">Khôi phục</button>
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+    </div>
   </body>
 </html>

@@ -6,96 +6,111 @@
     <title>Danh sách thế giới</title>
   </head>
   <body>
-    <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"></th:block>
-    <h1>Danh sách thế giới</h1>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"></th:block>
 
-    <p
-      style="color: green"
-      th:if="${successMessage}"
-      th:text="${successMessage}"
-    ></p>
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"></th:block>
 
-    <p style="color: red" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+        <main>
+          <h1>Danh sách thế giới</h1>
 
-    <a th:href="@{/world/moonblight/create}"> Tạo thế giới mới </a>
+          <p
+            style="color: green"
+            th:if="${successMessage}"
+            th:text="${successMessage}"
+          ></p>
 
-    <br /><br />
+          <p
+            style="color: red"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+          ></p>
 
-    <table border="1">
-      ```
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Ảnh</th>
-          <th>Priority</th>
-          <th>Tag</th>
-          <th>Tiêu đề</th>
-          <th>Trạng thái</th>
-          <th>Hành động</th>
-        </tr>
-      </thead>
+          <a th:href="@{/world/moonblight/create}"> Tạo thế giới mới </a>
 
-      <tbody>
-        <tr th:each="world : ${worlds.content}">
-          <td th:text="${world.id}"></td>
+          <br /><br />
 
-          <td>
-            <img
-              th:if="${world.image != null}"
-              th:src="${world.image}"
-              alt="World Image"
-              style="max-width: 120px"
-            />
-          </td>
+          <table border="1">
+            ```
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Ảnh</th>
+                <th>Ưu tiên</th>
+                <th>Tag</th>
+                <th>Tiêu đề</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
 
-          <td th:text="${world.priority}"></td>
+            <tbody>
+              <tr th:each="world : ${worlds.content}">
+                <td th:text="${world.id}"></td>
 
-          <td th:text="${world.tag}"></td>
+                <td>
+                  <img
+                    th:if="${world.image != null}"
+                    th:src="${world.image}"
+                    alt="World Image"
+                    style="max-width: 120px"
+                  />
+                </td>
 
-          <td th:text="${world.title}"></td>
+                <td th:text="${world.priority}"></td>
 
-          <td th:text="${world.deleted ? 'Đã xóa' : 'Đang hiển thị'}"></td>
+                <td th:text="${world.tag}"></td>
 
-          <td>
-            <form
-              th:action="@{/world/moonblight/{id}/edit(id=${world.id})}"
-              method="get"
-            >
-              <button type="submit">Sửa</button>
-            </form>
+                <td th:text="${world.title}"></td>
 
-            <form
-              th:if="${!world.deleted}"
-              th:action="@{/world/moonblight/{id}/delete(id=${world.id})}"
-              method="post"
-            >
-              <button type="submit">Xóa</button>
-            </form>
+                <td
+                  th:text="${world.deleted ? 'Đã xóa' : 'Đang hiển thị'}"
+                ></td>
 
-            <form
-              th:if="${world.deleted}"
-              th:action="@{/world/moonblight/{id}/restore(id=${world.id})}"
-              method="post"
-            >
-              <button type="submit">Khôi phục</button>
-            </form>
-          </td>
-        </tr>
-      </tbody>
-      ```
-    </table>
+                <td>
+                  <form
+                    th:action="@{/world/moonblight/{id}/edit(id=${world.id})}"
+                    method="get"
+                  >
+                    <button type="submit">Sửa</button>
+                  </form>
 
-    <br />
+                  <form
+                    th:if="${!world.deleted}"
+                    th:action="@{/world/moonblight/{id}/delete(id=${world.id})}"
+                    method="post"
+                  >
+                    <button type="submit">Xóa</button>
+                  </form>
 
-    <div th:if="${worlds.totalPages > 1}">
-      ```
-      <span>
-        Trang
-        <span th:text="${worlds.number + 1}"></span>
-        /
-        <span th:text="${worlds.totalPages}"></span>
-      </span>
-      ```
+                  <form
+                    th:if="${world.deleted}"
+                    th:action="@{/world/moonblight/{id}/restore(id=${world.id})}"
+                    method="post"
+                  >
+                    <button type="submit">Khôi phục</button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+            ```
+          </table>
+
+          <br />
+
+          <div th:if="${worlds.totalPages > 1}">
+            ```
+            <span>
+              Trang
+              <span th:text="${worlds.number + 1}"></span>
+              /
+              <span th:text="${worlds.totalPages}"></span>
+            </span>
+            ```
+          </div>
+        </main>
+      </div>
     </div>
   </body>
 </html>

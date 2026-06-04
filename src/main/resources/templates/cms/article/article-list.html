@@ -24,91 +24,97 @@
     </style>
   </head>
   <body>
-    <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"></th:block>
-    <h1>Danh sách bài viết</h1>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"></th:block>
+        <main>
+          <h1>Danh sách bài viết</h1>
+          <a th:href="@{/article/moonblight/create}"> Tạo bài viết </a>
+          <br />
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Thumbnail</th>
+                <th>Tiêu đề</th>
+                <th>Tác giả</th>
+                <th>Loại</th>
+                <th>Ngày tạo</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
 
-    <a th:href="@{/article/moonblight/create}"> Tạo bài viết </a>
+            <tbody>
+              <tr th:each="article : ${articles.content}">
+                <td th:text="${article.id}"></td>
 
-    <br /><br />
+                <td>
+                  <img
+                    th:if="${not #strings.isEmpty(article.thumbnailUrl)}"
+                    th:src="${article.thumbnailUrl}"
+                    th:alt="${article.title}"
+                  />
+                </td>
 
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Thumbnail</th>
-          <th>Tiêu đề</th>
-          <th>Tác giả</th>
-          <th>Loại</th>
-          <th>Ngày tạo</th>
-          <th>Trạng thái</th>
-          <th>Hành động</th>
-        </tr>
-      </thead>
+                <td th:text="${article.title}"></td>
 
-      <tbody>
-        <tr th:each="article : ${articles.content}">
-          <td th:text="${article.id}"></td>
+                <td th:text="${article.authorUsername}"></td>
 
-          <td>
-            <img
-              th:if="${not #strings.isEmpty(article.thumbnailUrl)}"
-              th:src="${article.thumbnailUrl}"
-              th:alt="${article.title}"
-            />
-          </td>
+                <td th:text="${article.type}"></td>
 
-          <td th:text="${article.title}"></td>
+                <td th:text="${article.createdAt}"></td>
 
-          <td th:text="${article.authorUsername}"></td>
+                <td
+                  th:text="${article.deleted ? 'Đã xóa' : 'Đang hiển thị'}"
+                ></td>
 
-          <td th:text="${article.type}"></td>
+                <td>
+                  <form
+                    th:action="@{/article/moonblight/{id}/edit(id=${article.id})}"
+                    method="get"
+                  >
+                    <button type="submit">Sửa</button>
+                  </form>
 
-          <td th:text="${article.createdAt}"></td>
+                  <form
+                    th:if="${!article.deleted}"
+                    th:action="@{/article/moonblight/{id}/delete(id=${article.id})}"
+                    method="post"
+                    style="display: inline"
+                  >
+                    <button
+                      type="submit"
+                      onclick="
+                        return confirm(
+                          'Bạn có chắc chắn muốn xóa bài viết này không?',
+                        );
+                      "
+                    >
+                      Xóa
+                    </button>
+                  </form>
 
-          <td th:text="${article.deleted ? 'Đã xóa' : 'Đang hiển thị'}"></td>
-
-          <td>
-            <form
-              th:action="@{/article/moonblight/{id}/edit(id=${article.id})}"
-              method="get"
-            >
-              <button type="submit">Sửa</button>
-            </form>
-
-            <form
-              th:if="${!article.deleted}"
-              th:action="@{/article/moonblight/{id}/delete(id=${article.id})}"
-              method="post"
-              style="display: inline"
-            >
-              <button
-                type="submit"
-                onclick="
-                  return confirm(
-                    'Bạn có chắc chắn muốn xóa bài viết này không?',
-                  );
-                "
-              >
-                Xóa
-              </button>
-            </form>
-
-            <form
-              th:if="${article.deleted}"
-              th:action="@{/article/moonblight/{id}/restore(id=${article.id})}"
-              method="post"
-              style="display: inline"
-            >
-              <button
-                type="submit"
-                onclick="return confirm('Khôi phục bài viết này?');"
-              >
-                Kích hoạt lại
-              </button>
-            </form>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                  <form
+                    th:if="${article.deleted}"
+                    th:action="@{/article/moonblight/{id}/restore(id=${article.id})}"
+                    method="post"
+                    style="display: inline"
+                  >
+                    <button
+                      type="submit"
+                      onclick="return confirm('Khôi phục bài viết này?');"
+                    >
+                      Kích hoạt lại
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
   </body>
 </html>
