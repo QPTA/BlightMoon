@@ -1,12 +1,12 @@
 <div class="layout">
 
-    <sidebar />
+    <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
 
     <div class="content-wrapper">
 
-        <header />
+        <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
 
-        <main />
+        <main></main>
 
     </div>
 

@@ -106,6 +106,11 @@ public class WorldServiceImpl implements WorldService {
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy thế giới với ID: " + id));
     }
 
+    @Override
+    public long count() {
+        return worldRepository.count();
+    }
+
 
 
 }

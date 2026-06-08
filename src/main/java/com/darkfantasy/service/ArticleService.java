@@ -22,5 +22,7 @@ public interface ArticleService {
     List<ArticleResponse> getLatestArticles(int limit);
     List<ArticleResponse> getLatestArticlesExcept(Long id, int limit);
     ArticleResponse getLatestImportantArticle();
+
+    long count();
     
 }

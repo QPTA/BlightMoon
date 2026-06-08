@@ -21,4 +21,6 @@ public interface WorldService {
     Page<WorldResponse> getWorlds(Pageable pageable);
     List<WorldResponse> getWorldsDeletedFalse();
     WorldResponse getWorldDeletedFalseHighestPriority();
+
+    long count();
 }

@@ -5,17 +5,27 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.darkfantasy.dto.article.ArticleResponse;
+import com.darkfantasy.dto.contact.CreateContactMessageRequest;
+import com.darkfantasy.entity.enums.ContactCategory;
+import com.darkfantasy.entity.enums.ContactPlatform;
 import com.darkfantasy.service.ArticleService;
+import com.darkfantasy.service.ContactMessageService;
+import com.darkfantasy.service.FaqService;
 import com.darkfantasy.service.GameCharacterService;
 import com.darkfantasy.service.StoryService;
 import com.darkfantasy.service.WorldService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -26,6 +36,8 @@ public class PageController {
     private final GameCharacterService gameCharacterService;
     private final WorldService worldService;
     private final StoryService storyService;
+    private final FaqService faqService;
+    private final ContactMessageService contactMessageService;
 
     @GetMapping
     public String index(Model model) {
@@ -130,8 +142,38 @@ public class PageController {
 
     @GetMapping("support")
     public String support(Model model) {
+        populateSupportModel(model);
+        model.addAttribute("contactRequest", new CreateContactMessageRequest());
+        return "forward:/WEB-INF/views/supports/support.jsp";
+    }
+
+    @PostMapping("support")
+    public String submitContactMessage(
+            @Valid @ModelAttribute("contactRequest") CreateContactMessageRequest request,
+            BindingResult result,
+            Model model,
+            RedirectAttributes redirectAttributes) {
+
+        if (result.hasErrors()) {
+            populateSupportModel(model);
+            model.addAttribute("errorMessage", "Vui lòng kiểm tra lại thông tin liên hệ.");
+            return "forward:/WEB-INF/views/supports/support.jsp";
+        }
+
+        contactMessageService.createMessage(request);
+
+        redirectAttributes.addFlashAttribute(
+                "successMessage",
+                "Tin nhắn đã được gửi thành công.");
+
+        return "redirect:/support";
+    }
+
+    private void populateSupportModel(Model model) {
         model.addAttribute("activePage", "support");
         model.addAttribute("pageTitle", "Support - Moon Blight");
-        return "forward:/WEB-INF/views/supports/support.jsp";
+        model.addAttribute("faqs", faqService.getFaqsDeletedFalse());
+        model.addAttribute("categories", ContactCategory.values());
+        model.addAttribute("platforms", ContactPlatform.values());
     }
 }

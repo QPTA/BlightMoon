@@ -85,7 +85,7 @@
                             </h2>
                             <div class="split-divider"></div>
                             <p class="split-body">
-                                ${topStory.content}
+                                ${topStory.summary}
                             </p>
                             <a href="/story"
                             class="btn btn-primary">
@@ -116,7 +116,7 @@
                         <div class="split-divider"></div>
                         <p class="split-body"
                         style="white-space: pre-line;">
-                            ${topWorld.content}
+                            ${topWorld.summary}
                         </p>
                         <a href="/world"
                         class="btn btn-primary">

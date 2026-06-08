@@ -32,7 +32,15 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/cms/admin/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers("/article/**", "/character/**", "/world/**", "/story/**").hasRole(Role.STAFF.name())
+                        .requestMatchers(
+                                "/dashboard/moonblight/**",
+                                "/article/moonblight/**",
+                                "/character/moonblight/**",
+                                "/world/moonblight/**",
+                                "/story/moonblight/**",
+                                "/faq/moonblight/**",
+                                "/contact/moonblight/**")
+                        .hasRole(Role.STAFF.name())
                         .anyRequest().permitAll())
                 .csrf(csrf -> csrf.disable());
         return http.build();

@@ -1,0 +1,92 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chỉnh sửa FAQ</title>
+  </head>
+
+  <body>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
+
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
+
+        <main>
+          <h1>Chỉnh sửa FAQ</h1>
+
+          <p
+            style="color: green"
+            th:if="${successMessage}"
+            th:text="${successMessage}"
+          ></p>
+
+          <p
+            style="color: red"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+          ></p>
+
+          <form
+            th:action="@{/faq/moonblight/{id}/edit(id=${faq.id})}"
+            th:object="${faq}"
+            method="post"
+          >
+            <input type="hidden" th:field="*{id}" />
+
+            <div>
+              <label>Tiêu đề</label>
+              <br />
+
+              <input type="text" th:field="*{title}" maxlength="500" />
+            </div>
+
+            <div
+              style="color: red"
+              th:if="${#fields.hasErrors('title')}"
+              th:errors="*{title}"
+            ></div>
+
+            <br />
+
+            <div>
+              <label>Độ ưu tiên (0 - 100)</label>
+              <br />
+
+              <input type="number" th:field="*{priority}" min="0" max="100" />
+            </div>
+
+            <div
+              style="color: red"
+              th:if="${#fields.hasErrors('priority')}"
+              th:errors="*{priority}"
+            ></div>
+
+            <br />
+
+            <div>
+              <label>Nội dung</label>
+              <br />
+
+              <textarea th:field="*{content}" rows="12" cols="100"> </textarea>
+            </div>
+
+            <div
+              style="color: red"
+              th:if="${#fields.hasErrors('content')}"
+              th:errors="*{content}"
+            ></div>
+
+            <br />
+
+            <button type="submit">Cập nhật FAQ</button>
+          </form>
+
+          <br />
+
+          <a th:href="@{/faq/moonblight/list}"> Quay lại danh sách </a>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

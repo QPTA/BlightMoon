@@ -122,20 +122,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: true });
     }
 
-    // Contact form
-    var contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var btn = contactForm.querySelector('[type="submit"]');
-            var orig = btn.textContent;
-            btn.textContent = 'Message Sent — The Darkness Receives Your Words...';
-            btn.disabled = true;
-            setTimeout(function () {
-                btn.textContent = orig;
-                btn.disabled = false;
-                contactForm.reset();
-            }, 3500);
-        });
-    }
 });

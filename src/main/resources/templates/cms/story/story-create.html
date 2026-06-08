@@ -5,78 +5,115 @@
     <title>Tạo câu chuyện</title>
   </head>
   <body>
-    <h1>Tạo câu chuyện mới</h1>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
 
-    <p
-      style="color: green"
-      th:if="${successMessage}"
-      th:text="${successMessage}"
-    ></p>
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
 
-    <p style="color: red" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+        <main>
+          <h1>Tạo câu chuyện mới</h1>
 
-    <form
-      th:action="@{/story/moonblight/create}"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <div>
-        <label>Tiêu đề</label><br />
-        <input type="text" name="title" maxlength="255" required />
+          <p
+            style="color: green"
+            th:if="${successMessage}"
+            th:text="${successMessage}"
+          ></p>
+
+          <p
+            style="color: red"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+          ></p>
+
+          <form
+            th:action="@{/story/moonblight/create}"
+            th:object="${createStoryRequest}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div>
+              <label>Tiêu đề</label><br />
+              <input type="text" th:field="*{title}" maxlength="255" required />
+
+              <div
+                th:if="${#fields.hasErrors('title')}"
+                th:errors="*{title}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+            <div>
+              <label>Tag</label><br />
+              <input type="text" th:field="*{tag}" />
+            </div>
+            <br />
+
+            <div>
+              <label>Độ ưu tiên (0 - 100)</label><br />
+              <input type="number" th:field="*{priority}" min="0" max="100" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Ảnh</label><br />
+              <input type="file" name="imageFile" accept="image/*" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Nội dung trích dẫn</label><br />
+              <textarea
+                th:field="*{quoteContent}"
+                rows="4"
+                cols="80"
+              ></textarea>
+
+              <div
+                th:if="${#fields.hasErrors('quoteContent')}"
+                th:errors="*{quoteContent}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+
+            <div>
+              <label>Tác giả trích dẫn</label><br />
+              <input type="text" th:field="*{quoteAuthor}" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Nội dung câu chuyện</label><br />
+              <textarea
+                th:field="*{content}"
+                rows="15"
+                cols="100"
+                required
+              ></textarea>
+
+              <div
+                th:if="${#fields.hasErrors('content')}"
+                th:errors="*{content}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+
+            <button type="submit">Tạo câu chuyện</button>
+          </form>
+
+          <br />
+
+          <a th:href="@{/story/moonblight/list}"> Quay lại danh sách </a>
+        </main>
       </div>
-      <!-- <div
-        style="color: red"
-        th:if="${#fields.hasErrors('title')}"
-        th:errors="*{title}"
-      ></div> -->
-
-      <br />
-      <div>
-        <label>Tag</label><br />
-        <input type="text" name="tag" min="0" max="100" value="50" />
-      </div>
-      <br />
-
-      <div>
-        <label>Độ ưu tiên (0 - 100)</label><br />
-        <input type="number" name="priority" min="0" max="100" value="50" />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Ảnh</label><br />
-        <input type="file" name="imageFile" accept="image/*" />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Nội dung trích dẫn</label><br />
-        <textarea name="quoteContent" rows="4" cols="80"> </textarea>
-      </div>
-
-      <br />
-
-      <div>
-        <label>Tác giả trích dẫn</label><br />
-        <input type="text" name="quoteAuthor" />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Nội dung câu chuyện</label><br />
-        <textarea name="content" rows="15" cols="100" required> </textarea>
-      </div>
-
-      <br />
-
-      <button type="submit">Tạo câu chuyện</button>
-    </form>
-
-    <br />
-
-    <a th:href="@{/story/moonblight/list}"> Quay lại danh sách </a>
+    </div>
   </body>
 </html>

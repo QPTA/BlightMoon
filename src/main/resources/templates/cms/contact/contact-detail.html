@@ -1,0 +1,93 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chi tiết liên hệ</title>
+  </head>
+
+  <body>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"></th:block>
+
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"></th:block>
+
+        <main>
+          <h1>Chi tiết liên hệ</h1>
+
+          <p th:if="${successMessage}" th:text="${successMessage}"></p>
+
+          <p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+
+          <div>
+            <p>
+              <strong>ID:</strong>
+              <span th:text="${message.id}"></span>
+            </p>
+
+            <p>
+              <strong>Người gửi:</strong>
+              <span th:text="${message.visitorName}"></span>
+            </p>
+
+            <p>
+              <strong>Email:</strong>
+              <a
+                th:href="${'mailto:' + message.visitorEmail}"
+                th:text="${message.visitorEmail}"
+              ></a>
+            </p>
+
+            <p>
+              <strong>Danh mục:</strong>
+              <span
+                th:text="${message.category != null ? message.category.displayName : ''}"
+              ></span>
+            </p>
+
+            <p>
+              <strong>Nền tảng:</strong>
+              <span
+                th:text="${message.platform != null ? message.platform.displayName : ''}"
+              ></span>
+            </p>
+
+            <p>
+              <strong>Trạng thái:</strong>
+              <span
+                th:text="${message.processed ? 'Đã xử lý' : 'Chưa xử lý'}"
+              ></span>
+            </p>
+
+            <div>
+              <strong>Nội dung:</strong>
+              <pre th:text="${message.message}"></pre>
+            </div>
+          </div>
+
+          <div>
+            <form
+              th:if="${!message.processed}"
+              th:action="@{/contact/blightmoon/{id}/process(id=${message.id})}"
+              method="post"
+            >
+              <button type="submit">Đánh dấu đã xử lý</button>
+            </form>
+
+            <form
+              th:if="${message.processed}"
+              th:action="@{/contact/blightmoon/{id}/unprocess(id=${message.id})}"
+              method="post"
+            >
+              <button type="submit">Đánh dấu chưa xử lý</button>
+            </form>
+          </div>
+
+          <br />
+
+          <a th:href="@{/contact/blightmoon/list}">Quay lại danh sách</a>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

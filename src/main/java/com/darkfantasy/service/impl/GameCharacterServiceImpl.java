@@ -117,4 +117,9 @@ public class GameCharacterServiceImpl implements GameCharacterService {
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy nhân vật với ID: " + id));
     }
 
+    @Override
+    public long count() {
+        return gameCharacterRepository.count();
+    }
+
 }

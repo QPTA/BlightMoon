@@ -73,19 +73,9 @@
                             <h3 class="card-title">
                                 ${newsItem.title}
                             </h3>
-
-                            <p class="card-text">
-                                ${newsItem.summary}
-                            </p>
-
                         </div>
 
                         <div class="card-footer">
-
-                            <span class="font-Cormorant-Garamond text-grey">
-                                ${newsItem.createdAt}
-                            </span>
-
                             <a href="/news/${newsItem.id}"
                             class="text-crimson font-Lora">
                                 Đọc thêm →
@@ -96,7 +86,10 @@
                     </div>
 
                 </c:forEach>
-
+                
+            <div style="display:flex; justify-content:center; margin-top:1rem;">
+                <a href="/news">Xem thêm</a>
+            </div>
             </aside>
 
         </section>

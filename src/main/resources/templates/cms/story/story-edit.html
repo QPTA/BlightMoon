@@ -1,118 +1,138 @@
 <!doctype html>
+
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <title>Cập nhật câu chuyện</title>
   </head>
+
   <body>
-    <h1>Cập nhật câu chuyện</h1>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
 
-    <p
-      style="color: green"
-      th:if="${successMessage}"
-      th:text="${successMessage}"
-    ></p>
+      ```
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
 
-    <p style="color: red" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+        <main>
+          <h1>Cập nhật câu chuyện</h1>
 
-    <form
-      th:action="@{/story/moonblight/{id}/edit(id=${story.id})}"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <div>
-        <label>Tiêu đề</label><br />
-        <input
-          type="text"
-          name="title"
-          maxlength="255"
-          required
-          th:value="${story.title}"
-        />
+          <p
+            style="color: green"
+            th:if="${successMessage}"
+            th:text="${successMessage}"
+          ></p>
+
+          <p
+            style="color: red"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+          ></p>
+
+          <form
+            th:action="@{/story/moonblight/{id}/edit(id=${story.id})}"
+            th:object="${story}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div>
+              <label>Tiêu đề</label><br />
+
+              <input type="text" th:field="*{title}" maxlength="255" required />
+
+              <div
+                th:if="${#fields.hasErrors('title')}"
+                th:errors="*{title}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+
+            <div>
+              <label>Tag</label><br />
+
+              <input type="text" th:field="*{tag}" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Độ ưu tiên (0 - 100)</label><br />
+
+              <input type="number" th:field="*{priority}" min="0" max="100" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Ảnh hiện tại</label><br />
+
+              <img
+                th:if="*{image != null}"
+                th:src="*{image}"
+                alt="Story Image"
+                style="max-width: 300px"
+              />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Ảnh mới (không bắt buộc)</label><br />
+
+              <input type="file" name="imageFile" accept="image/*" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Nội dung trích dẫn</label><br />
+
+              <textarea th:field="*{quoteContent}" rows="4" cols="80">
+              </textarea>
+
+              <div
+                th:if="${#fields.hasErrors('quoteContent')}"
+                th:errors="*{quoteContent}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+
+            <div>
+              <label>Tác giả trích dẫn</label><br />
+
+              <input type="text" th:field="*{quoteAuthor}" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Nội dung câu chuyện</label><br />
+
+              <textarea th:field="*{content}" rows="15" cols="100" required>
+              </textarea>
+
+              <div
+                th:if="${#fields.hasErrors('content')}"
+                th:errors="*{content}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+
+            <button type="submit">Cập nhật câu chuyện</button>
+          </form>
+
+          <br />
+
+          <a th:href="@{/story/moonblight/list}"> Quay lại danh sách </a>
+        </main>
       </div>
-      <div>
-        <label>Tag</label><br />
-        <input type="text" name="tag"/>
-      </div>
-      <br />
-      <br />
-
-      <div>
-        <label>Độ ưu tiên (0 - 100)</label><br />
-        <input
-          type="number"
-          name="priority"
-          min="0"
-          max="100"
-          th:value="${story.priority}"
-        />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Ảnh hiện tại</label><br />
-
-        <img
-          th:if="${story.image != null}"
-          th:src="${story.image}"
-          alt="Story Image"
-          style="max-width: 300px"
-        />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Ảnh mới (không bắt buộc)</label><br />
-
-        <input type="file" name="imageFile" accept="image/*" />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Nội dung trích dẫn</label><br />
-
-        <textarea
-          name="quoteContent"
-          rows="4"
-          cols="80"
-          th:text="${story.quoteContent}"
-        >
-        </textarea>
-      </div>
-
-      <br />
-
-      <div>
-        <label>Tác giả trích dẫn</label><br />
-
-        <input type="text" name="quoteAuthor" th:value="${story.quoteAuthor}" />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Nội dung câu chuyện</label><br />
-
-        <textarea
-          name="content"
-          rows="15"
-          cols="100"
-          required
-          th:text="${story.content}"
-        >
-        </textarea>
-      </div>
-
-      <br />
-
-      <button type="submit">Cập nhật câu chuyện</button>
-    </form>
-
-    <br />
-
-    <a th:href="@{/story/moonblight/list}"> Quay lại danh sách </a>
+    </div>
+    ```
   </body>
 </html>

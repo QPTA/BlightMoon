@@ -141,4 +141,9 @@ public class ArticleServiceImpl implements ArticleService {
                 .map(ArticleResponse::fromEntity)
                 .toList();
     }
+
+    @Override
+    public long count() {
+        return articleRepository.count();
+    }
 }

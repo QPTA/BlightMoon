@@ -58,7 +58,6 @@ public class StoryController {
             RedirectAttributes redirectAttributes) {
 
         if (result.hasErrors()) {
-            model.addAttribute("errorMessage", "Vui lòng kiểm tra lại thông tin câu chuyện.");
             return "cms/story/story-create";
 
         }
@@ -108,9 +107,18 @@ public class StoryController {
         request.setId(id);
 
         try {
+            StoryResponse oldStory = storyService.getStoryById(id);
+
             if (imageFile != null && !imageFile.isEmpty()) {
+
                 request.setImage(
-                        fileStorageService.saveFile(imageFile, "stories"));
+                        fileStorageService.saveFile(
+                                imageFile,
+                                "stories"));
+
+            } else {
+                request.setImage(
+                        oldStory.getImage());
             }
             storyService.updateStory(request);
 

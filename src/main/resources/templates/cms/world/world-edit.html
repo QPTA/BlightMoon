@@ -6,91 +6,110 @@
     <title>Cập nhật thế giới</title>
   </head>
   <body>
-    <h1>Cập nhật thế giới</h1>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
 
-    <p
-      style="color: green"
-      th:if="${successMessage}"
-      th:text="${successMessage}"
-    ></p>
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
 
-    <p style="color: red" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+        <main>
+          <h1>Cập nhật thế giới</h1>
 
-    <form
-      th:action="@{/world/moonblight/{id}/edit(id=${world.id})}"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      ```
-      <div>
-        <label>Tag</label><br />
-        <input type="text" name="tag" th:value="${world.tag}" />
+          <p
+            style="color: green"
+            th:if="${successMessage}"
+            th:text="${successMessage}"
+          ></p>
+
+          <p
+            style="color: red"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+          ></p>
+
+          <form
+            th:action="@{/world/moonblight/{id}/edit(id=${world.id})}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            ```
+            <div>
+              <label>Tag</label><br />
+              <input type="text" name="tag" th:value="${world.tag}" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Tiêu đề</label><br />
+              <input
+                type="text"
+                name="title"
+                required
+                th:value="${world.title}"
+              />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Độ ưu tiên (0 - 100)</label><br />
+              <input
+                type="number"
+                name="priority"
+                min="0"
+                max="100"
+                th:value="${world.priority}"
+              />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Ảnh hiện tại</label><br />
+
+              <img
+                th:if="${world.image != null}"
+                th:src="${world.image}"
+                alt="World Image"
+                style="max-width: 300px"
+              />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Ảnh mới (không bắt buộc)</label><br />
+
+              <input type="file" name="imageFile" accept="image/*" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Nội dung</label><br />
+
+              <textarea
+                name="content"
+                rows="15"
+                cols="100"
+                required
+                th:text="${world.content}"
+              >
+              </textarea>
+            </div>
+
+            <br />
+
+            <button type="submit">Cập nhật thế giới</button>
+            ```
+          </form>
+
+          <br />
+
+          <a th:href="@{/world/moonblight/list}"> Quay lại danh sách </a>
+        </main>
       </div>
-
-      <br />
-
-      <div>
-        <label>Tiêu đề</label><br />
-        <input type="text" name="title" required th:value="${world.title}" />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Độ ưu tiên (0 - 100)</label><br />
-        <input
-          type="number"
-          name="priority"
-          min="0"
-          max="100"
-          th:value="${world.priority}"
-        />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Ảnh hiện tại</label><br />
-
-        <img
-          th:if="${world.image != null}"
-          th:src="${world.image}"
-          alt="World Image"
-          style="max-width: 300px"
-        />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Ảnh mới (không bắt buộc)</label><br />
-
-        <input type="file" name="imageFile" accept="image/*" />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Nội dung</label><br />
-
-        <textarea
-          name="content"
-          rows="15"
-          cols="100"
-          required
-          th:text="${world.content}"
-        >
-        </textarea>
-      </div>
-
-      <br />
-
-      <button type="submit">Cập nhật thế giới</button>
-      ```
-    </form>
-
-    <br />
-
-    <a th:href="@{/world/moonblight/list}"> Quay lại danh sách </a>
+    </div>
   </body>
 </html>

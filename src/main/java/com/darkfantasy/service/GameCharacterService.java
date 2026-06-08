@@ -19,4 +19,6 @@ public interface GameCharacterService {
     Page<GameCharacterResponse> getCharacters(Pageable pageable);
     List<GameCharacterResponse> getCharactersDeletedFalse();
     List<GameCharacterResponse> getCharactersLimit(int limit);
+
+    long count();
 }

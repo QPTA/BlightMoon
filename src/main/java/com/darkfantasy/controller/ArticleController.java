@@ -34,6 +34,11 @@ public class ArticleController {
     private final ArticleService articleService;
     private final FileStorageService fileStorageService;
 
+    @ModelAttribute("articleTypes")
+    public ArticleType[] articleTypes() {
+        return ArticleType.values();
+    }
+
     @GetMapping({ "/list", "/list/" })
     public String articleList(
             @PageableDefault(size = 10) Pageable pageable,
@@ -47,13 +52,13 @@ public class ArticleController {
 
     @GetMapping({ "/create", "/create/" })
     public String toCreatePage(Model model) {
-        model.addAttribute("articleTypes", ArticleType.values());
+        model.addAttribute("createArticleRequest", new CreateArticleRequest());
         return "cms/article/article-create";
     }
 
     @PostMapping("/create")
     public String createArticle(
-            @Valid @ModelAttribute CreateArticleRequest request,
+            @Valid @ModelAttribute("createArticleRequest") CreateArticleRequest request,
             BindingResult result,
             @RequestParam("thumbnail") MultipartFile thumbnailFile,
             Model model,
@@ -134,7 +139,6 @@ public class ArticleController {
         ArticleResponse article = articleService.getArticleById(id);
 
         model.addAttribute("article", article);
-        model.addAttribute("articleTypes", ArticleType.values());
 
         return "cms/article/article-edit";
     }

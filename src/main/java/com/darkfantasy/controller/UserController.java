@@ -84,7 +84,7 @@ public class UserController {
                     HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,
                     context);
 
-            return "redirect:/";
+            return "redirect:/dashboard/moonblight";
         } catch (AuthenticationException e) {
             model.addAttribute("errorMessage", "Tên đăng nhập hoặc mật khẩu không đúng.");
             return "cms/auth/login";

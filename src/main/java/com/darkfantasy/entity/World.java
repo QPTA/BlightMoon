@@ -28,7 +28,7 @@ public class World {
     private String tag;
     @Column(name = "title", nullable = false)
     private String title;
-    @Column(name = "content", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "content", columnDefinition = "LONGTEXT", nullable = false)
     private String content;
     @Column(name = "image")
     private String image;

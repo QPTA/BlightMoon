@@ -28,11 +28,11 @@ public class Story {
     private String tag;
     @Column(name = "title")
     private String title;
-    @Column(name = "content", columnDefinition = "TEXT")
+    @Column(name = "content", columnDefinition = "LONGTEXT")
     private String content;
     @Column(name = "image")
     private String image;
-    @Column(name = "quote_content", columnDefinition = "TEXT")
+    @Column(name = "quote_content", columnDefinition = "LONGTEXT")
     private String quoteContent;
     @Column(name = "quote_author")
     private String quoteAuthor;

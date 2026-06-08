@@ -3,58 +3,102 @@
   <head>
     <meta charset="UTF-8" />
     <title>Tạo bài viết</title>
+    <!-- outer css -->
+    <!-- common css -->
+    <link rel="stylesheet" th:href="@{/css/component/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/component/footer.css}" />
+    <!-- article css -->
+    <link rel="stylesheet" th:href="@{/css/cms/article/article-create.css}" />
   </head>
   <body>
-    <h1>Tạo bài viết mới</h1>
-    -->
-    <p
-      style="color: green"
-      th:if="${successMessage}"
-      th:text="${successMessage}"
-    ></p>
-    <p style="color: red" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
 
-    <form
-      th:action="@{/article/moonblight/create}"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <div>
-        <label>Tiêu đề</label><br />
-        <input type="text" name="title" maxlength="255" required />
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
+
+        <main>
+          <h1>Tạo bài viết mới</h1>
+          <p
+            style="color: green"
+            th:if="${successMessage}"
+            th:text="${successMessage}"
+          ></p>
+          <p
+            style="color: red"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+          ></p>
+
+          <form
+            th:action="@{/article/moonblight/create}"
+            th:object="${createArticleRequest}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div>
+              <label>Tiêu đề</label><br />
+              <input type="text" th:field="*{title}" maxlength="255" required />
+
+              <div
+                th:if="${#fields.hasErrors('title')}"
+                th:errors="*{title}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+
+            <div>
+              <label>Loại bài viết</label><br />
+
+              <select th:field="*{type}" required>
+                <option value="">-- Chọn loại bài viết --</option>
+                <option
+                  th:each="type : ${articleTypes}"
+                  th:value="${type}"
+                  th:text="${type.displayName}"
+                ></option>
+              </select>
+              <div
+                th:if="${#fields.hasErrors('type')}"
+                th:errors="*{type}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+
+            <div>
+              <label>Thumbnail</label><br />
+              <input type="file" name="thumbnail" accept="image/*" />
+            </div>
+
+            <br />
+
+            <div>
+              <label>Nội dung</label><br />
+              <textarea
+                id="content"
+                th:field="*{content}"
+                rows="15"
+                cols="80"
+                required
+              ></textarea>
+
+              <div
+                th:if="${#fields.hasErrors('content')}"
+                th:errors="*{content}"
+                style="color: red"
+              ></div>
+            </div>
+
+            <br />
+
+            <button type="submit">Tạo bài viết</button>
+          </form>
+        </main>
       </div>
-
-      <br />
-
-      <div>
-        <label>Loại bài viết</label><br />
-
-        <select name="type" required>
-          <option
-            th:each="type : ${articleTypes}"
-            th:value="${type}"
-            th:text="${type.displayName}"
-          ></option>
-        </select>
-      </div>
-
-      <br />
-
-      <div>
-        <label>Thumbnail</label><br />
-        <input type="file" name="thumbnail" accept="image/*" />
-      </div>
-
-      <br />
-
-      <div>
-        <label>Nội dung</label><br />
-        <textarea name="content" rows="15" cols="80" required></textarea>
-      </div>
-
-      <br />
-
-      <button type="submit">Tạo bài viết</button>
-    </form>
+    </div>
   </body>
 </html>

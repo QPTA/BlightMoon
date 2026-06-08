@@ -87,232 +87,128 @@
                 <h2 class="split-title" style="margin-bottom:1.5rem;">
                     Câu Hỏi Thường Gặp
                 </h2>
-
-                <div class="support-accordion">
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header">
-                            <span class="accordion-question">
-                                Có cách nào tắt permadeath không?
-                            </span>
-
-                            <span class="accordion-icon">+</span>
-                        </div>
-
-                        <div class="accordion-body">
-                            <p class="accordion-answer">
-                                Có.
-                                Trong phiên bản 2.9, chúng tôi đã thêm chế độ
-                                "Ngọn Lửa Hy Vọng", cho phép giữ lại tiến trình của anh hùng sau khi chết
-                                thay vì xóa họ vĩnh viễn.
-                                Chế độ này được hỗ trợ đầy đủ và không ảnh hưởng đến thành tựu.
-                                Có thể bật hoặc tắt trong phần Cài Đặt bất kỳ lúc nào.
-                            </p>
-                        </div>
-
+                
+        <section class="support-accordion">
+            <c:forEach items="${faqs}" var="faq">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-question">
+                            ${faq.title}
+                        </span>
+                        <span class="accordion-icon">+</span>
                     </div>
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header">
-                            <span class="accordion-question">
-                                Làm sao để sửa lỗi crash khi khởi động?
-                            </span>
-
-                            <span class="accordion-icon">+</span>
-                        </div>
-
-                        <div class="accordion-body">
-                            <p class="accordion-answer">
-                                Trước tiên, hãy kiểm tra tính toàn vẹn của file game
-                                thông qua trình quản lý thư viện của nền tảng bạn sử dụng.
-                                Nếu lỗi vẫn tiếp diễn, hãy cập nhật driver card đồ họa.
-                                Với người chơi PC, hãy đảm bảo DirectX 12 đã được cài đặt.
-                                Nếu vẫn chưa khắc phục được,
-                                hãy liên hệ với chúng tôi qua biểu mẫu bên dưới
-                                kèm cấu hình máy và crash log.
-                            </p>
-                        </div>
-
+                    <div class="accordion-body">
+                        <p class="accordion-answer">
+                            ${faq.content}
+                        </p>
                     </div>
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header">
-                            <span class="accordion-question">
-                                Game có hỗ trợ cloud save không?
-                            </span>
-
-                            <span class="accordion-icon">+</span>
-                        </div>
-
-                        <div class="accordion-body">
-                            <p class="accordion-answer">
-                                Có.
-                                Cloud save được hỗ trợ trên mọi nền tảng.
-                                Dữ liệu sẽ tự động đồng bộ khi bạn thoát game.
-                                Bạn cũng có thể đồng bộ thủ công từ menu chính.
-                                Tính năng chuyển save giữa PC và Console hiện đang được phát triển
-                                và dự kiến ra mắt trong Q1 2025.
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header">
-                            <span class="accordion-question">
-                                Tôi có thể mod game không?
-                            </span>
-
-                            <span class="accordion-icon">+</span>
-                        </div>
-
-                        <div class="accordion-body">
-                            <p class="accordion-answer">
-                                Phiên bản PC hỗ trợ mod hoàn toàn thông qua Steam Workshop.
-                                Bộ công cụ mod chính thức được phát hành miễn phí,
-                                bao gồm tài liệu hướng dẫn tạo hầm ngục, quái vật,
-                                vật phẩm và class anh hùng mới.
-                                Mod trên console hiện chưa được hỗ trợ,
-                                nhưng đang được xem xét tích cực.
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header">
-                            <span class="accordion-question">
-                                Chính sách hoàn tiền như thế nào?
-                            </span>
-
-                            <span class="accordion-icon">+</span>
-                        </div>
-
-                        <div class="accordion-body">
-                            <p class="accordion-answer">
-                                Chính sách hoàn tiền sẽ phụ thuộc vào nền tảng bạn mua game
-                                (Steam, Epic, PlayStation Store, v.v.).
-                                Chúng tôi hỗ trợ toàn bộ quy trình hoàn tiền tiêu chuẩn của từng nền tảng.
-                                Nếu bạn bị tính phí sai hoặc gặp lỗi thanh toán,
-                                hãy liên hệ trực tiếp với chúng tôi qua biểu mẫu bên dưới.
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <div class="accordion-item">
-
-                        <div class="accordion-header">
-                            <span class="accordion-question">
-                                Game có các tùy chọn hỗ trợ tiếp cận không?
-                            </span>
-
-                            <span class="accordion-icon">+</span>
-                        </div>
-
-                        <div class="accordion-body">
-                            <p class="accordion-answer">
-                                Có.
-                                Chúng tôi hỗ trợ nhiều chế độ mù màu
-                                (deuteranopia, protanopia, tritanopia),
-                                chỉnh kích thước chữ lên tới 200%,
-                                điều chỉnh tốc độ chiến đấu,
-                                và chế độ Ngọn Lửa Hy Vọng thay thế permadeath.
-                                Chúng tôi vẫn đang phát triển thêm các tùy chọn mới dựa trên phản hồi cộng đồng.
-                            </p>
-                        </div>
-
-                    </div>
-
                 </div>
+            </c:forEach>
+        </section>
             </div>
-
             <!-- CONTACT FORM -->
-            <div>
-
+            <section>
                 <div class="split-tag">Liên Hệ Trực Tiếp</div>
-
                 <h2 class="split-title" style="margin-bottom:1.5rem;">
                     Gửi Tin Nhắn
                 </h2>
-
                 <div class="contact-form">
+                    <c:if test="${not empty successMessage}">
+                        <p class="form-message form-message-success">${successMessage}</p>
+                    </c:if>
 
-                    <form id="contactForm">
+                    <c:if test="${not empty errorMessage}">
+                        <p class="form-message form-message-error">${errorMessage}</p>
+                    </c:if>
 
+                    <form id="contactForm"
+                        action="${pageContext.request.contextPath}/support"
+                        method="post">
                         <div class="form-group">
                             <label class="form-label" for="name">Tên Của Ngươi</label>
-
                             <input type="text"
                                 id="name"
+                                name="visitorName"
                                 class="form-control"
                                 placeholder="Nhập tên của ngươi"
+                                value="${contactRequest.visitorName}"
                                 required>
                         </div>
-
                         <div class="form-group">
                             <label class="form-label" for="email">Địa Chỉ Email</label>
-
                             <input type="email"
                                 id="email"
+                                name="visitorEmail"
                                 class="form-control"
                                 placeholder="email@vungdat.com"
+                                value="${contactRequest.visitorEmail}"
                                 required>
                         </div>
-
                         <div class="form-group">
                             <label class="form-label" for="category">Danh Mục</label>
-
-                            <select id="category" class="form-control">
+                            <select id="category"
+                                name="category"
+                                class="form-control"
+                                required>
                                 <option value="">Chọn danh mục...</option>
-                                <option>Sự Cố Kỹ Thuật</option>
-                                <option>Báo Cáo Lỗi</option>
-                                <option>Tài Khoản / Mua Hàng</option>
-                                <option>Khả Năng Tiếp Cận</option>
-                                <option>Chương Trình Creator</option>
-                                <option>Liên Hệ Báo Chí</option>
-                                <option>Khác</option>
+                                <c:forEach items="${categories}" var="category">
+                                    <c:choose>
+                                        <c:when test="${contactRequest.category eq category}">
+                                            <option value="${category}" selected>
+                                                ${category.displayName}
+                                            </option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${category}">
+                                                ${category.displayName}
+                                            </option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label class="form-label" for="platform">Nền Tảng</label>
-
-                            <select id="platform" class="form-control">
+                            <select id="platform"
+                                name="platform"
+                                class="form-control"
+                                required>
                                 <option value="">Chọn nền tảng...</option>
-                                <option>PC (Steam)</option>
-                                <option>PC (Epic Games)</option>
-                                <option>PlayStation 5</option>
-                                <option>Xbox Series X/S</option>
-                                <option>Nintendo Switch</option>
+                                <c:forEach items="${platforms}" var="platform">
+                                    <c:choose>
+                                        <c:when test="${contactRequest.platform eq platform}">
+                                            <option value="${platform}" selected>
+                                                ${platform.displayName}
+                                            </option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${platform}">
+                                                ${platform.displayName}
+                                            </option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label class="form-label" for="message">Tin Nhắn</label>
-
                             <textarea id="message"
+                                name="message"
                                 class="form-control"
-                                placeholder="Hãy mô tả vấn đề của ngươi càng chi tiết càng tốt. Bóng tối luôn đủ kiên nhẫn để chờ đợi."></textarea>
+                                placeholder="Hãy mô tả vấn đề của ngươi càng chi tiết càng tốt. Bóng tối luôn đủ kiên nhẫn để chờ đợi."
+                                maxlength="5000"
+                                required>${contactRequest.message}</textarea>
                         </div>
-
                         <button type="submit"
                             class="btn btn-primary w-full"
                             style="justify-content:center;">
-
                             &#9670; Gửi Vào Vực Thẳm
                         </button>
-
                     </form>
-
                 </div>
-            </div>
-
+            </section>
         </div>
     </div>
 </section>
+
+<%@ include file="/WEB-INF/views/layout/footer.jsp" %>

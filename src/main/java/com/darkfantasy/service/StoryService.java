@@ -20,4 +20,6 @@ public interface StoryService {
     List<StoryResponse> getStoriesDeletedFalse();
     StoryResponse getStoryDeletedFalseHighestPriority();
 
+    long count();
+
 }

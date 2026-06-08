@@ -37,4 +37,16 @@ public class WorldResponse {
                 .deleted(world.isDeleted())
                 .build();
     }
+
+    public String getSummary() {
+        if (content == null) {
+            return "";
+        }
+
+        if (content.length() <= 350) {
+            return content;
+        }
+
+        return content.substring(0, 350) + "...";
+    }
 }

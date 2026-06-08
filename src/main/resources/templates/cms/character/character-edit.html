@@ -1,114 +1,108 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Cập nhật nhân vật</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
 
-<h1>Cập nhật nhân vật</h1>
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
 
-<p style="color:red"
-   th:if="${errorMessage}"
-   th:text="${errorMessage}">
-</p>
+        <main>
+          <h1>Cập nhật nhân vật</h1>
 
-<form
-        th:action="@{/character/moonblight/{id}/edit(id=${character.id})}"
-        method="post"
-        enctype="multipart/form-data">
+          <p
+            style="color: red"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+          ></p>
 
-    <input type="hidden"
-           name="image"
-           th:value="${character.image}">
+          <form
+            th:action="@{/character/moonblight/{id}/edit(id=${character.id})}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <input type="hidden" name="image" th:value="${character.image}" />
 
-    <div>
-        <label>Tên</label><br>
+            <div>
+              <label>Tên</label><br />
 
-        <input type="text"
-               name="name"
-               th:value="${character.name}">
-    </div>
+              <input type="text" name="name" th:value="${character.name}" />
+            </div>
 
-    <br>
+            <br />
 
-    <div>
-        <label>Chủng tộc</label><br>
+            <div>
+              <label>Chủng tộc</label><br />
 
-        <input type="text"
-               name="race"
-               th:value="${character.race}">
-    </div>
+              <input type="text" name="race" th:value="${character.race}" />
+            </div>
 
-    <br>
+            <br />
 
-    <div>
-        <label>Quote</label><br>
+            <div>
+              <label>Quote</label><br />
 
-        <input type="text"
-               name="quote"
-               th:value="${character.quote}">
-    </div>
+              <input type="text" name="quote" th:value="${character.quote}" />
+            </div>
 
-    <br>
+            <br />
 
-    <div>
-        <label>Priority</label><br>
+            <div>
+              <label>Priority</label><br />
 
-        <input type="number"
-               name="priority"
-               min="0"
-               max="100"
-               th:value="${character.priority}">
-    </div>
+              <input
+                type="number"
+                name="priority"
+                min="0"
+                max="100"
+                th:value="${character.priority}"
+              />
+            </div>
 
-    <br>
+            <br />
 
-    <div>
+            <div>
+              <label>Ảnh hiện tại</label><br />
 
-        <label>Ảnh hiện tại</label><br>
-
-        <img
+              <img
                 th:if="${character.image != null}"
                 th:src="${character.image}"
-                style="max-width:200px">
+                style="max-width: 200px"
+              />
+            </div>
 
-    </div>
+            <br />
 
-    <br>
+            <div>
+              <label>Ảnh mới</label><br />
 
-    <div>
+              <input type="file" name="imageFile" accept="image/*" />
+            </div>
 
-        <label>Ảnh mới</label><br>
+            <br />
 
-        <input type="file"
-               name="imageFile"
-               accept="image/*">
+            <div>
+              <label>Mô tả</label><br />
 
-    </div>
-
-    <br>
-
-    <div>
-
-        <label>Mô tả</label><br>
-
-        <textarea
+              <textarea
                 name="description"
                 rows="10"
                 cols="80"
-                th:text="${character.description}">
-        </textarea>
+                th:text="${character.description}"
+              >
+              </textarea>
+            </div>
 
+            <br />
+
+            <button type="submit">Cập nhật</button>
+          </form>
+        </main>
+      </div>
     </div>
-
-    <br>
-
-    <button type="submit">
-        Cập nhật
-    </button>
-
-</form>
-
-</body>
+  </body>
 </html>

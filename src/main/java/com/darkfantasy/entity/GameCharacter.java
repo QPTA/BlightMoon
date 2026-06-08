@@ -34,7 +34,7 @@ public class GameCharacter {
     private String name;
     @Column(name = "race")
     private String race;
-    @Column(name = "description", columnDefinition = "TEXT")
+    @Column(name = "description", columnDefinition = "LONGTEXT")
     private String description;
     @Column(name = "quote")
     private String quote;

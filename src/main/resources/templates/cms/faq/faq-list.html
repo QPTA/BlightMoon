@@ -1,0 +1,97 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Danh sách FAQ</title>
+  </head>
+
+  <body>
+    <div class="layout">
+      <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
+
+      <div class="content-wrapper">
+        <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
+
+        <main>
+          <h1>Danh sách FAQ</h1>
+
+          <p
+            style="color: green"
+            th:if="${successMessage}"
+            th:text="${successMessage}"
+          ></p>
+
+          <p
+            style="color: red"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+          ></p>
+
+          <a th:href="@{/faq/moonblight/create}"> Tạo FAQ </a>
+
+          <br />
+          <br />
+
+          <table border="1">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tiêu đề</th>
+                <th>Priority</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr th:each="faq : ${faqs.content}">
+                <td th:text="${faq.id}"></td>
+
+                <td th:text="${faq.title}"></td>
+
+                <td th:text="${faq.priority}"></td>
+
+                <td th:text="${faq.deleted ? 'Đã xóa' : 'Đang hiển thị'}"></td>
+
+                <td>
+                  <form
+                    th:action="@{/faq/moonblight/{id}/edit(id=${faq.id})}"
+                    method="get"
+                  >
+                    <button type="submit">Sửa</button>
+                  </form>
+
+                  <form
+                    th:if="${!faq.deleted}"
+                    th:action="@{/faq/moonblight/{id}/delete(id=${faq.id})}"
+                    method="post"
+                  >
+                    <button
+                      type="submit"
+                      onclick="return confirm('Bạn có chắc muốn xóa FAQ này?');"
+                    >
+                      Xóa
+                    </button>
+                  </form>
+
+                  <form
+                    th:if="${faq.deleted}"
+                    th:action="@{/faq/moonblight/{id}/restore(id=${faq.id})}"
+                    method="post"
+                  >
+                    <button
+                      type="submit"
+                      onclick="return confirm('Khôi phục FAQ này?');"
+                    >
+                      Khôi phục
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

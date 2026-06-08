@@ -24,6 +24,13 @@ public class Faq {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(name = "title", length = 500, nullable = false)
+    private String title;
+    @Column(name = "content", columnDefinition = "LONGTEXT", nullable = false)
+    private String content;
+    @Column(name = "priority")
+    private Integer priority;
+    @Column(name = "deleted")
+    private boolean deleted;
 
-    
 }

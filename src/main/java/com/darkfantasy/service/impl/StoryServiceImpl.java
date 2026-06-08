@@ -107,4 +107,9 @@ public class StoryServiceImpl implements StoryService {
         return storyRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy câu chuyện với ID: " + id));
     }
+
+    @Override
+    public long count() {
+        return storyRepository.count();
+    }
 }
