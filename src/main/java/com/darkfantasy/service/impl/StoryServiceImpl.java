@@ -10,9 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.darkfantasy.dto.story.CreateStoryRequest;
 import com.darkfantasy.dto.story.UpdateStoryRequest;
 import com.darkfantasy.entity.Story;
+import com.darkfantasy.entity.User;
 import com.darkfantasy.dto.story.StoryResponse;
 import com.darkfantasy.repository.StoryRepository;
+import com.darkfantasy.repository.UserRepository;
 import com.darkfantasy.service.StoryService;
+import com.darkfantasy.util.SecurityUtil;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class StoryServiceImpl implements StoryService {
     private final StoryRepository storyRepository;
+    private final UserRepository userRepository;
 
     @Override
     public Page<StoryResponse> getStories(Pageable pageable) {
@@ -43,9 +47,11 @@ public class StoryServiceImpl implements StoryService {
 
         Story story = request.toEntity();
 
+        story.setCreatedBy(getCurrentUser());
+
         Story savedStory = storyRepository.save(story);
 
-        return StoryResponse.fromEntity(story);
+        return StoryResponse.fromEntity(savedStory);
     }
 
     @Transactional
@@ -65,6 +71,7 @@ public class StoryServiceImpl implements StoryService {
         story.setQuoteContent(request.getQuoteContent());
         story.setQuoteAuthor(request.getQuoteAuthor());
         story.setPriority(request.getPriority());
+        story.setUpdatedBy(getCurrentUser());
 
         return StoryResponse.fromEntity(story);
     }
@@ -77,6 +84,7 @@ public class StoryServiceImpl implements StoryService {
         }
         Story found = findStory(id);
         found.setDeleted(true);
+         found.setUpdatedBy(getCurrentUser());
     }
 
     @Transactional
@@ -87,6 +95,7 @@ public class StoryServiceImpl implements StoryService {
         }
         Story found = findStory(id);
         found.setDeleted(false);
+         found.setUpdatedBy(getCurrentUser());
     }
 
     @Override
@@ -103,13 +112,26 @@ public class StoryServiceImpl implements StoryService {
                 .toList();
     }
 
-    private Story findStory(Long id) {
-        return storyRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy câu chuyện với ID: " + id));
-    }
+
 
     @Override
     public long count() {
         return storyRepository.count();
+    }
+    private Story findStory(Long id) {
+        return storyRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy câu chuyện với ID: " + id));
+    }
+        private User getCurrentUser() {
+
+        String currentUsername = SecurityUtil.getCurrentUserName();
+
+        if (currentUsername == null) {
+            throw new IllegalStateException("Không tìm thấy người dùng hiện tại");
+        }
+
+        return userRepository
+                .findUserByUsername(currentUsername)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy người dùng"));
     }
 }

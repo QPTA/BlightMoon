@@ -85,7 +85,6 @@ public class GameCharacterController {
     @GetMapping({ "{id}/edit", "{id}/edit/" })
     public String toEditPage(@PathVariable("id") Long id, Model model) {
         GameCharacterResponse character = gameCharacterService.getGameCharacterById(id);
-
         model.addAttribute("character", character);
         return "cms/character/character-edit";
     }

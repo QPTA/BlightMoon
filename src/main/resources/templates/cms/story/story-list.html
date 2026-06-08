@@ -100,12 +100,35 @@
           <br />
 
           <div th:if="${stories.totalPages > 1}">
-            <span>
-              Trang
-              <span th:text="${stories.number + 1}"></span>
-              /
-              <span th:text="${stories.totalPages}"></span>
+            <a
+              th:if="${!stories.first}"
+              th:href="@{/story/moonblight/list(page=${stories.number - 1})}"
+            >
+              ← Trước
+            </a>
+
+            <span
+              th:each="i : ${#numbers.sequence(0, stories.totalPages - 1)}"
+            >
+              <a
+                th:if="${i != stories.number}"
+                th:href="@{/story/moonblight/list(page=${i})}"
+                th:text="${i + 1}"
+              ></a>
+
+              <span
+                th:if="${i == stories.number}"
+                th:text="${i + 1}"
+                style="font-weight: bold"
+              ></span>
             </span>
+
+            <a
+              th:if="${!stories.last}"
+              th:href="@{/story/moonblight/list(page=${stories.number + 1})}"
+            >
+              Sau →
+            </a>
           </div>
         </main>
       </div>

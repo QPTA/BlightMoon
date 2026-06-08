@@ -37,13 +37,7 @@ public class ArticleServiceImpl implements ArticleService {
         if (request == null) {
             throw new IllegalArgumentException("Không thể tạo bài viết với dữ liệu null");
         }
-        String currentUsername = SecurityUtil.getCurrentUserName();
-        if (currentUsername == null) {
-            throw new IllegalStateException("Không tìm thấy người dùng hiện tại");
-        }
-        User currentUser = userRepository
-                .findUserByUsername(currentUsername)
-                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy người dùng"));
+        User currentUser = getCurrentUser();
         Article article = request.toEntity();
         article.setCreatedBy(currentUser);
         Article savedArticle = articleRepository.save(article);
@@ -56,6 +50,14 @@ public class ArticleServiceImpl implements ArticleService {
 
         Article article = findArticle(request.getId());
 
+        String currentUsername = SecurityUtil.getCurrentUserName();
+
+        if (currentUsername == null) {
+            throw new IllegalStateException("Không tìm thấy người dùng hiện tại");
+        }
+
+        User currentUser = getCurrentUser();
+
         article.setTitle(request.getTitle());
         article.setContent(request.getContent());
         article.setType(request.getType());
@@ -64,17 +66,21 @@ public class ArticleServiceImpl implements ArticleService {
             article.setThumbnailUrl(request.getThumbnailUrl());
         }
 
+        article.setUpdatedBy(currentUser);
+
         return ArticleResponse.fromEntity(article);
     }
 
     @Transactional
     @Override
     public void deleteArticle(Long articleId) {
+        User currentUser = getCurrentUser();
         if (articleId == null) {
             throw new IllegalArgumentException("Không thể xóa bài viết với ID null");
         }
         Article article = findArticle(articleId);
         article.setDeleted(true);
+        article.setUpdatedBy(currentUser);
     }
 
     @Override
@@ -117,16 +123,13 @@ public class ArticleServiceImpl implements ArticleService {
     @Transactional
     @Override
     public void restoreArticle(Long articleId) {
+        User currentUser = getCurrentUser();
         if (articleId == null) {
             throw new IllegalArgumentException("Không thể khôi phục bài viết với ID null");
         }
         Article article = findArticle(articleId);
         article.setDeleted(false);
-    }
-
-    private Article findArticle(Long id) {
-        return articleRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy bài viết với ID: " + id));
+        article.setUpdatedBy(currentUser);
     }
 
     @Override
@@ -145,5 +148,23 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public long count() {
         return articleRepository.count();
+    }
+
+    private Article findArticle(Long id) {
+        return articleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy bài viết với ID: " + id));
+    }
+
+    private User getCurrentUser() {
+
+        String currentUsername = SecurityUtil.getCurrentUserName();
+
+        if (currentUsername == null) {
+            throw new IllegalStateException("Không tìm thấy người dùng hiện tại");
+        }
+
+        return userRepository
+                .findUserByUsername(currentUsername)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy người dùng"));
     }
 }

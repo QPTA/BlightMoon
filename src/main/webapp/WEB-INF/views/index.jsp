@@ -222,9 +222,9 @@
                             ${article.title}
                         </h3>
 
-                        <p class="card-text">
+                        <!-- <p class="card-text">
                             ${article.summary}
-                        </p>
+                        </p> -->
 
                     </div>
 

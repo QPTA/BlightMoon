@@ -10,9 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.darkfantasy.dto.faq.CreateFaqRequest;
 import com.darkfantasy.dto.faq.UpdateFaqRequest;
 import com.darkfantasy.entity.Faq;
+import com.darkfantasy.entity.User;
 import com.darkfantasy.dto.faq.FaqResponse;
 import com.darkfantasy.repository.FaqRepository;
+import com.darkfantasy.repository.UserRepository;
 import com.darkfantasy.service.FaqService;
+import com.darkfantasy.util.SecurityUtil;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FaqServiceImpl implements FaqService {
     private final FaqRepository faqRepository;
+    private final UserRepository userRepository; 
 
     @Override
     public Page<FaqResponse> getFaqs(Pageable pageable) {
@@ -42,7 +46,7 @@ public class FaqServiceImpl implements FaqService {
         }
 
         Faq faq = request.toEntity();
-
+        faq.setCreatedBy(getCurrentUser());
         Faq savedFaq = faqRepository.save(faq);
 
         return FaqResponse.fromEntity(faq);
@@ -59,7 +63,7 @@ public class FaqServiceImpl implements FaqService {
         faq.setTitle(request.getTitle());
         faq.setContent(request.getContent());
         faq.setPriority(request.getPriority());
-
+        faq.setUpdatedBy(getCurrentUser());
         return FaqResponse.fromEntity(faq);
     }
 
@@ -71,6 +75,7 @@ public class FaqServiceImpl implements FaqService {
         }
         Faq found = findFaq(id);
         found.setDeleted(true);
+        found.setUpdatedBy(getCurrentUser());
     }
 
     @Transactional
@@ -81,6 +86,7 @@ public class FaqServiceImpl implements FaqService {
         }
         Faq found = findFaq(id);
         found.setDeleted(false);
+        found.setUpdatedBy(getCurrentUser());
     }
 
     @Override
@@ -101,6 +107,17 @@ public class FaqServiceImpl implements FaqService {
     public long count() {
         return faqRepository.count();
     }
+    private User getCurrentUser() {
 
+        String currentUsername = SecurityUtil.getCurrentUserName();
+
+        if (currentUsername == null) {
+            throw new IllegalStateException("Không tìm thấy người dùng hiện tại");
+        }
+
+        return userRepository
+                .findUserByUsername(currentUsername)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy người dùng"));
+    }
 
 }

@@ -4,6 +4,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Tạo thế giới</title>
+    <!-- outer css -->
+    <!-- 1. Nhúng CSS & JS của Quill -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -31,18 +38,19 @@
             th:action="@{/world/moonblight/create}"
             method="post"
             enctype="multipart/form-data"
+            th:object="${createWorldRequest}"
           >
             ```
             <div>
               <label>Tag</label><br />
-              <input type="text" name="tag" />
+              <input type="text" th:field="*{tag}" />
             </div>
 
             <br />
 
             <div>
               <label>Tiêu đề</label><br />
-              <input type="text" name="title" required />
+              <input type="text" th:field="*{title}" required />
             </div>
 
             <br />
@@ -51,7 +59,7 @@
               <label>Độ ưu tiên (0 - 100)</label><br />
               <input
                 type="number"
-                name="priority"
+                th:field="*{priority}"
                 min="0"
                 max="100"
                 value="50"
@@ -70,8 +78,13 @@
             <div>
               <label>Nội dung</label><br />
 
-              <textarea name="content" rows="15" cols="100" required>
-              </textarea>
+              <textarea
+                id="content"
+                th:field="*{content}"
+                style="display: none"
+              ></textarea>
+
+              <div id="quill-editor"></div>
             </div>
 
             <br />
@@ -86,5 +99,6 @@
         </main>
       </div>
     </div>
+    <script th:src="@{/js/editor.js}"></script>
   </body>
 </html>

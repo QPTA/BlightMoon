@@ -11,8 +11,11 @@ import com.darkfantasy.dto.gamecharacter.CreateGameCharacterRequest;
 import com.darkfantasy.dto.gamecharacter.GameCharacterResponse;
 import com.darkfantasy.dto.gamecharacter.UpdateGameCharacterRequest;
 import com.darkfantasy.entity.GameCharacter;
+import com.darkfantasy.entity.User;
 import com.darkfantasy.repository.GameCharacterRepository;
+import com.darkfantasy.repository.UserRepository;
 import com.darkfantasy.service.GameCharacterService;
+import com.darkfantasy.util.SecurityUtil;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 public class GameCharacterServiceImpl implements GameCharacterService {
 
     private final GameCharacterRepository gameCharacterRepository;
+    private final UserRepository userRepository;
 
     @Override
     public GameCharacterResponse getGameCharacterById(Long id) {
@@ -39,6 +43,7 @@ public class GameCharacterServiceImpl implements GameCharacterService {
         }
 
         GameCharacter character = request.toEntity();
+        character.setCreatedBy(getCurrentUser());
 
         GameCharacter savedCharacter = gameCharacterRepository.save(character);
 
@@ -59,6 +64,7 @@ public class GameCharacterServiceImpl implements GameCharacterService {
         character.setDescription(request.getDescription());
         character.setQuote(request.getQuote());
         character.setPriority(request.getPriority());
+        character.setUpdatedBy(getCurrentUser());
         if (request.getImage() != null) {
             character.setImage(request.getImage());
         }
@@ -74,6 +80,7 @@ public class GameCharacterServiceImpl implements GameCharacterService {
         }
         GameCharacter found = findGameCharacter(id);
         found.setDeleted(true);
+        found.setUpdatedBy(getCurrentUser());
     }
 
     @Transactional
@@ -84,6 +91,7 @@ public class GameCharacterServiceImpl implements GameCharacterService {
         }
         GameCharacter found = findGameCharacter(id);
         found.setDeleted(false);
+        found.setUpdatedBy(getCurrentUser());
     }
 
     @Override
@@ -112,14 +120,26 @@ public class GameCharacterServiceImpl implements GameCharacterService {
                 .toList();
     }
 
-    private GameCharacter findGameCharacter(Long id) {
-        return gameCharacterRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy nhân vật với ID: " + id));
-    }
-
     @Override
     public long count() {
         return gameCharacterRepository.count();
     }
 
+    private GameCharacter findGameCharacter(Long id) {
+        return gameCharacterRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy nhân vật với ID: " + id));
+    }
+
+    private User getCurrentUser() {
+
+        String currentUsername = SecurityUtil.getCurrentUserName();
+
+        if (currentUsername == null) {
+            throw new IllegalStateException("Không tìm thấy người dùng hiện tại");
+        }
+
+        return userRepository
+                .findUserByUsername(currentUsername)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy người dùng"));
+    }
 }

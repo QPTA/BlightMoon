@@ -139,6 +139,7 @@ public class ArticleController {
         ArticleResponse article = articleService.getArticleById(id);
 
         model.addAttribute("article", article);
+        
 
         return "cms/article/article-edit";
     }

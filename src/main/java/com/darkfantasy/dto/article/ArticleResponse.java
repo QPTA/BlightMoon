@@ -1,6 +1,7 @@
 package com.darkfantasy.dto.article;
 
 import com.darkfantasy.entity.Article;
+import com.darkfantasy.entity.User;
 import com.darkfantasy.entity.enums.ArticleType;
 import com.darkfantasy.util.TimeUtil;
 
@@ -21,7 +22,9 @@ public class ArticleResponse {
     private String authorUsername;
     private String thumbnailUrl;
     private String type;
+    private String createdByUserName;
     private String createdAt;
+    private String updatedByUserName;
     private String updatedAt;
     private boolean deleted;
 
@@ -33,7 +36,9 @@ public class ArticleResponse {
                 .authorUsername(article.getCreatedBy().getUsername())
                 .thumbnailUrl(article.getThumbnailUrl())
                 .type(article.getType().getDisplayName())
+                .createdByUserName(article.getCreatedBy()!= null? article.getCreatedBy().getUsername() : null)
                 .createdAt(TimeUtil.formatInstant(article.getCreatedAt()))
+                .updatedByUserName(article.getUpdatedBy()!= null? article.getUpdatedBy().getUsername() : null)
                 .updatedAt(TimeUtil.formatInstant(article.getUpdatedAt()))
                 .deleted(article.isDeleted())
                 .build();

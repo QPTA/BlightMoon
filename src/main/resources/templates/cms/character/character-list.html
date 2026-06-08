@@ -91,6 +91,37 @@
             </tr>
           </tbody>
         </table>
+        <br />
+
+        <div th:if="${characters.totalPages > 1}">
+          <a
+            th:if="${!characters.first}"
+            th:href="@{/character/moonblight/list(page=${characters.number - 1})}"
+          >
+            ← Trước
+          </a>
+
+          <span th:each="i : ${#numbers.sequence(0, characters.totalPages - 1)}">
+            <a
+              th:if="${i != characters.number}"
+              th:href="@{/character/moonblight/list(page=${i})}"
+              th:text="${i + 1}"
+            ></a>
+
+            <span
+              th:if="${i == characters.number}"
+              th:text="${i + 1}"
+              style="font-weight: bold"
+            ></span>
+          </span>
+
+          <a
+            th:if="${!characters.last}"
+            th:href="@{/character/moonblight/list(page=${characters.number + 1})}"
+          >
+            Sau →
+          </a>
+        </div>
       </main>
     </div>
   </body>

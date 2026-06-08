@@ -16,6 +16,7 @@ import com.darkfantasy.constant.CmsMenu;
 import com.darkfantasy.dto.faq.CreateFaqRequest;
 import com.darkfantasy.dto.faq.FaqResponse;
 import com.darkfantasy.dto.faq.UpdateFaqRequest;
+import com.darkfantasy.dto.world.UpdateWorldRequest;
 import com.darkfantasy.service.FaqService;
 
 import jakarta.validation.Valid;
@@ -83,7 +84,16 @@ public class FaqController {
     @GetMapping({ "{id}/edit", "{id}/edit/" })
     public String toEditPage(@PathVariable("id") Long id, Model model) {
         FaqResponse faq = faqService.getFaqById(id);
+        UpdateFaqRequest request = UpdateFaqRequest.builder()
+                .id(faq.getId())
+                .title(faq.getTitle())
+                .content(faq.getContent())
+                .priority(faq.getPriority())
+                .build();
 
+        model.addAttribute(
+                "updateFaqRequest",
+                request);
         model.addAttribute("faq", faq);
         return "cms/faq/faq-edit";
     }

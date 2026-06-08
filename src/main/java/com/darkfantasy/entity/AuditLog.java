@@ -29,22 +29,22 @@ public class AuditLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "entity_id")
+    private Long entityId;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "entity_type")
+    private Long entityType;
 
     @Column(name = "action")
-    private String action;
+    private Long action;
 
-    @Column(name = "target_type")
-    private String targetType;
-
-    @Column(name = "target_id")
-    private Long targetId;
+    @Column(name = "description", columnDefinition = "LONGTEXT")
+    private Long description;
 
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "user_id")
+    private Long userId;
 }

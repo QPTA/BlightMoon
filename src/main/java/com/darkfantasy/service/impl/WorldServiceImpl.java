@@ -9,9 +9,12 @@ import org.springframework.stereotype.Service;
 import com.darkfantasy.dto.world.CreateWorldRequest;
 import com.darkfantasy.dto.world.UpdateWorldRequest;
 import com.darkfantasy.dto.world.WorldResponse;
+import com.darkfantasy.entity.User;
 import com.darkfantasy.entity.World;
+import com.darkfantasy.repository.UserRepository;
 import com.darkfantasy.repository.WorldRepository;
 import com.darkfantasy.service.WorldService;
+import com.darkfantasy.util.SecurityUtil;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class WorldServiceImpl implements WorldService {
 
     private final WorldRepository worldRepository;
+    private final UserRepository userRepository;
 
     @Override
     public Page<WorldResponse> getWorlds(Pageable pageable) {
@@ -43,7 +47,7 @@ public class WorldServiceImpl implements WorldService {
         }
 
         World world = request.toEntity();
-
+        world.setCreatedBy(getCurrentUser());
         World savedWorld = worldRepository.save(world);
 
         return WorldResponse.fromEntity(world);
@@ -64,6 +68,7 @@ public class WorldServiceImpl implements WorldService {
         if (request.getImage() != null) {
             world.setImage(request.getImage());
         }
+        world.setUpdatedBy(getCurrentUser());
         return WorldResponse.fromEntity(world);
     }
 
@@ -75,6 +80,7 @@ public class WorldServiceImpl implements WorldService {
         }
         World found = findWorld(id);
         found.setDeleted(true);
+        found.setCreatedBy(getCurrentUser());
     }
 
     @Transactional
@@ -85,6 +91,7 @@ public class WorldServiceImpl implements WorldService {
         }
         World found = findWorld(id);
         found.setDeleted(false);
+        found.setUpdatedBy(getCurrentUser());
     }
 
     @Override
@@ -111,6 +118,17 @@ public class WorldServiceImpl implements WorldService {
         return worldRepository.count();
     }
 
+    private User getCurrentUser() {
 
+        String currentUsername = SecurityUtil.getCurrentUserName();
+
+        if (currentUsername == null) {
+            throw new IllegalStateException("Không tìm thấy người dùng hiện tại");
+        }
+
+        return userRepository
+                .findUserByUsername(currentUsername)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy người dùng"));
+    }
 
 }

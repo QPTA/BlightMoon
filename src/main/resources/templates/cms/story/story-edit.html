@@ -4,6 +4,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Cập nhật câu chuyện</title>
+    <!-- outer css -->
+    <!-- 1. Nhúng CSS & JS của Quill -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
   </head>
 
   <body>
@@ -112,8 +119,14 @@
             <div>
               <label>Nội dung câu chuyện</label><br />
 
-              <textarea th:field="*{content}" rows="15" cols="100" required>
-              </textarea>
+              <textarea
+                id="content"
+                th:field="*{content}"
+                style="display: none"
+              ></textarea>
+
+              <!-- Vùng hiển thị cho người dùng gõ (Quill sẽ bám vào đây) -->
+              <div id="quill-editor" style="height: 300px"></div>
 
               <div
                 th:if="${#fields.hasErrors('content')}"
@@ -134,5 +147,6 @@
       </div>
     </div>
     ```
+    <script th:src="@{/js/editor.js}"></script>
   </body>
 </html>

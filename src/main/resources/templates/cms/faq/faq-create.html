@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Tạo FAQ</title>
+    <!-- outer css -->
+    <!-- 1. Nhúng CSS & JS của Quill -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
   </head>
 
   <body>
@@ -72,7 +79,14 @@
               <label>Nội dung</label>
               <br />
 
-              <textarea th:field="*{content}" rows="12" cols="100"> </textarea>
+              <textarea
+                id="content"
+                th:field="*{content}"
+                style="display: none"
+              ></textarea>
+
+              <!-- Vùng hiển thị cho người dùng gõ (Quill sẽ bám vào đây) -->
+              <div id="quill-editor" style="height: 300px"></div>
             </div>
 
             <div
@@ -92,5 +106,6 @@
         </main>
       </div>
     </div>
+    <script th:src="@{/js/editor.js}"></script>
   </body>
 </html>

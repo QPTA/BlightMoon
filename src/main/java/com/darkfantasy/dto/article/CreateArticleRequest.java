@@ -17,16 +17,16 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CreateArticleRequest {
 
-    @NotBlank
-    @Size(max = 255)
+    @NotBlank(message = "Tiêu đề không được để trống")
+    @Size(max = 255, message = "Tiêu đề quá dài")
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "Nội dung không được để trống")
     private String content;
 
     private String thumbnailUrl;
 
-    @NotNull
+    @NotNull(message = "Loại bài viết không được để trống")
     private ArticleType type;
 
     public Article toEntity() {

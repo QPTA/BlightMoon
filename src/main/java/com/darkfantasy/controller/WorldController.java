@@ -85,7 +85,6 @@ public class WorldController {
     @GetMapping({ "{id}/edit", "{id}/edit/" })
     public String toEditPage(@PathVariable("id") Long id, Model model) {
         WorldResponse world = worldService.getWorldById(id);
-
         model.addAttribute("world", world);
         return "cms/world/world-edit";
     }

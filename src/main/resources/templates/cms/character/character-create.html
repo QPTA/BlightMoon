@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Tạo Nhân Vật</title>
+    <!-- outer css -->
+    <!-- 1. Nhúng CSS & JS của Quill -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
   </head>
   <body>
     <div class="layout">
@@ -46,7 +53,14 @@
 
             <div style="margin-bottom: 10px">
               <label>Mô tả:</label><br />
-              <textarea th:field="*{description}" rows="4" cols="30"></textarea>
+              <textarea
+                id="content"
+                th:field="*{description}"
+                style="display: none"
+              ></textarea>
+
+              <!-- Vùng hiển thị cho người dùng gõ (Quill sẽ bám vào đây) -->
+              <div id="quill-editor" style="height: 300px"></div>
               <span
                 th:if="${#fields.hasErrors('description')}"
                 th:errors="*{description}"
@@ -88,4 +102,5 @@
       </div>
     </div>
   </body>
+  <script th:src="@{/js/editor.js}"></script>
 </html>

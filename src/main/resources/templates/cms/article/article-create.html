@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <title>Tạo bài viết</title>
     <!-- outer css -->
+    <!-- 1. Nhúng CSS & JS của Quill -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
     <!-- common css -->
     <link rel="stylesheet" th:href="@{/css/component/header.css}" />
     <link rel="stylesheet" th:href="@{/css/component/footer.css}" />
@@ -78,13 +84,15 @@
 
             <div>
               <label>Nội dung</label><br />
+              <!-- Textarea ẩn để Thymeleaf binding dữ liệu xuống Backend -->
               <textarea
                 id="content"
                 th:field="*{content}"
-                rows="15"
-                cols="80"
-                required
+                style="display: none"
               ></textarea>
+
+              <!-- Vùng hiển thị cho người dùng gõ (Quill sẽ bám vào đây) -->
+              <div id="quill-editor" style="height: 300px"></div>
 
               <div
                 th:if="${#fields.hasErrors('content')}"
@@ -100,5 +108,6 @@
         </main>
       </div>
     </div>
+    <script th:src="@{/js/editor.js}"></script>
   </body>
 </html>

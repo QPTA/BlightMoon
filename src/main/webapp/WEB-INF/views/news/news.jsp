@@ -74,7 +74,7 @@
                         line-height: 1.7;
                         margin-bottom: 1.5rem;
                     ">
-                    ${featuredArticle.summary}
+                    <!-- ${featuredArticle.summary} -->
                 </p>
 
                 <div style="display: flex; gap: 1rem">
@@ -160,9 +160,9 @@
                         ${article.title}
                     </h3>
 
-                    <p class="card-text">
+                    <!-- <p class="card-text">
                         ${article.summary}
-                    </p>
+                    </p> -->
 
                 </div>
 

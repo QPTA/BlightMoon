@@ -90,6 +90,39 @@
               </tr>
             </tbody>
           </table>
+          <br />
+
+          <div th:if="${faqs.totalPages > 1}">
+            <a
+              th:if="${!faqs.first}"
+              th:href="@{/faq/moonblight/list(page=${faqs.number - 1})}"
+            >
+              ← Trước
+            </a>
+
+            <span
+              th:each="i : ${#numbers.sequence(0, faqs.totalPages - 1)}"
+            >
+              <a
+                th:if="${i != faqs.number}"
+                th:href="@{/faq/moonblight/list(page=${i})}"
+                th:text="${i + 1}"
+              ></a>
+
+              <span
+                th:if="${i == faqs.number}"
+                th:text="${i + 1}"
+                style="font-weight: bold"
+              ></span>
+            </span>
+
+            <a
+              th:if="${!faqs.last}"
+              th:href="@{/faq/moonblight/list(page=${faqs.number + 1})}"
+            >
+              Sau →
+            </a>
+          </div>
         </main>
       </div>
     </div>
