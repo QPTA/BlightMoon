@@ -1,7 +1,6 @@
 package com.darkfantasy.entity;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -49,7 +48,7 @@ public class AuditLog {
     private String description;
 
     @CreationTimestamp
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false)
     private Instant createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
