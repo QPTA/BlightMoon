@@ -16,7 +16,6 @@ import com.darkfantasy.constant.CmsMenu;
 import com.darkfantasy.dto.faq.CreateFaqRequest;
 import com.darkfantasy.dto.faq.FaqResponse;
 import com.darkfantasy.dto.faq.UpdateFaqRequest;
-import com.darkfantasy.dto.world.UpdateWorldRequest;
 import com.darkfantasy.service.FaqService;
 
 import jakarta.validation.Valid;

@@ -41,8 +41,8 @@ public class SecurityConfig {
                                 "/faq/moonblight/**",
                                 "/contact/moonblight/**")
                         .hasRole(Role.STAFF.name())
-                        .anyRequest().permitAll())
-                .csrf(csrf -> csrf.disable());
+                        .anyRequest().permitAll());
+                // .csrf(csrf -> csrf.disable());
         return http.build();
     }
 

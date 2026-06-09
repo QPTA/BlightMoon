@@ -32,11 +32,11 @@ public class ContactMessageServiceImpl implements ContactMessageService {
         ContactMessage message = request.toEntity();
         ContactMessage savedMessage = contactMessageRepository.save(message);
 
-        auditLogService.log(
-                LogEntityType.CONTACT,
-                savedMessage.getId(),
-                LogAction.CREATE,
-                "Tạo liên hệ: " + savedMessage.getMessage());
+        // auditLogService.log(
+        //         LogEntityType.CONTACT,
+        //         savedMessage.getId(),
+        //         LogAction.CREATE,
+        //         "Tạo liên hệ: " + savedMessage.getMessage());
         return ContactMessageResponse.fromEntity(savedMessage);
     }
 

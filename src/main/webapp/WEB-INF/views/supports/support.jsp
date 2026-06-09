@@ -124,6 +124,10 @@
                     <form id="contactForm"
                         action="${pageContext.request.contextPath}/support"
                         method="post">
+                        <input
+                        type="hidden"
+                        name="${_csrf.parameterName}"
+                        value="${_csrf.token}" />
                         <div class="form-group">
                             <label class="form-label" for="name">Tên Của Ngươi</label>
                             <input type="text"
