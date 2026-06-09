@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Dashboard</title>
-    
+
     <!-- Sau sẽ ném vào .css -->
     <style>
       .dashboard-grid {
@@ -57,6 +57,19 @@
 
         <main style="padding: 20px">
           <h1>Dashboard</h1>
+          <div>
+            <p
+              style="color: green"
+              th:if="${successMessage}"
+              th:text="${successMessage}"
+            ></p>
+
+            <p
+              style="color: red"
+              th:if="${errorMessage}"
+              th:text="${errorMessage}"
+            ></p>
+          </div>
 
           <p>Chào mừng đến với Moon Blight CMS.</p>
 

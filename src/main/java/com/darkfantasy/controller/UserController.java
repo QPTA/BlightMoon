@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.darkfantasy.dto.user.ChangePasswordRequest;
 import com.darkfantasy.dto.user.LoginRequest;
 import com.darkfantasy.dto.user.RegisterRequest;
 
@@ -26,7 +27,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequiredArgsConstructor
@@ -121,6 +121,48 @@ public class UserController {
         }
     }
 
+    @GetMapping("/change-password")
+    public String changePasswordPage(
+            Model model) {
+
+        model.addAttribute(
+                "changePasswordRequest",
+                new ChangePasswordRequest());
+
+        return "cms/auth/change-password";
+    }
+
+    @PostMapping("/change-password")
+    public String changePassword(
+            @Valid @ModelAttribute("changePasswordRequest") ChangePasswordRequest request,
+            BindingResult result,
+            Model model,
+            RedirectAttributes redirectAttributes) {
+
+        if (result.hasErrors()) {
+            return "cms/auth/change-password";
+        }
+
+        try {
+
+            userService.changeCurrentUserPassword(
+                    request);
+
+            redirectAttributes.addFlashAttribute(
+                    "successMessage",
+                    "Đổi mật khẩu thành công");
+
+            return "redirect:/dashboard/moonblight";
+
+        } catch (Exception e) {
+
+            model.addAttribute(
+                    "errorMessage",
+                    e.getMessage());
+
+            return "cms/user/change-password";
+        }
+    }
     // @PostMapping("reset/enter")
     // public String resetPassword(@Valid @ModelAttribute ResetPasswordRequest
     // request, BindingResult result,
