@@ -6,7 +6,8 @@
   </head>
   <body>
     <div class="layout">
-      <th:block th:replace="~{cms/fragments/admin-sidebar :: sidebar}"> </th:block>
+      <th:block th:replace="~{cms/fragments/admin-sidebar :: sidebar}">
+      </th:block>
 
       <div class="content-wrapper">
         <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
@@ -25,7 +26,6 @@
               <tr>
                 <th>Tổng tài khoản</th>
                 <th>Đang hoạt động</th>
-                <th>Chờ duyệt</th>
                 <th>Bị khóa</th>
               </tr>
 
@@ -37,51 +37,6 @@
             </table>
           </section>
 
-          <br />
-          <hr />
-          <br />
-
-          <!-- STAFF CHỜ DUYỆT -->
-
-          <section>
-            <h2>Tài khoản chờ duyệt</h2>
-
-            <table border="1">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Họ tên</th>
-                  <th>Chi tiết</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr th:each="account : ${pendingAccounts}">
-                  <td th:text="${account.id}"></td>
-
-                  <td th:text="${account.username}"></td>
-
-                  <td th:text="${account.email}"></td>
-
-                  <td th:text="${account.fullName}"></td>
-
-                  <td>
-                    <a
-                      th:href="@{/admin/moonblight/account/{id}(id=${account.id})}"
-                    >
-                      Xem
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-
-          <br />
-          <hr />
-          <br />
 
           <!-- AUDIT LOG -->
 

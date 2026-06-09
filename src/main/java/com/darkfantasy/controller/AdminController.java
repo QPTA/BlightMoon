@@ -16,7 +16,6 @@ import com.darkfantasy.dto.user.UserResponse;
 import com.darkfantasy.service.AuditLogService;
 import com.darkfantasy.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor

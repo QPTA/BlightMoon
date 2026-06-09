@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService {
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new IllegalArgumentException("Sai tài khoản hoặc mật khẩu");
         }
+        if(!user.isActive()) throw new IllegalArgumentException("Sai tài khoản hoặc mật khẩu");
         auditLogService.log(
                 LogEntityType.USER,
                 user.getId(),
