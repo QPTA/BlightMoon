@@ -45,19 +45,19 @@
         <!-- ============================================================
                                     VIDEO
         ============================================================= -->
-<div class="content-wrapper">
+        <div class="content-wrapper">
 
-        <div id="videoModal" class="video-modal" onclick="closeVideo()">
+            <div id="videoModal" class="video-modal" onclick="closeVideo()">
 
-            <div class="video-container" onclick="event.stopPropagation()">
+                <div class="video-container" onclick="event.stopPropagation()">
 
-                <video id="videoPlayer" controls>
-                    <source src="${pageContext.request.contextPath}/video/trailer.mp4" type="video/mp4">
-                </video>
+                    <video id="videoPlayer" controls>
+                        <source src="${pageContext.request.contextPath}/video/trailer.mp4" type="video/mp4">
+                    </video>
+
+                </div>
 
             </div>
-
-        </div>
 
 
         
@@ -102,35 +102,38 @@
         =================================================================== -->
 
 
-
-        <section id="world" class="section-world">
-            <div class="container">
-                <div class="split-section">
-                    <div class="split-text">
-                        <div class="split-tag">
-                            ${topWorld.tag}
+        
+            <section id="world" class="section-world">
+                <c:if test="${not empty topWorld}">
+                <div class="container">
+                    <div class="split-section">
+                        <div class="split-text">
+                            <div class="split-tag">
+                                ${topWorld.tag}
+                            </div>
+                            <h2 class="split-title">
+                                ${topWorld.title}
+                            </h2>
+                            <div class="split-divider"></div>
+                            <p class="split-body"
+                            style="white-space: pre-line;">
+                                ${topWorld.summary}
+                            </p>
+                            <a href="/world"
+                            class="btn btn-primary">
+                                Khám phá thế giới
+                            </a>
                         </div>
-                        <h2 class="split-title">
-                            ${topWorld.title}
-                        </h2>
-                        <div class="split-divider"></div>
-                        <p class="split-body"
-                        style="white-space: pre-line;">
-                            ${topWorld.summary}
-                        </p>
-                        <a href="/world"
-                        class="btn btn-primary">
-                            Khám phá thế giới
-                        </a>
-                    </div>
-                    <div class="split-img-wrapper">
-                        <img src="${topWorld.image}"
-                            alt="${topWorld.title}"
-                            loading="lazy">
+                        <div class="split-img-wrapper">
+                            <img src="${topWorld.image}"
+                                alt="${topWorld.title}"
+                                loading="lazy">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+                 </c:if>
+            </section>
+       
         <!-- ==================================================================
                                     CHARACTER PREVIEW
         =================================================================== -->
