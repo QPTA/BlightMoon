@@ -4,68 +4,86 @@
 <head>
   <meta charset="UTF-8" />
   <title>Register</title>
-<link rel="stylesheet" href="/css/auth.css">  
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Cormorant+Garamond+Decorative:wght@700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" th:href="@{/css/auth.css}">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Cormorant+Garamond+Decorative:wght@700&family=Crimson+Text:wght@400;600&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
+
   <div class="bg-image"></div>
+
   <div class="register-card">
 
     <div class="register-eyebrow">
       MOONBLIGHT ACCOUNT
     </div>
 
-    <h2 class="register-title">
-      Đăng ký
-    </h2>
-    <div class="register-divider"></div>
-    <p style="color: green" th:if="${successMessage}" th:text="${successMessage}"></p>
-    <p style="color: red" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+    <h2 class="register-title">Đăng ký</h2>
 
-    <form method="post" th:action="@{/user/moonblight/register}">
+    <div class="register-divider"></div>
+
+    <!-- MESSAGE -->
+    <p class="success-message" th:if="${successMessage}" th:text="${successMessage}">
+    </p>
+
+    <p class="error-message" th:if="${errorMessage}" th:text="${errorMessage}">
+    </p>
+
+    <!-- FORM -->
+    <form th:action="@{/user/moonblight/register}" method="post">
+
+      <!-- USERNAME -->
       <div class="register-group">
         <label>Username</label>
-        <input type="text" name="username" minlength="3" maxlength="30" required />
+        <input type="text" name="username" minlength="3" maxlength="30" required>
       </div>
 
+      <!-- EMAIL -->
       <div class="register-group">
         <label>Email</label>
-        <input type="email" name="email" maxlength="255" required />
+        <input type="email" name="email" maxlength="255" required>
       </div>
 
+      <!-- FULL NAME -->
       <div class="register-group">
         <label>Họ và tên</label>
-        <input type="text" name="fullName" maxlength="255" required />
+        <input type="text" name="fullName" maxlength="255" required>
       </div>
 
+      <!-- PASSWORD -->
       <div class="register-group">
         <label>Mật khẩu</label>
-        <input type="password" name="password" minlength="8" required />
+        <input type="password" name="password" minlength="8" required>
       </div>
 
+      <!-- RE PASSWORD -->
       <div class="register-group">
         <label>Nhập lại mật khẩu</label>
-        <input type="password" name="rePassword" required />
+        <input type="password" name="rePassword" required>
       </div>
 
-      <button class="register-btn" type="submit">Đăng ký</button>
+      <button class="register-btn" type="submit">
+        Đăng ký
+      </button>
+
     </form>
 
-    <hr />
+    <hr style="margin: 1rem 0; opacity: 0.2;" />
 
-<<<<<<< Updated upstream
-    <a th:href="@{/user/moonblight/login}"> Đã có tài khoản? Đăng nhập </a>
-    <br/>
-    <a th:href="@{/user/moonblight/forgot-password}"> Quên mật khẩu </a>
-  </body>
-</html>
-=======
-    <a class="register-link" th:href="@{/user/moonblight/login}"> Đã có tài khoản? Đăng nhập </a>
+    <a class="register-link" th:href="@{/user/moonblight/login}">
+      Đã có tài khoản? Đăng nhập
+    </a>
+
+    <a class="register-link" th:href="@{/user/moonblight/forgot-password}">
+      Quên mật khẩu
+    </a>
 
   </div>
+
 </body>
 
 </html>
->>>>>>> Stashed changes

@@ -13,7 +13,6 @@
       </summary>
 
       <div class="dropdown-menu">
-
         <a th:href="@{/user/moonblight/change-password}">
           🔒 Đổi mật khẩu
         </a>
@@ -23,10 +22,17 @@
             🚪 Logout
           </button>
         </form>
-
       </div>
     </details>
 
   </div>
+  <script>
+    document.addEventListener('click', function (e) {
+      const dropdown = document.querySelector('.user-dropdown');
 
+      if (!dropdown.contains(e.target)) {
+        dropdown.removeAttribute('open');
+      }
+    });
+  </script>
 </header>

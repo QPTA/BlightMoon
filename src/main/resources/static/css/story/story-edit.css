@@ -1,0 +1,142 @@
+/* ==========================================================
+STORY EDIT PAGE (UPDATE)
+========================================================== */
+
+/* IMAGE PREVIEW */
+.story-image-preview {
+    display: block;
+    max-width: 220px;
+    max-height: 160px;
+
+    margin-top: .5rem;
+
+    border: 1px solid var(--border-mid);
+
+    object-fit: cover;
+
+    box-shadow:
+        0 0 20px rgba(0,0,0,.5),
+        0 0 10px rgba(139,0,0,.15);
+}
+
+/* FORM TEXTAREA OVERRIDE */
+.textarea-control {
+    min-height: 120px;
+    resize: vertical;
+
+    background: rgba(10, 8, 7, .85);
+    color: var(--cream);
+
+    border: 1px solid var(--border-mid);
+
+    padding: .85rem 1rem;
+
+    font-family: "Crimson Text", serif;
+
+    transition: .3s ease;
+}
+
+.textarea-control:focus {
+    border-color: var(--crimson);
+    box-shadow: 0 0 15px var(--glow-red);
+    outline: none;
+}
+
+/* DIFFERENTIATE EDIT PAGE HEADER (optional subtle accent) */
+.story-card .section-eyebrow {
+    letter-spacing: .4em;
+}
+
+/* EDIT FORM DIFFERENCE: highlight update context */
+.story-card {
+    position: relative;
+}
+
+.story-card::after {
+    content: "";
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--amber),
+            transparent
+        );
+
+    opacity: .6;
+}
+
+/* FILE INPUT (reuse consistency enhancement) */
+.file-input {
+    width: 100%;
+    padding: .6rem;
+
+    background: rgba(10, 8, 7, .85);
+    border: 1px solid var(--border-mid);
+
+    color: var(--cream);
+
+    transition: .3s ease;
+}
+
+.file-input::file-selector-button {
+    background: var(--dark-card);
+    border: 1px solid var(--border-mid);
+    color: var(--cream);
+
+    padding: .5rem .8rem;
+    margin-right: 1rem;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.file-input::file-selector-button:hover {
+    border-color: var(--amber);
+    box-shadow: 0 0 12px var(--glow-amber);
+}
+
+/* FORM SPACING TIGHTENING FOR EDIT MODE */
+.story-form .form-group {
+    margin-bottom: 1.3rem;
+}
+
+/* ACTION BUTTON DIFFERENTIATION */
+.btn-primary {
+    border-color: var(--crimson);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 18px var(--glow-red);
+}
+
+/* Make edit page slightly more "serious" tone */
+.story-card {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28, 20, 16, .98),
+            rgba(8, 6, 4, .99)
+        );
+}
+
+/* RESPONSIVE IMPROVEMENT */
+@media (max-width: 768px) {
+
+    .story-image-preview {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .textarea-control {
+        min-height: 100px;
+    }
+}

@@ -6,18 +6,19 @@
   <title>Tạo FAQ</title>
   <!-- outer css -->
   <!-- 1. Nhúng CSS & JS của Quill -->
-  <link rel="stylesheet" th:href="@{/css/faq.css}">
+  <link rel="stylesheet" th:href="@{/css/faq/faq.css}">
   <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 </head>
 
 <body>
   <div class="bg-image"></div>
+      <div th:replace="~{cms/fragments/header :: header}"></div>
+
   <div class="layout">
-    <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
+    <div th:replace="~{cms/fragments/sidebar :: sidebar}"></div>
 
     <div class="content-wrapper">
-      <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
 
       <main class="section-dark">
         <div class="container-xl">

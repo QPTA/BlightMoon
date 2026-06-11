@@ -1,51 +1,27 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<<<<<<< Updated upstream
-  <head>
-    <meta charset="UTF-8" />
-    <title>Dashboard Quản trị</title>
-  </head>
-  <body>
-    <div class="layout">
-      <th:block th:replace="~{cms/fragments/admin-sidebar :: sidebar}">
-      </th:block>
-=======
->>>>>>> Stashed changes
 
 <head>
   <meta charset="UTF-8" />
   <title>Dashboard Quản trị</title>
 
-  <link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+  <link rel="stylesheet" th:href="@{/css/dashboard.css}">
 </head>
 
 <body>
   <div class="bg-image"></div>
-
+  <div th:replace="~{cms/fragments/header :: header}"></div>
   <div class="layout">
-    <th:block th:replace="~{cms/fragments/admin-sidebar :: sidebar}">
-    </th:block>
+    <div th:replace="~{cms/fragments/admin-sidebar :: sidebar}"></div>
+
 
     <div class="content-wrapper">
-      <th:block th:replace="~{cms/fragments/header :: header}">
-      </th:block>
 
-<<<<<<< Updated upstream
-            <table border="1">
-              <tr>
-                <th>Tổng tài khoản</th>
-                <th>Đang hoạt động</th>
-                <th>Bị khóa</th>
-              </tr>
-=======
       <main class="section-dark">
         <div class="container-xl">
->>>>>>> Stashed changes
 
           <div class="story-card">
 
-<<<<<<< Updated upstream
-=======
             <div class="section-header">
               <span class="section-eyebrow">
                 Moonblight CMS
@@ -80,7 +56,6 @@
             </div>
 
             <!-- PENDING USERS -->
->>>>>>> Stashed changes
 
             <div class="table-section">
 
@@ -116,9 +91,7 @@
                       <td th:text="${account.email}"></td>
                       <td th:text="${account.fullName}"></td>
                       <td>
-                        <a
-                          class="btn btn-secondary"
-                          th:href="@{/admin/moonblight/account/{id}(id=${account.id})}">
+                        <a class="btn btn-secondary" th:href="@{/admin/moonblight/account/{id}(id=${account.id})}">
                           Xem
                         </a>
                       </td>

@@ -1,0 +1,307 @@
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 280px;
+    min-height: 100vh;
+
+    padding: 2rem 1.5rem;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(18,12,10,.92),
+            rgba(10,8,7,.96)
+        );
+
+    backdrop-filter: blur(12px);
+
+    border-right: 1px solid rgba(201,164,76,.15);
+
+    box-shadow:
+        4px 0 25px rgba(0,0,0,.45);
+
+    position: sticky;
+    top: 0;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.sidebar-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-title h2 {
+    margin: 0;
+
+    font-family: 'Cormorant Garamond Decorative', serif;
+
+    font-size: 1.6rem;
+
+    color: var(--parchment);
+
+    text-shadow:
+        0 0 15px rgba(196,30,58,.2);
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.sidebar-divider {
+    border: none;
+
+    height: 1px;
+
+    margin: 1.5rem 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--parchment),
+            transparent
+        );
+}
+
+/* =========================================
+   MENU
+========================================= */
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+/* =========================================
+   LINK
+========================================= */
+
+.sidebar-link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: .9rem 1rem;
+
+    text-decoration: none;
+
+    color: var(--cream);
+
+    border-radius: 12px;
+
+    transition: all .3s ease;
+
+    font-size: .95rem;
+
+    letter-spacing: .05em;
+}
+
+.sidebar-link::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 3px;
+    height: 0;
+
+    transform: translateY(-50%);
+
+    background: var(--crimson);
+
+    transition: .3s;
+}
+
+/* hover */
+
+.sidebar-link:hover {
+    background:
+        rgba(196,30,58,.08);
+
+    color: var(--parchment);
+
+    transform: translateX(4px);
+}
+
+.sidebar-link:hover::before {
+    height: 70%;
+}
+
+/* =========================================
+   ACTIVE
+========================================= */
+
+.sidebar-link.active {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(196,30,58,.15),
+            transparent
+        );
+
+    color: var(--parchment);
+
+    border: 1px solid rgba(196,30,58,.15);
+}
+
+.sidebar-link.active::before {
+    height: 80%;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:260px;
+    min-height:100vh;
+
+    padding:2rem 1.5rem;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28,20,16,.95),
+            rgba(10,8,7,.98)
+        );
+
+    border-right:1px solid var(--border-dark);
+
+    box-shadow:
+        4px 0 25px rgba(0,0,0,.4);
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.sidebar-title{
+    text-align:center;
+}
+
+.sidebar-title h2{
+    margin:0;
+
+    font-family:'Cormorant Garamond Decorative', serif;
+
+    font-size:1.7rem;
+
+    color:var(--parchment);
+
+    letter-spacing:.08em;
+
+    text-shadow:
+        0 0 12px rgba(196,30,58,.2);
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.sidebar-divider{
+    border:none;
+
+    height:1px;
+
+    margin:1.5rem 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--crimson),
+            transparent
+        );
+}
+
+/* =========================
+   MENU
+========================= */
+
+.sidebar-menu{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.sidebar-menu li{
+    margin-bottom:.5rem;
+}
+
+/* =========================
+   LINK
+========================= */
+
+.sidebar-link{
+    display:block;
+
+    padding:.9rem 1rem;
+
+    text-decoration:none;
+
+    color:var(--cream);
+
+    border-radius:12px;
+
+    transition:all .3s ease;
+}
+
+.sidebar-link:hover{
+    background:
+        rgba(196,30,58,.08);
+
+    color:var(--parchment);
+
+    transform:translateX(4px);
+}
+
+/* active */
+
+.sidebar-link.active{
+    background:
+        linear-gradient(
+            90deg,
+            rgba(196,30,58,.15),
+            transparent
+        );
+
+    color:var(--parchment);
+
+    border-left:3px solid var(--crimson);
+}
+@media (max-width: 992px) {
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+
+        border-right: none;
+        border-bottom: 1px solid rgba(201,164,76,.15);
+    }
+
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-link {
+        flex: 1;
+        justify-content: center;
+    }
+}

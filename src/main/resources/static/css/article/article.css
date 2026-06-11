@@ -1,0 +1,430 @@
+@import "article-create.css";
+@import "../dashboard-user.css";
+@import "article-edit.css";
+
+
+/* ==========================================================
+   ARTICLE LIST
+   ========================================================== */
+
+.article-card {
+    position: relative;
+
+    padding: 2rem;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28, 20, 16, .96),
+            rgba(10, 8, 7, .98)
+        );
+
+    border: 1px solid var(--border-dark);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, .75),
+        0 0 25px rgba(139, 0, 0, .08);
+}
+
+.article-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--crimson),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px var(--glow-red);
+}
+
+/* ==========================================================
+   MESSAGE
+   ========================================================== */
+
+.success-message {
+    margin-bottom: 1rem;
+
+    padding: 1rem 1.25rem;
+
+    color: #81c784;
+
+    background:
+        rgba(129, 199, 132, .08);
+
+    border:
+        1px solid rgba(129, 199, 132, .2);
+}
+
+.error-message {
+    margin-bottom: 1rem;
+
+    padding: 1rem 1.25rem;
+
+    color: #ff8a80;
+
+    background:
+        rgba(255, 138, 128, .08);
+
+    border:
+        1px solid rgba(255, 138, 128, .2);
+}
+
+/* ==========================================================
+   TABLE HEADER
+   ========================================================== */
+
+.table-header {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================
+   TABLE
+   ========================================================== */
+
+.table-wrapper {
+    overflow-x: auto;
+
+    border: 1px solid var(--border-dark);
+
+    background:
+        rgba(8, 6, 4, .65);
+}
+
+.article-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.article-table thead {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(12, 8, 6, .95),
+            rgba(8, 6, 4, .98)
+        );
+}
+
+.article-table th {
+    padding: 1rem;
+
+    text-align: left;
+
+    font-size: .72rem;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+    color: var(--parchment);
+
+    border-bottom:
+        1px solid var(--border-dark);
+}
+
+.article-table td {
+    padding: 1rem;
+
+    vertical-align: middle;
+
+    color: var(--light-grey);
+
+    border-bottom:
+        1px solid rgba(74, 48, 40, .35);
+}
+
+.article-table tbody tr {
+    transition: .25s ease;
+}
+
+.article-table tbody tr:hover {
+    background:
+        rgba(139, 0, 0, .08);
+}
+
+/* ==========================================================
+   IMAGE
+   ========================================================== */
+
+.table-image {
+    width: 90px;
+    height: 56px;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+
+    border: 1px solid var(--border-dark);
+}
+
+/* ==========================================================
+   STATUS
+   ========================================================== */
+
+.status-active {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: .35rem .8rem;
+
+    border-radius: 999px;
+
+    color: #81c784;
+
+    background:
+        rgba(129, 199, 132, .08);
+
+    border:
+        1px solid rgba(129, 199, 132, .2);
+
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.status-deleted {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: .35rem .8rem;
+
+    border-radius: 999px;
+
+    color: #ff8a80;
+
+    background:
+        rgba(255, 138, 128, .08);
+
+    border:
+        1px solid rgba(255, 138, 128, .2);
+
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    padding: .8rem 1.4rem;
+
+    color: var(--cream);
+
+    border-color: var(--crimson);
+
+    background:
+        rgba(196, 30, 58, .08);
+}
+
+.btn-primary:hover {
+    background: var(--crimson);
+
+    color: #fff;
+
+    box-shadow:
+        0 0 20px rgba(196, 30, 58, .3);
+}
+
+.btn-secondary {
+    color: var(--amber);
+
+    border-color: var(--amber);
+
+    background:
+        rgba(200, 114, 10, .05);
+}
+
+.btn-secondary:hover {
+    background: var(--amber);
+
+    color: var(--black-coal);
+}
+
+.btn-success {
+    color: #81c784;
+
+    border-color: #81c784;
+
+    background:
+        rgba(129, 199, 132, .08);
+}
+
+.btn-success:hover {
+    background: #81c784;
+
+    color: #111;
+}
+
+.btn-danger {
+    color: #ff8a80;
+
+    border-color: #ff8a80;
+
+    background:
+        rgba(255, 138, 128, .08);
+}
+
+.btn-danger:hover {
+    background: #ff8a80;
+
+    color: #111;
+}
+
+.btn-sm {
+    min-width: 120px;
+
+    padding: .65rem 1rem;
+
+    font-size: .72rem;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+}
+
+/* ==========================================================
+   ACTION BUTTONS
+   ========================================================== */
+
+.action-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: .5rem;
+}
+
+.action-buttons form {
+    margin: 0;
+}
+
+/* ==========================================================
+   PAGINATION
+   ========================================================== */
+
+.pagination {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: .5rem;
+
+    margin-top: 2rem;
+
+    flex-wrap: wrap;
+}
+
+.page-btn,
+.page-current {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+}
+
+.page-btn {
+    color: var(--cream);
+
+    border:
+        1px solid var(--border-dark);
+
+    background:
+        rgba(255, 255, 255, .02);
+}
+
+.page-btn:hover {
+    border-color: var(--crimson);
+
+    background:
+        rgba(196, 30, 58, .12);
+}
+
+.page-current {
+    background: var(--crimson);
+
+    border:
+        1px solid var(--crimson);
+
+    color: #fff;
+}
+
+/* ==========================================================
+   PAGE CONTENT
+   ========================================================== */
+
+.section-dark {
+    width: 100%;
+}
+
+/* ==========================================================
+   RESPONSIVE ARTICLE
+   ========================================================== */
+
+@media (max-width: 1200px) {
+
+    .article-table {
+        min-width: 1200px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .article-card {
+        padding: 1.5rem;
+    }
+
+    .table-header {
+        justify-content: center;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+}

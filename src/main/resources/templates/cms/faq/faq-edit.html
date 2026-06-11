@@ -13,11 +13,12 @@
 
 <body>
   <div class="bg-image"></div>
+      <div th:replace="~{cms/fragments/header :: header}"></div>
+
   <div class="layout">
-    <th:block th:replace="~{cms/fragments/sidebar :: sidebar}"> </th:block>
+    <div th:replace="~{cms/fragments/sidebar :: sidebar}"></div>
 
     <div class="content-wrapper">
-      <th:block th:replace="~{cms/fragments/header :: header}"> </th:block>
 
       <main class="section-dark">
         <div class="container-xl">

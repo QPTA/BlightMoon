@@ -1,0 +1,344 @@
+/* ==========================================================
+   CMS HEADER
+   ========================================================== */
+
+.cms-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 24px;
+    margin-bottom: 24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28,20,16,.98),
+            rgba(12,10,8,.98)
+        );
+
+    border: 1px solid var(--border-dark);
+
+    border-radius: 16px;
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.55);
+
+    
+}
+
+/* top glow line */
+
+.cms-header::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--crimson),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px var(--glow-red);
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    padding: 8px 12px;
+}
+
+.user-summary::-webkit-details-marker {
+    display: none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    padding: 8px 0;
+    z-index: 1000;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: left;
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background: #f5f5f5;
+}
+
+/* Xoay mũi tên khi mở */
+.arrow {
+    display: inline-block;
+    transition: transform .2s;
+}
+
+.user-dropdown[open] .arrow {
+    transform: rotate(180deg);
+}
+/* ==========================================================
+   HEADER LEFT
+   ========================================================== */
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left h3 {
+    margin: 0;
+
+    font-family: 'Cormorant Garamond Decorative', serif;
+
+    font-size: 1.7rem;
+    font-weight: 700;
+
+    color: var(--parchment);
+
+    letter-spacing: .08em;
+
+    text-shadow:
+        0 0 18px rgba(196,30,58,.15);
+}
+
+/* ==========================================================
+   HEADER RIGHT
+   ========================================================== */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ==========================================================
+   USER DROPDOWN
+   ========================================================== */
+
+.user-dropdown {
+    position: relative;
+}
+
+/* remove browser marker */
+
+.user-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.user-summary {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 16px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.03);
+
+    border:
+        1px solid rgba(196,168,130,.15);
+
+    color: var(--cream);
+
+    user-select: none;
+
+    transition: all .3s ease;
+
+    list-style: none;
+}
+
+.user-summary:hover {
+    background:
+        rgba(196,30,58,.08);
+
+    border-color:
+        rgba(196,30,58,.25);
+
+    transform: translateY(-1px);
+}
+
+.user-dropdown[open] .user-summary {
+    background:
+        rgba(196,30,58,.12);
+
+    border-color:
+        rgba(196,30,58,.35);
+}
+
+/* ==========================================================
+   ARROW
+   ========================================================== */
+
+.arrow {
+    font-size: .8rem;
+    opacity: .8;
+
+    transition: .3s ease;
+}
+
+.user-dropdown[open] .arrow {
+    transform: rotate(180deg);
+}
+
+/* ==========================================================
+   DROPDOWN MENU
+   ========================================================== */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    min-width: 220px;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(24,18,14,.98),
+            rgba(10,8,7,.99)
+        );
+
+    border:
+        1px solid rgba(196,168,130,.15);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.55);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 999;
+}
+
+/* ==========================================================
+   MENU LINKS
+   ========================================================== */
+
+.dropdown-menu a {
+    text-decoration: none;
+
+    color: var(--cream);
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    transition: .25s ease;
+}
+
+.dropdown-menu a:hover {
+    background:
+        rgba(196,30,58,.08);
+
+    color: var(--parchment);
+}
+
+/* ==========================================================
+   LOGOUT BUTTON
+   ========================================================== */
+
+.dropdown-menu form {
+    margin: 0;
+}
+
+.dropdown-menu button {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: transparent;
+
+    border:
+        1px solid rgba(255,255,255,.06);
+
+    border-radius: 10px;
+
+    color: #ff9d9d;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.dropdown-menu button:hover {
+    background:
+        rgba(139,0,0,.12);
+
+    border-color:
+        rgba(139,0,0,.25);
+
+    color: #ffd1d1;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .cms-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .dropdown-menu {
+        right: auto;
+        left: 0;
+    }
+}

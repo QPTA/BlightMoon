@@ -1,0 +1,156 @@
+/* ==========================================================
+FAQ CREATE PAGE - MOON BLIGHT EXTENSION
+========================================================== */
+
+/* FORM WRAPPER */
+.faq-form {
+    margin-top: 1.5rem;
+}
+
+/* FORM GROUP */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* LABEL */
+.form-label {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: .75rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--parchment);
+}
+
+/* INPUT / SELECT */
+.form-control {
+    width: 100%;
+    padding: .9rem 1rem;
+    background: rgba(8, 6, 4, .6);
+    border: 1px solid var(--border-dark);
+    color: var(--cream);
+    font-size: .95rem;
+    transition: .3s ease;
+    outline: none;
+}
+
+.form-control:focus {
+    border-color: var(--crimson);
+    box-shadow: 0 0 15px rgba(196, 30, 58, .2);
+    background: rgba(28, 20, 16, .4);
+}
+
+/* ERROR TEXT */
+.field-error {
+    margin-top: .4rem;
+    font-size: .75rem;
+    color: #ff8a80;
+    letter-spacing: .05em;
+}
+
+/* ACTIONS */
+.faq-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+/* BUTTON OVERRIDE (ensure consistency) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .7rem 1.2rem;
+    font-size: .75rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    border: 1px solid var(--border-mid);
+    background: linear-gradient(180deg,
+            rgba(28, 20, 16, .9),
+            rgba(10, 8, 7, .95));
+    color: var(--cream);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--crimson);
+    box-shadow: 0 0 20px rgba(196, 30, 58, .25);
+    color: #fff;
+}
+
+.btn-primary {
+    border-color: var(--crimson);
+}
+
+.btn-secondary {
+    border-color: var(--border-mid);
+}
+
+/* ==========================================================
+QUILL EDITOR THEME OVERRIDE
+========================================================== */
+
+.faq-editor {
+    min-height: 250px;
+    background: rgba(8, 6, 4, .6);
+    border: 1px solid var(--border-dark);
+    color: var(--cream);
+}
+
+/* Quill toolbar */
+.ql-toolbar.ql-snow {
+    background: rgba(28, 20, 16, .95);
+    border: 1px solid var(--border-dark);
+}
+
+.ql-toolbar button {
+    filter: brightness(.8);
+}
+
+.ql-toolbar button:hover {
+    filter: brightness(1.2);
+}
+
+/* editor area */
+.ql-container.ql-snow {
+    border: 1px solid var(--border-dark);
+    border-top: none;
+    background: rgba(8, 6, 4, .6);
+    color: var(--cream);
+    min-height: 200px;
+}
+
+.ql-editor {
+    color: var(--cream);
+    font-family: "Crimson Text", serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* placeholder */
+.ql-editor.ql-blank::before {
+    color: var(--mid-grey);
+    font-style: italic;
+}
+
+/* focus glow */
+.ql-container:focus-within {
+    box-shadow: 0 0 20px rgba(196, 30, 58, .15);
+}
+
+/* ==========================================================
+RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+    .faq-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

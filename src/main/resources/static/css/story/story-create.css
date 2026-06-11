@@ -1,0 +1,212 @@
+/* ==========================================================
+STORY CREATE FORM
+========================================================== */
+
+.story-form {
+    margin-top: 1.5rem;
+}
+
+/* FORM GROUP */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: .5rem;
+
+    font-size: .75rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    color: var(--parchment);
+}
+
+/* INPUTS */
+.form-control {
+    width: 100%;
+    padding: .85rem 1rem;
+
+    border: 1px solid var(--border-mid);
+    outline: none;
+
+    background: rgba(10, 8, 7, .85);
+    color: var(--cream);
+
+    font-family: "Crimson Text", serif;
+
+    transition: .3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--crimson);
+    box-shadow: 0 0 15px var(--glow-red);
+}
+
+/* TEXTAREA */
+.story-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* FILE INPUT */
+.file-input {
+    width: 100%;
+    padding: .6rem;
+
+    background: rgba(10, 8, 7, .85);
+    border: 1px solid var(--border-mid);
+
+    color: var(--cream);
+}
+
+.file-input::file-selector-button {
+    background: var(--dark-card);
+    border: 1px solid var(--border-mid);
+    color: var(--cream);
+
+    padding: .5rem .8rem;
+    margin-right: 1rem;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.file-input::file-selector-button:hover {
+    border-color: var(--crimson);
+    box-shadow: 0 0 10px var(--glow-red);
+}
+
+/* ERROR TEXT */
+.field-error {
+    margin-top: .4rem;
+    font-size: .8rem;
+
+    color: #ff8a80;
+}
+
+/* ==========================================================
+QUILL EDITOR
+========================================================== */
+
+.story-editor {
+    height: 320px;
+
+    background: rgba(10, 8, 7, .9);
+
+    border: 1px solid var(--border-mid);
+
+    color: var(--cream);
+}
+
+.ql-toolbar {
+    background: var(--dark-card);
+    border: 1px solid var(--border-mid) !important;
+}
+
+.ql-toolbar button {
+    filter: invert(1);
+    opacity: .8;
+    transition: .2s;
+}
+
+.ql-toolbar button:hover {
+    opacity: 1;
+    filter: invert(1) drop-shadow(0 0 6px var(--glow-red));
+}
+
+.ql-container {
+    border: none !important;
+    font-family: "Crimson Text", serif;
+    color: var(--cream);
+    font-size: 1rem;
+}
+
+.ql-editor {
+    min-height: 260px;
+    color: var(--cream);
+}
+
+/* placeholder */
+.ql-editor.ql-blank::before {
+    color: var(--mid-grey);
+    font-style: italic;
+}
+
+/* ==========================================================
+ACTIONS
+========================================================== */
+
+.story-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+/* BUTTON OVERRIDE (ensure consistency) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: .8rem 1.3rem;
+
+    border: 1px solid var(--border-mid);
+
+    text-decoration: none;
+    cursor: pointer;
+
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    color: var(--cream);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28,20,16,.95),
+            rgba(8,6,4,.95)
+        );
+
+    transition: .3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    border-color: var(--crimson);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 18px var(--glow-red);
+}
+
+.btn-secondary:hover {
+    border-color: var(--amber);
+    box-shadow: 0 0 15px var(--glow-amber);
+}
+
+/* ==========================================================
+RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .story-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .story-editor {
+        height: 250px;
+    }
+}

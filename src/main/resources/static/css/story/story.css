@@ -1,0 +1,311 @@
+@import "../dashboard-user.css";
+@import "story-create.css";
+@import "story-edit.css";
+/* ==========================================================
+STORY PAGE
+========================================================== */
+
+.story-card {
+    position: relative;
+    padding: 2rem;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28, 20, 16, .96),
+            rgba(10, 8, 7, .98)
+        );
+
+    border: 1px solid var(--border-dark);
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,.75),
+        0 0 25px rgba(139,0,0,.08);
+}
+
+.story-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--crimson),
+            transparent
+        );
+
+    box-shadow: 0 0 12px var(--glow-red);
+}
+
+/* ==========================================================
+MESSAGES
+========================================================== */
+
+.success-message,
+.error-message {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.success-message {
+    color: #81c784;
+    background: rgba(129,199,132,.08);
+    border: 1px solid rgba(129,199,132,.2);
+}
+
+.error-message {
+    color: #ff8a80;
+    background: rgba(255,138,128,.08);
+    border: 1px solid rgba(255,138,128,.2);
+}
+
+/* ==========================================================
+TOP ACTIONS
+========================================================== */
+
+.top-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================
+BUTTONS
+========================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: .75rem 1.2rem;
+
+    border: 1px solid var(--border-mid);
+    text-decoration: none;
+    cursor: pointer;
+
+    color: var(--cream);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28,20,16,.95),
+            rgba(8,6,4,.95)
+        );
+
+    transition: .3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    border-color: var(--crimson);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 18px var(--glow-red);
+}
+
+.btn-secondary:hover {
+    border-color: var(--amber);
+    box-shadow: 0 0 15px var(--glow-amber);
+}
+
+.btn-danger {
+    border-color: #9b2c2c;
+    color: #ffb3b3;
+}
+
+.btn-danger:hover {
+    background: rgba(139,0,0,.15);
+}
+
+.btn-success {
+    border-color: #2e7d32;
+    color: #a5d6a7;
+}
+
+.btn-success:hover {
+    background: rgba(46,125,50,.15);
+}
+
+.btn-sm {
+    padding: .55rem .9rem;
+    font-size: .8rem;
+}
+
+/* ==========================================================
+TABLE
+========================================================== */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.story-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(15,10,7,.6);
+}
+
+.story-table th {
+    background: rgba(196,30,58,.12);
+
+    color: var(--parchment);
+
+    text-transform: uppercase;
+    letter-spacing: .1em;
+
+    padding: 1rem;
+    font-size: .8rem;
+
+    border-bottom: 1px solid var(--border-mid);
+}
+
+.story-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-dark);
+    color: var(--cream);
+}
+
+.story-table tbody tr {
+    transition: .25s ease;
+}
+
+.story-table tbody tr:hover {
+    background: rgba(196,30,58,.05);
+}
+
+/* ==========================================================
+IMAGE
+========================================================== */
+
+.table-image {
+    width: 90px;
+    height: 60px;
+    object-fit: cover;
+
+    border: 1px solid var(--border-mid);
+
+    box-shadow:
+        0 0 15px rgba(0,0,0,.4);
+}
+
+/* ==========================================================
+STATUS
+========================================================== */
+
+.status-active {
+    color: #81c784;
+    font-weight: 600;
+}
+
+.status-deleted {
+    color: #ff8a80;
+    font-weight: 600;
+}
+
+/* ==========================================================
+ACTIONS
+========================================================== */
+
+.action-group {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.action-group form {
+    margin: 0;
+}
+
+/* ==========================================================
+PAGINATION
+========================================================== */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: .5rem;
+
+    margin-top: 2rem;
+}
+
+.page-btn,
+.page-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 40px;
+    height: 40px;
+
+    padding: 0 .8rem;
+
+    text-decoration: none;
+
+    border: 1px solid var(--border-mid);
+
+    color: var(--cream);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28,20,16,.95),
+            rgba(8,6,4,.95)
+        );
+
+    transition: .25s;
+}
+
+.page-btn:hover,
+.page-number:hover {
+    border-color: var(--crimson);
+    box-shadow: 0 0 15px var(--glow-red);
+}
+
+.page-number.active {
+    background: var(--crimson);
+    color: white;
+    border-color: var(--crimson);
+
+    box-shadow:
+        0 0 15px var(--glow-red);
+}
+
+/* ==========================================================
+RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .story-card {
+        padding: 1rem;
+    }
+
+    .top-actions {
+        justify-content: center;
+    }
+
+    .action-group {
+        flex-direction: column;
+    }
+
+    .action-group .btn {
+        width: 100%;
+    }
+
+    .table-image {
+        width: 70px;
+        height: 50px;
+    }
+}

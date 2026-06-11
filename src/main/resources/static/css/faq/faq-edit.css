@@ -1,0 +1,99 @@
+/* ==========================================================
+FAQ EDIT PAGE - MOON BLIGHT EXTENSION
+========================================================== */
+
+/* EDIT MODE VISUAL ACCENT */
+.faq-card {
+    position: relative;
+}
+
+/* subtle “editing mode” glow */
+.faq-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at top right,
+            rgba(196, 30, 58, .08),
+            transparent 55%);
+    opacity: .8;
+}
+
+/* HEADER tweak for edit state */
+.section-title {
+    position: relative;
+}
+
+/* small "EDIT MODE" tag */
+.section-title::after {
+    content: "EDIT MODE";
+    position: absolute;
+    top: -10px;
+    right: -60px;
+    font-size: .6rem;
+    letter-spacing: .25em;
+    color: var(--crimson);
+    opacity: .7;
+}
+
+/* ID hidden field (still safe spacing) */
+input[type="hidden"] {
+    display: none;
+}
+
+/* FORM ENHANCEMENT */
+.faq-form {
+    animation: fadeInUp .35s ease;
+}
+
+/* subtle entry animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* QUILL EDIT MODE ENHANCEMENT */
+.faq-editor {
+    border: 1px solid var(--border-dark);
+    transition: .3s ease;
+}
+
+/* stronger focus when editing content */
+.faq-editor:focus-within {
+    border-color: var(--crimson);
+    box-shadow: 0 0 25px rgba(196, 30, 58, .18);
+}
+
+/* dirty state hint (optional JS can toggle .is-dirty) */
+.faq-form.is-dirty .btn-primary {
+    border-color: var(--amber);
+    box-shadow: 0 0 15px rgba(200, 114, 10, .25);
+}
+
+/* ACTION AREA polish */
+.faq-actions {
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(10, 8, 7, .95));
+    padding-top: 1rem;
+    backdrop-filter: blur(6px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .section-title::after {
+        position: static;
+        display: block;
+        margin-top: .5rem;
+    }
+}

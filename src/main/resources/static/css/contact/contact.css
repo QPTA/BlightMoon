@@ -1,0 +1,288 @@
+@import "../dashboard-user.css";
+
+@import "contact-detail.css";
+
+/* ==========================================================
+CONTACT PAGE - MOON BLIGHT CMS
+========================================================== */
+
+.contact-card {
+    position: relative;
+
+    padding: 2rem;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28, 20, 16, .96),
+            rgba(10, 8, 7, .98)
+        );
+
+    border: 1px solid var(--border-dark);
+
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, .75),
+        0 0 25px rgba(139, 0, 0, .08);
+
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--crimson),
+            transparent
+        );
+
+    box-shadow: 0 0 12px var(--glow-red);
+}
+
+/* ==========================================================
+EMPTY STATE
+========================================================== */
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+
+    color: var(--mid-grey);
+
+    border: 1px dashed var(--border-mid);
+
+    background: rgba(10, 8, 7, .5);
+
+    margin-top: 1.5rem;
+}
+
+/* ==========================================================
+EMAIL LINK
+========================================================== */
+
+.email-link {
+    color: var(--parchment);
+    text-decoration: none;
+
+    transition: .2s ease;
+}
+
+.email-link:hover {
+    color: var(--crimson);
+    text-shadow: 0 0 10px var(--glow-red);
+}
+
+/* ==========================================================
+STATUS BADGES
+========================================================== */
+
+.status-active {
+    color: #81c784;
+    font-weight: 600;
+}
+
+.status-pending {
+    color: var(--amber);
+    font-weight: 600;
+}
+
+/* ==========================================================
+TABLE
+========================================================== */
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: rgba(15, 10, 7, .6);
+}
+
+.contact-table th {
+    padding: 1rem;
+
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+
+    color: var(--parchment);
+
+    background: rgba(196, 30, 58, .12);
+
+    border-bottom: 1px solid var(--border-mid);
+}
+
+.contact-table td {
+    padding: 1rem;
+
+    color: var(--cream);
+
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.contact-table tbody tr {
+    transition: .25s ease;
+}
+
+.contact-table tbody tr:hover {
+    background: rgba(196, 30, 58, .05);
+}
+
+/* ==========================================================
+ACTIONS
+========================================================== */
+
+.action-buttons {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.action-buttons form {
+    margin: 0;
+}
+
+/* ==========================================================
+BUTTONS (reuse consistent CMS style)
+========================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: .6rem 1rem;
+
+    border: 1px solid var(--border-mid);
+
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    color: var(--cream);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28,20,16,.95),
+            rgba(8,6,4,.95)
+        );
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover {
+    border-color: var(--amber);
+    box-shadow: 0 0 15px var(--glow-amber);
+}
+
+.btn-success {
+    border-color: #2e7d32;
+    color: #a5d6a7;
+}
+
+.btn-success:hover {
+    background: rgba(46,125,50,.15);
+    box-shadow: 0 0 12px rgba(46,125,50,.25);
+}
+
+/* SMALL BUTTON */
+.btn-sm {
+    padding: .45rem .75rem;
+    font-size: .7rem;
+}
+
+/* ==========================================================
+PAGINATION
+========================================================== */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-top: 2rem;
+}
+
+.page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 36px;
+    height: 36px;
+
+    padding: 0 .8rem;
+
+    border: 1px solid var(--border-mid);
+
+    color: var(--cream);
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28,20,16,.95),
+            rgba(8,6,4,.95)
+        );
+
+    transition: .25s ease;
+}
+
+.page-btn:hover {
+    border-color: var(--crimson);
+    box-shadow: 0 0 15px var(--glow-red);
+}
+
+.page-current {
+    color: var(--parchment);
+    font-size: .9rem;
+}
+
+/* ==========================================================
+RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .contact-card {
+        padding: 1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .contact-table th,
+    .contact-table td {
+        padding: .75rem;
+        font-size: .85rem;
+    }
+}

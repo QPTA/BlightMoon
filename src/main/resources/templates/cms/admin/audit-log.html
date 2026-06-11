@@ -1,42 +1,55 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Audit Logs</title>
 
-    <link rel="stylesheet" href="/css/your-style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Audit Logs</title>
 
-  <body>
+  <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
 
-    <!-- Background -->
-    <div class="bg-image"></div>
+<body>
 
-    <div class="layout section-dark">
-      <div class="container-xl">
+  <div class="bg-image"></div>
 
-        <div class="story-card">
+  <div th:replace="~{cms/fragments/header :: header}"></div>
 
-          <!-- Sidebar -->
-          <th:block th:replace="~{cms/fragments/admin-sidebar :: sidebar}"></th:block>
+  <div class="layout">
 
-          <div class="content-wrapper">
+    <div th:replace="~{cms/fragments/admin-sidebar :: sidebar}"></div>
 
-            <!-- Header -->
-            <th:block th:replace="~{cms/fragments/header :: header}"></th:block>
+    <div class="content-wrapper">
 
-            <main>
+      <main class="section-dark">
 
-              <div class="section-header">
-                <div class="section-eyebrow">Admin Panel</div>
-                <h1 class="section-title">Audit Logs</h1>
-                <div class="section-divider"></div>
-              </div>
+        <div class="container-xl">
 
-              <!-- TABLE -->
-              <h3 class="table-title">Danh sách log hệ thống</h3>
+          <div class="story-card">
+
+            <!-- HEADER -->
+
+            <div class="section-header">
+              <span class="section-eyebrow">
+                Moonblight CMS
+              </span>
+
+              <h1 class="section-title">
+                Audit Logs
+              </h1>
+
+              <div class="section-divider"></div>
+            </div>
+
+            <!-- TABLE -->
+
+            <div class="table-section">
+
+              <h2 class="table-title">
+                Danh sách log hệ thống
+              </h2>
 
               <div class="table-wrapper">
+
                 <table class="dashboard-table">
 
                   <thead>
@@ -52,6 +65,7 @@
                   </thead>
 
                   <tbody>
+
                     <tr th:each="log : ${logs.content}">
                       <td th:text="${log.id}"></td>
                       <td th:text="${log.username}"></td>
@@ -69,56 +83,43 @@
                     </tr>
 
                   </tbody>
+
                 </table>
+
               </div>
 
-              <br />
+            </div>
 
-              <!-- PAGINATION -->
-              <div class="pagination">
+            <!-- PAGINATION -->
 
-                <a
-                  class="btn btn-secondary"
-                  th:if="${!logs.first}"
-                  th:href="@{/admin/moonblight/log(page=${logs.number - 1})}"
-                >
-                  ← Trước
+            <div class="pagination" th:if="${logs.totalPages > 1}">
+
+              <a class="page-btn" th:if="${!logs.first}" th:href="@{/admin/moonblight/log(page=${logs.number - 1})}">
+                ←
+              </a>
+
+              <span th:each="i : ${#numbers.sequence(0, logs.totalPages - 1)}">
+
+                <a th:if="${i != logs.number}" class="page-btn" th:href="@{/admin/moonblight/log(page=${i})}"
+                  th:text="${i + 1}">
                 </a>
 
-                <span th:each="i : ${#numbers.sequence(0, logs.totalPages - 1)}">
-
-                  <a
-                    class="btn btn-secondary"
-                    th:if="${i != logs.number}"
-                    th:href="@{/admin/moonblight/log(page=${i})}"
-                    th:text="${i + 1}"
-                  ></a>
-
-                  <span
-                    th:if="${i == logs.number}"
-                    class="btn"
-                    style="background:#d4af37; color:black; font-weight:bold;"
-                    th:text="${i + 1}"
-                  ></span>
-
+                <span th:if="${i == logs.number}" class="page-current" th:text="${i + 1}">
                 </span>
 
-                <a
-                  class="btn btn-secondary"
-                  th:if="${!logs.last}"
-                  th:href="@{/admin/moonblight/log(page=${logs.number + 1})}"
-                >
-                  Sau →
-                </a>
+              </span>
 
-              </div>
+              <a class="page-btn" th:if="${!logs.last}" th:href="@{/admin/moonblight/log(page=${logs.number + 1})}">
+                →
+              </a>
 
-            </main>
+            </div>
           </div>
-
         </div>
-      </div>
-    </div>
 
-  </body>
+      </main>
+    </div>
+  </div>
+</body>
+
 </html>

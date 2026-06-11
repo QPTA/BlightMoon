@@ -1,0 +1,238 @@
+/* ==========================================================
+CONTACT DETAIL - MOON BLIGHT CMS
+========================================================== */
+
+.contact-detail {
+    margin-top: 2rem;
+
+    padding: 1.5rem;
+
+    background:
+        rgba(15, 10, 7, .6);
+
+    border: 1px solid var(--border-dark);
+
+    box-shadow:
+        inset 0 0 30px rgba(0,0,0,.4);
+}
+
+/* ==========================================================
+DETAIL ROWS
+========================================================== */
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: .9rem 0;
+
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    min-width: 140px;
+
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    color: var(--parchment);
+}
+
+/* VALUE TEXT */
+.detail-row span,
+.detail-row a {
+    color: var(--cream);
+}
+
+/* EMAIL LINK (enhanced hover glow) */
+.email-link {
+    color: var(--parchment);
+    text-decoration: none;
+
+    transition: .25s ease;
+}
+
+.email-link:hover {
+    color: var(--crimson);
+    text-shadow: 0 0 10px var(--glow-red);
+}
+
+/* ==========================================================
+STATUS BADGES
+========================================================== */
+
+.status-active {
+    color: #81c784;
+    font-weight: 600;
+}
+
+.status-pending {
+    color: var(--amber);
+    font-weight: 600;
+}
+
+/* ==========================================================
+MESSAGE BOX (CONTENT AREA)
+========================================================== */
+
+.message-box {
+    margin-top: 1.5rem;
+
+    padding: 1.2rem;
+
+    background:
+        rgba(10, 8, 7, .8);
+
+    border: 1px solid var(--border-mid);
+
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,.5);
+}
+
+.message-box .detail-label {
+    margin-bottom: .8rem;
+
+    display: block;
+}
+
+.message-box pre {
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    color: var(--cream);
+
+    font-family: "Crimson Text", serif;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+/* ==========================================================
+ACTIONS
+========================================================== */
+
+.contact-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 1rem;
+
+    margin-top: 2rem;
+}
+
+/* BUTTONS (CMS consistent style) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: .8rem 1.2rem;
+
+    border: 1px solid var(--border-mid);
+
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    color: var(--cream);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(28,20,16,.95),
+            rgba(8,6,4,.95)
+        );
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* SUCCESS BUTTON */
+.btn-success {
+    border-color: #2e7d32;
+    color: #a5d6a7;
+}
+
+.btn-success:hover {
+    background: rgba(46,125,50,.15);
+    box-shadow: 0 0 15px rgba(46,125,50,.25);
+}
+
+/* SECONDARY BUTTON */
+.btn-secondary:hover {
+    border-color: var(--amber);
+    box-shadow: 0 0 15px var(--glow-amber);
+}
+
+/* ==========================================================
+CARD ENHANCEMENT (DETAIL PAGE FEEL)
+========================================================== */
+
+.contact-card {
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* subtle amber accent for detail page */
+.contact-card::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--amber),
+            transparent
+        );
+
+    opacity: .7;
+}
+
+/* ==========================================================
+RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detail-label {
+        margin-bottom: .3rem;
+    }
+
+    .contact-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
