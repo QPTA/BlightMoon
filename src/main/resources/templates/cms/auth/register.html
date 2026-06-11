@@ -15,12 +15,76 @@
 <body>
 
   <div class="bg-image"></div>
+  <div class="layouts">
 
-  <div class="register-card">
+    <div class="register-card">
 
-    <div class="register-eyebrow">
-      MOONBLIGHT ACCOUNT
+      <div class="register-eyebrow">
+        MOONBLIGHT ACCOUNT
+      </div>
+
+      <h2 class="register-title">Đăng ký</h2>
+
+      <div class="register-divider"></div>
+
+      <!-- MESSAGE -->
+      <p class="success-message" th:if="${successMessage}" th:text="${successMessage}">
+      </p>
+
+      <p class="error-message" th:if="${errorMessage}" th:text="${errorMessage}">
+      </p>
+
+      <!-- FORM -->
+      <form th:action="@{/user/moonblight/register}" method="post">
+
+        <!-- USERNAME -->
+        <div class="register-group">
+          <label>Username</label>
+          <input type="text" name="username" minlength="3" maxlength="30" required>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="register-group">
+          <label>Email</label>
+          <input type="email" name="email" maxlength="255" required>
+        </div>
+
+        <!-- FULL NAME -->
+        <div class="register-group">
+          <label>Họ và tên</label>
+          <input type="text" name="fullName" maxlength="255" required>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="register-group">
+          <label>Mật khẩu</label>
+          <input type="password" name="password" minlength="8" required>
+        </div>
+
+        <!-- RE PASSWORD -->
+        <div class="register-group">
+          <label>Nhập lại mật khẩu</label>
+          <input type="password" name="rePassword" required>
+        </div>
+
+        <button class="register-btn" type="submit">
+          Đăng ký
+        </button>
+
+      </form>
+
+      <hr style="margin: 1rem 0; opacity: 0.2;" />
+
+      <a class="register-link" th:href="@{/user/moonblight/login}">
+        Đã có tài khoản? Đăng nhập
+      </a>
+
+      <a class="register-link" th:href="@{/user/moonblight/forgot-password}">
+        Quên mật khẩu
+      </a>
+
     </div>
+<<<<<<< Updated upstream
 
     <h2 class="register-title">Đăng ký</h2>
 
@@ -82,8 +146,9 @@
       Quên mật khẩu
     </a>
 
+=======
+>>>>>>> Stashed changes
   </div>
-
 </body>
 
 </html>
