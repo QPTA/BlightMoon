@@ -82,7 +82,7 @@ public class UserServiceImpl implements UserService {
                 SecurityContextHolder.setContext(context);
 
                 User user = findUser(authentication.getName())
-                                .orElseThrow(() -> new IllegalArgumentException("Sai tài khoản hoặc mật khẩu"));
+                                .orElseThrow(() -> new IllegalArgumentException("Tên đăng nhập hoặc mật khẩu không đúng."));
 
                 auditLogService.logAuthenticated(
                                 user,
