@@ -11,13 +11,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.darkfantasy.constant.Routes;
 import com.darkfantasy.entity.enums.Role;
 
+import lombok.RequiredArgsConstructor;
+
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
+    private final ActiveUserFilter activeUserFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -38,8 +43,9 @@ public class SecurityConfig {
                                 Routes.FAQ + "/**",
                                 Routes.CONTACT + "/**")
                         .hasRole(Role.STAFF.name())
-                        .anyRequest().permitAll());
-        // .csrf(csrf -> csrf.disable());
+                        .anyRequest().permitAll())
+                        .addFilterBefore(activeUserFilter, UsernamePasswordAuthenticationFilter.class);
+        // .csrf(csrf -> csrf.disable());     
         return http.build();
     }
 

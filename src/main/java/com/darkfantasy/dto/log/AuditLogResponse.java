@@ -14,37 +14,24 @@ import lombok.Data;
 @Builder
 public class AuditLogResponse {
         private Long id;
-
+        private Long userId;
         private String username;
-
         private LogEntityType entityType;
-
         private Long entityId;
-
         private LogAction action;
-
         private String description;
-
         private String createdAt;
 
-        public static AuditLogResponse fromEntity(
-                        AuditLog auditLog) {
-
+        public static AuditLogResponse fromEntity(AuditLog auditLog) {
                 return AuditLogResponse.builder()
                                 .id(auditLog.getId())
-                                .username(
-                                                auditLog.getUser().getUsername())
-                                .entityType(
-                                                auditLog.getEntityType())
-                                .entityId(
-                                                auditLog.getEntityId())
-                                .action(
-                                                auditLog.getAction())
-                                .description(
-                                                auditLog.getDescription())
-                                .createdAt(
-                                                TimeUtil.formatInstant(
-                                                                auditLog.getCreatedAt()))
+                                .userId(auditLog.getUser().getId())
+                                .username(auditLog.getUser().getUsername())
+                                .entityType(auditLog.getEntityType())
+                                .entityId(auditLog.getEntityId())
+                                .action(auditLog.getAction())
+                                .description(auditLog.getDescription())
+                                .createdAt(TimeUtil.formatInstant(auditLog.getCreatedAt()))
                                 .build();
         }
 }

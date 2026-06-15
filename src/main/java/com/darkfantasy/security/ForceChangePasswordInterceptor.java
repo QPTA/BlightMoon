@@ -3,6 +3,7 @@ package com.darkfantasy.security;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import com.darkfantasy.constant.Routes;
 import com.darkfantasy.entity.User;
 import com.darkfantasy.repository.UserRepository;
 import com.darkfantasy.util.SecurityUtil;
@@ -43,10 +44,10 @@ public class ForceChangePasswordInterceptor
 
                 if (user.isMustChangePassword()
                                 && !uri.startsWith(
-                                                "/user/moonblight/change-password")) {
+                                                Routes.USER + "/change-password")) {
 
                         response.sendRedirect(
-                                        "/user/moonblight/change-password");
+                                        Routes.USER + "/change-password");
 
                         return false;
                 }

@@ -29,5 +29,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     long countByIsActiveFalse();
 
-    
+    Optional<User> findByUsername(String username);
+
 }
