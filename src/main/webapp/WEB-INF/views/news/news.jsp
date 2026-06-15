@@ -95,7 +95,7 @@
 </section>
 
 <!-- NEWS GRID -->
-<section class="section section-surface">
+<section id ="news-list" class="section section-surface">
   <div class="container">
     <div class="section-header">
       <span class="section-eyebrow">Tất cả các bản tin</span>
@@ -190,7 +190,7 @@
 
             <div class="text-center mt-4">
 
-                <a href="?limit=${nextLimit}"
+                <a href="?limit=${nextLimit}#news-list"
                     class="btn btn-secondary">
 
                         Hiện thêm
