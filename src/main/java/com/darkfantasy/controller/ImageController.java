@@ -25,7 +25,7 @@ public class ImageController {
     public ResponseEntity<?> uploadImage(@RequestParam("image") MultipartFile file) {
         try {
             // Gọi Service để lưu file vào thư mục "editor" (nó sẽ tạo ra uploads/editor/)
-            String fileUrl = fileStorageService.saveFile(file, "editor");
+            String fileUrl = fileStorageService.saveFile(file, "editors");
 
             // Trả về JSON cho Quill Frontend: {"url": "/uploads/editor/abc123hash.png"}
             return ResponseEntity.ok(Map.of("url", fileUrl));
