@@ -72,7 +72,7 @@ public class StoryController {
                     "successMessage",
                     "Tạo câu chuyện thành công: "
                             + response.getTitle());
-            return "redirect:/story/moonblight/list";
+            return "redirect:" + Routes.STORY + "/list";
         } catch (Exception e) {
             model.addAttribute(
                     "errorMessage",
@@ -123,7 +123,7 @@ public class StoryController {
             }
             storyService.updateStory(request);
 
-            return "redirect:/story/moonblight/list";
+            return "redirect:" + Routes.STORY + "/list";
         } catch (Exception e) {
             model.addAttribute(
                     "errorMessage",
@@ -148,7 +148,7 @@ public class StoryController {
                     e.getMessage());
         }
 
-        return "redirect:/story/moonblight/list";
+        return "redirect:" + Routes.STORY + "/list";
     }
 
     @PostMapping("{id}/restore")
@@ -166,6 +166,6 @@ public class StoryController {
                     e.getMessage());
         }
 
-        return "redirect:/story/moonblight/list";
+        return "redirect:" + Routes.STORY + "/list";
     }
 }

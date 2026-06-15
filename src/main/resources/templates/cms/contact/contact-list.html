@@ -98,7 +98,7 @@
 
                       <div class="action-buttons">
 
-                        <form th:action="@{/contact/blightmoon/{id}(id=${message.id})}" method="get">
+                        <form th:action="@{/contact/moonblight/{id}(id=${message.id})}" method="get">
 
                           <button type="submit" class="btn btn-secondary btn-sm">
                             Chi tiết
@@ -107,7 +107,7 @@
                         </form>
 
                         <form th:if="${!message.processed}"
-                          th:action="@{/contact/blightmoon/{id}/process(id=${message.id})}" method="post">
+                          th:action="@{/contact/moonblight/{id}/process(id=${message.id})}" method="post">
 
                           <button type="submit" class="btn btn-success btn-sm">
                             Đã xử lý
@@ -130,7 +130,7 @@
             <div class="pagination" th:if="${messages.totalPages > 1}">
 
               <a class="page-btn" th:if="${messages.hasPrevious()}"
-                th:href="@{/contact/blightmoon/list(page=${messages.number - 1}, size=${messages.size})}">
+                th:href="@{/contact/moonblight/list(page=${messages.number - 1}, size=${messages.size})}">
                 ←
               </a>
 
@@ -141,7 +141,7 @@
               </span>
 
               <a class="page-btn" th:if="${messages.hasNext()}"
-                th:href="@{/contact/blightmoon/list(page=${messages.number + 1}, size=${messages.size})}">
+                th:href="@{/contact/moonblight/list(page=${messages.number + 1}, size=${messages.size})}">
                 →
               </a>
 

@@ -98,7 +98,7 @@
 
             <div class="contact-actions">
 
-              <form th:if="${!message.processed}" th:action="@{/contact/blightmoon/{id}/process(id=${message.id})}"
+              <form th:if="${!message.processed}" th:action="@{/contact/moonblight/{id}/process(id=${message.id})}"
                 method="post">
 
                 <button type="submit" class="btn btn-success">
@@ -107,7 +107,7 @@
 
               </form>
 
-              <a th:href="@{/contact/blightmoon/list}" class="btn btn-secondary">
+              <a th:href="@{/contact/moonblight/list}" class="btn btn-secondary">
                 Quay lại danh sách
               </a>
 

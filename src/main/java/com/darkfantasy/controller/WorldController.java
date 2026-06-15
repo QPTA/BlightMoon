@@ -73,7 +73,7 @@ public class WorldController {
                     "successMessage",
                     "Tạo thế giới thành công: "
                             + response.getTitle());
-            return "redirect:/world/moonblight/list";
+            return "redirect:" + Routes.WORLD + "/list";
         } catch (Exception e) {
             model.addAttribute(
                     "errorMessage",
@@ -114,7 +114,7 @@ public class WorldController {
             }
             worldService.updateWorld(request);
 
-            return "redirect:/world/moonblight/list";
+            return "redirect:" + Routes.WORLD + "/list";
         } catch (Exception e) {
             model.addAttribute(
                     "errorMessage",
@@ -139,7 +139,7 @@ public class WorldController {
                     e.getMessage());
         }
 
-        return "redirect:/world/moonblight/list";
+        return "redirect:" + Routes.WORLD + "/list";
     }
 
     @PostMapping("{id}/restore")
@@ -157,6 +157,6 @@ public class WorldController {
                     e.getMessage());
         }
 
-        return "redirect:/world/moonblight/list";
+        return "redirect:" + Routes.WORLD + "/list";
     }
 }

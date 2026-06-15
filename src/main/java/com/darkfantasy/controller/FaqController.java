@@ -4,6 +4,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.RouteMatcher.Route;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -69,7 +70,7 @@ public class FaqController {
                     "Tạo FAQ thành công: "
                             + response.getTitle());
 
-            return "redirect:/faq/moonblight/list";
+            return "redirect:" + Routes.FAQ + "/list";
 
         } catch (Exception e) {
 
@@ -112,7 +113,7 @@ public class FaqController {
         try {
             faqService.updateFaq(request);
 
-            return "redirect:/faq/moonblight/list";
+            return "redirect:" + Routes.FAQ + "/list";
         } catch (Exception e) {
             model.addAttribute(
                     "errorMessage",
@@ -137,7 +138,7 @@ public class FaqController {
                     e.getMessage());
         }
 
-        return "redirect:/faq/moonblight/list";
+        return "redirect:" + Routes.FAQ + "/list";
     }
 
     @PostMapping("{id}/restore")
@@ -155,6 +156,6 @@ public class FaqController {
                     e.getMessage());
         }
 
-        return "redirect:/faq/moonblight/list";
+        return "redirect:" + Routes.FAQ + "/list";
     }
 }

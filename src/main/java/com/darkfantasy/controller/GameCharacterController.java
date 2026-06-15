@@ -73,7 +73,7 @@ public class GameCharacterController {
                     "successMessage",
                     "Tạo nhân vật thành công: "
                             + response.getName());
-            return "redirect:/character/moonblight/list";
+            return "redirect:" + Routes.CHARACTER + "/list";
         } catch (Exception e) {
             model.addAttribute(
                     "errorMessage",
@@ -114,7 +114,7 @@ public class GameCharacterController {
             }
             gameCharacterService.updateGameCharacter(request);
 
-            return "redirect:/character/moonblight/list";
+            return "redirect:" + Routes.CHARACTER + "/list";
         } catch (Exception e) {
             model.addAttribute(
                     "errorMessage",
@@ -139,7 +139,7 @@ public class GameCharacterController {
                     e.getMessage());
         }
 
-        return "redirect:/character/moonblight/list";
+        return "redirect:" + Routes.CHARACTER + "/list";
     }
 
     @PostMapping("{id}/restore")
@@ -157,7 +157,7 @@ public class GameCharacterController {
                     e.getMessage());
         }
 
-        return "redirect:/character/moonblight/list";
+        return "redirect:" + Routes.CHARACTER + "/list";
     }
 
 }

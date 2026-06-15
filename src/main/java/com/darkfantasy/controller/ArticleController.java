@@ -81,7 +81,7 @@ public class ArticleController {
                     "Tạo bài viết thành công: "
                             + response.getTitle());
 
-            return "redirect:/article/moonblight/list";
+            return "redirect:"+ Routes.ARTICLE +"/list";
 
         } catch (Exception e) {
 
@@ -111,7 +111,7 @@ public class ArticleController {
                     e.getMessage());
         }
 
-        return "redirect:/article/moonblight/list";
+        return "redirect:"+ Routes.ARTICLE +"/list";
     }
 
     @PostMapping("{id}/restore")
@@ -128,7 +128,7 @@ public class ArticleController {
                     "errorMessage",
                     e.getMessage());
         }
-        return "redirect:/article/moonblight/list";
+        return "redirect:"+ Routes.ARTICLE +"/list";
     }
 
     @GetMapping({ "/{id}/edit", "/{id}/edit/" })
@@ -176,7 +176,7 @@ public class ArticleController {
 
             articleService.updateArticle(request);
 
-            return "redirect:/article/moonblight/list";
+            return "redirect:"+ Routes.ARTICLE +"/list";
 
         } catch (Exception e) {
 

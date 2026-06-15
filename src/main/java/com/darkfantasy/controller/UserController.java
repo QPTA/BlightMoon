@@ -88,8 +88,8 @@ public class UserController {
                     HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,
                     SecurityContextHolder.getContext());
             return switch (user.getRole()) {
-                case "ADMIN" -> "redirect:/admin/moonblight/dashboard";
-                case "STAFF" -> "redirect:/dashboard/moonblight";
+                case "ADMIN" -> "redirect:" + Routes.ADMIN + "/dashboard";
+                case "STAFF" -> "redirect:" + Routes.DASHBOARD;
                 default -> "redirect:/";
             };
 
@@ -121,7 +121,7 @@ public class UserController {
         new SecurityContextLogoutHandler()
                 .logout(request, response, authentication);
 
-        return "redirect:/user/moonblight/login";
+        return "redirect:" + Routes.USER + "/login";
     }
 
     @PostMapping("register")
@@ -133,7 +133,7 @@ public class UserController {
         try {
             userService.register(request);
             redirectAttributes.addFlashAttribute("successMessage", "Đăng ký thành công!");
-            return "redirect:/user/moonblight/login";
+            return "redirect:" + Routes.USER + "/login";
         } catch (IllegalArgumentException e) {
             request.setPassword("");
             request.setRePassword("");
@@ -175,10 +175,10 @@ public class UserController {
             Role role = SecurityUtil.getCurrentUserRole();
 
             if (role == Role.ADMIN) {
-                return "redirect:/admin/moonblight/dashboard";
+                return "redirect:" + Routes.ADMIN + "/dashboard";
             }
 
-            return "redirect:/dashboard/moonblight";
+            return "redirect:" + Routes.DASHBOARD;
 
         } catch (Exception e) {
 
@@ -234,7 +234,7 @@ public class UserController {
             session.setAttribute(
                     "OTP_EMAIL",
                     request.getEmail());
-            return "redirect:/user/moonblight/verify-otp";
+            return "redirect:" + Routes.USER + "/verify-otp";
 
         } catch (Exception e) {
 
@@ -280,7 +280,7 @@ public class UserController {
             session.setAttribute(
                     "RESET_EMAIL",
                     request.getEmail());
-            return "redirect:/user/moonblight/reset-password";
+            return "redirect:" + Routes.USER + "/reset-password";
 
         } catch (Exception e) {
             model.addAttribute(
@@ -335,7 +335,7 @@ public class UserController {
             String otp = (String) session.getAttribute(
                     "RESET_OTP");
             if (email == null || otp == null) {
-                return "redirect:/user/moonblight/forgot-password";
+                return "redirect:" + Routes.USER + "/forgot-password";
             }
             request.setEmail(email);
             request.setOtp(otp);
@@ -351,7 +351,7 @@ public class UserController {
                     "successMessage",
                     "Đổi mật khẩu thành công");
 
-            return "redirect:/user/moonblight/login";
+            return "redirect:" + Routes.USER + "/login";
 
         } catch (Exception e) {
             e.printStackTrace();

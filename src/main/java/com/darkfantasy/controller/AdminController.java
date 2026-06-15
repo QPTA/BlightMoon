@@ -5,6 +5,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.RouteMatcher.Route;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,7 +95,7 @@ public class AdminController {
                                 "successMessage",
                                 "Duyệt tài khoản thành công");
 
-                return "redirect:/admin/moonblight/account/" + id;
+                return "redirect:" + Routes.ADMIN + "/account/" + id;
         }
 
         @PostMapping("account/{id}/reject")
@@ -108,7 +109,7 @@ public class AdminController {
                                 "successMessage",
                                 "Từ chối tài khoản thành công");
 
-                return "redirect:/admin/moonblight/account/" + id;
+                return "redirect:" + Routes.ADMIN + "/account/" + id;
         }
 
         @PostMapping("account/{id}/lock")
@@ -122,7 +123,7 @@ public class AdminController {
                                 "successMessage",
                                 "Khóa tài khoản thành công");
 
-                return "redirect:/admin/moonblight/account/" + id;
+                return "redirect:" + Routes.ADMIN + "/account/" + id;
         }
 
         @PostMapping("account/{id}/unlock")
@@ -136,7 +137,7 @@ public class AdminController {
                                 "successMessage",
                                 "Mở khóa tài khoản thành công");
 
-                return "redirect:/admin/moonblight/account/" + id;
+                return "redirect:" + Routes.ADMIN + "/account/" + id;
         }
 
 }

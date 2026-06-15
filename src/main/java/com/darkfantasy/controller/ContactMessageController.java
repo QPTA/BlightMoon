@@ -46,7 +46,7 @@ public class ContactMessageController {
     public String process(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         contactMessageService.markAsProcessed(id);
         redirectAttributes.addFlashAttribute("successMessage", "Đã đánh dấu xử lý.");
-        return "redirect:/contact/blightmoon/list";
+        return "redirect:" + Routes.CONTACT + "/list";
     }
 
     @PostMapping("{id}/unprocess")
@@ -58,6 +58,6 @@ public class ContactMessageController {
 
         redirectAttributes.addFlashAttribute("successMessage", "Đã đánh dấu chưa xử lý.");
 
-        return "redirect:/contact/blightmoon/list";
+        return "redirect:" + Routes.CONTACT + "/list";
     }
 }
