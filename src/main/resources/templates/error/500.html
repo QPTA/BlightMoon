@@ -1,17 +1,23 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>500 - Internal Server Error</title>
-  </head>
-  <body>
-    <h2>500 - Internal Server Error</h2>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 
-    <p>
-      The resource you are looking for might have been removed, had its name
-      changed, or is temporarily unavailable.
-    </p>
-    <a href="/">Return to Home Page</a>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500 - Lỗi Máy Chủ Nội Bộ</title>
+  <link rel="stylesheet" th:href="@{/css/error/error.css}">
+</head>
+
+<body>
+  <h2>500 - Lỗi Máy Chủ Nội Bộ</h2>
+
+  <p class="error-description">
+    Tài nguyên bạn đang tìm kiếm có thể đã bị xóa, thay đổi tên
+    hoặc tạm thời không khả dụng.
+  </p>
+  <div class="error">
+    <a class="error-rollback" href="/">Quay lại Trang Chủ</a>
+  </div>
+</body>
+
 </html>

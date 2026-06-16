@@ -1,17 +1,23 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>403 - Access Denied</title>
-  </head>
-  <body>
-    <h2>403 - Forbidden</h2>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 
-    <p>
-      The resource you are trying to access is restricted. You do not have
-      sufficient permissions to view this page.
-    </p>
-    <a href="/">Return to Home Page</a>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>403 - Truy Cập Bị Từ Chối</title>
+  <link rel="stylesheet" th:href="@{/css/error/error.css}">
+</head>
+
+<body>
+  <h2>403 - Quyền Truy Cập Bị Hạn Chế</h2>
+
+  <p class="error-description">
+    Tài nguyên bạn đang cố gắng truy cập bị hạn chế. Bạn không có
+    đủ quyền để xem trang này.
+  </p>
+  <div class="error">
+    <a class="error-rollback" href="/">Quay lại Trang Chủ</a>
+  </div>
+</body>
+
 </html>

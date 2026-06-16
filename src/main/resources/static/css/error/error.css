@@ -1,0 +1,99 @@
+/* ==========================================================
+   ERROR PAGE STYLES (Đồng bộ với Dashboard Hệ Thống)
+   ========================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    margin-top: 200px;
+    background: #0a0807;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+
+h2, .error-description, .error-rollback {
+    display: block;
+    text-align: center;
+}
+
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    /* Hiệu ứng đổ bóng chữ màu đỏ rực (Glow) */
+    color: var(--cream, #fff);
+    text-shadow: 0 0 15px var(--glow-red, rgba(196, 30, 58, 0.6));
+}
+
+.error {
+    display: grid;
+    place-items: center;
+    
+}
+
+.error-description {
+    max-width: 500px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: var(--light-grey, #a0a0a0);
+    padding: 0 1.5rem;
+}
+
+.error-rollback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    color: var(--cream, #fff);
+    background: linear-gradient(180deg,
+            rgba(196, 30, 58, .25),
+            rgba(139, 0, 0, .2));
+    border: 1px solid var(--crimson, #c41e3a);
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(196, 30, 58, .2);
+
+    transition: all 0.3s ease;
+}
+
+.error-rollback:hover {
+    background: var(--crimson, #c41e3a);
+    box-shadow: 0 0 25px var(--glow-red, rgba(196, 30, 58, 0.6));
+    transform: translateY(-2px);
+}
+
+.error-rollback:active {
+    transform: translateY(0);
+}
+
+
+
+@media (max-width: 480px) {
+    body {
+        padding: 2rem;
+    }
+
+    .error-description {
+        font-size: 0.9rem;
+    }
+
+    .error-rollback {
+        width: 100%;
+    }
+}
