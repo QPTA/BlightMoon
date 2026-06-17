@@ -15,9 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactMessageResponse {
-
     private Long id;
-
     private String visitorName;
 
     private String visitorEmail;
