@@ -27,7 +27,7 @@ http://localhost:8080
 
 ## Database
 
-Dữ liệu được lưu bằng Docker Volume nên sẽ không bị mất khi container được tạo lại.
+Dữ liệu lưu bằng Docker Volume không bị mất khi container được tạo lại.
 
 ### Export Database
 
