@@ -1,23 +1,44 @@
-## BlightMoon
+# BlightMoon
 
-# Run with Docker
+## Run with Docker
 
-- Tạo file .env tại thư mục gốc của project:
+### 1. Tạo file `.env` tại thư mục gốc của project
 
+```env
 SPRING_DATASOURCE_URL=jdbc:mariadb://db:3306/MOONBLIGHT
-
-SPRING_DATASOURCE_USERNAME=YOUR_USERNAME
-
+SPRING_DATASOURCE_USERNAME=root
 SPRING_DATASOURCE_PASSWORD=YOUR_PASSWORD
 
 MAIL_USERNAME=
-
 MAIL_PASSWORD=
+```
 
-- Chạy ứng dụng:
+### 2. Chạy ứng dụng
 
+```bash
 docker compose up --build
+```
 
-- Ứng dụng sẽ chạy tại:
+### 3. Truy cập ứng dụng
 
+```text
 http://localhost:8080
+```
+
+## Database
+
+Dữ liệu được lưu bằng Docker Volume nên sẽ không bị mất khi container được tạo lại.
+
+### Export Database
+
+```bash
+docker exec moonblight-db \
+mariadb-dump -u root -p MOONBLIGHT > moonblight.sql
+```
+
+### Import Database
+
+```bash
+docker exec -i moonblight-db \
+mariadb -u root -p MOONBLIGHT < moonblight.sql
+```
