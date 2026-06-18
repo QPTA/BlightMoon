@@ -69,40 +69,4 @@
             </div>
         </section>
 
-        <!-- AFFLICTION SYSTEM -->
-        <section class="section section-surface">
-            <div class="container">
-                <div class="split-section reverse">
-                    <div class="split-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80"
-                            alt="Affliction" loading="lazy">
-                    </div>
-                    <div class="split-text">
-                        <div class="split-tag">The Breaking Point</div>
-                        <h2 class="split-title">Virtues &amp; Afflictions</h2>
-                        <div class="split-divider"></div>
-                        <p class="split-body">
-                            Không một anh hùng nào có thể đối mặt với vực thẳm mà không mang thương tổn. Khi áp lực dần
-                            chồng chất, họ sẽ chạm tới giới hạn tinh thần.
-                            Một số tìm thấy ý chí sâu thẳm bên trong — thức tỉnh những <strong
-                                style="color:var(--gold);">Đức Hạnh</strong>
-                            mạnh mẽ, biến tuyệt vọng thành sức mạnh.
-                        </p>
-                        <p class="split-body">
-                            Những kẻ khác thì gục ngã. Các <strong style="color:var(--crimson);">Chứng Loạn Tâm</strong>
-                            như Hoang Tưởng,
-                            Ích Kỷ hay Khổ Dâm bắt đầu chiếm lấy tâm trí —khiến họ chống lại đồng đội, phá hoại hành
-                            động của cả tổ đội,
-                            và đẩy chính bản thân đến diệt vong nhanh hơn.
-                        </p>
-                        <p class="split-body">
-                            Ngay cả một chiến binh dày dạn trận mạc với đầy đủ trang bị
-                            cũng có thể trở thành mối hiểm họa lớn nhất của ngươi
-                            nếu tinh thần của họ sụp đổ trước tiên.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <%@ include file="/WEB-INF/views/layout/footer.jsp" %>
