@@ -2,7 +2,7 @@
 
 # Run with Docker
 
-Tạo file .env tại thư mục gốc của project:
+- Tạo file .env tại thư mục gốc của project:
 
 SPRING_DATASOURCE_URL=
 
@@ -14,10 +14,10 @@ MAIL_USERNAME=
 
 MAIL_PASSWORD=
 
-Chạy ứng dụng:
+- Chạy ứng dụng:
 
 docker compose up --build
 
-Ứng dụng sẽ chạy tại:
+- Ứng dụng sẽ chạy tại:
 
 http://localhost:8080
